@@ -1092,4 +1092,119 @@ body.images-loaded .masonry-grid {
   }
 }
   }
+}/* --------------------------------------------------
+   RESTORE OLD HERO EXACTLY AS IN THE SCREENSHOT
+-------------------------------------------------- */
+
+/* Remove overlay, animations, gradients, zoom */
+.hero-section {
+  background: #cfe8ff !important; /* solid light blue */
+  padding: 100px 20px 60px !important;
+  text-align: center;
+  color: #003366;
+  animation: none !important;
+  background-attachment: scroll !important;
+  overflow: visible !important;
+  position: relative;
 }
+
+.hero-overlay {
+  display: none !important;
+}
+
+/* Center hero content */
+.hero-content {
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Big centered hero logo */
+.hero-logo {
+  height: 160px !important;
+  width: auto;
+  margin-bottom: 20px;
+  opacity: 1 !important;
+  animation: none !important;
+  filter: none !important;
+}
+
+/* Motto */
+.hero-motto {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #003366;
+  margin-bottom: 10px;
+}
+
+/* Title */
+.hero-title {
+  font-size: 2rem !important;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-shadow: none !important;
+}
+
+/* Subtitle */
+.hero-subtitle {
+  font-size: 1.05rem !important;
+  margin-bottom: 25px;
+  text-shadow: none !important;
+}
+
+/* Remove scroll arrow */
+.scroll-down {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   NAVBAR LOGO FIX
+-------------------------------------------------- */
+.nav-logo-left {
+  height: 32px !important;
+  width: auto;
+  margin-right: 8px;
+  object-fit: contain;
+}
+
+/* --------------------------------------------------
+   FLOATING DONATE BUTTON
+-------------------------------------------------- */
+.floating-donate-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #ffcc00;
+  color: #003366;
+  padding: 12px 20px;
+  border-radius: 50px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  z-index: 9999;
+  transition: 0.3s ease;
+}
+
+.floating-donate-btn:hover {
+  background: #ffe680;
+  transform: translateY(-3px);
+}
+
+/* --------------------------------------------------
+   CENTER ALL SECTIONS
+-------------------------------------------------- */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* --------------------------------------------------
+   REDUCE WATERMARK OPACITY ON MOBILE
+-------------------------------------------------- */
+@media (max-width: 480px) {
+  body::before {
+    opacity: 0.02 !important;
+  }
+}
+
