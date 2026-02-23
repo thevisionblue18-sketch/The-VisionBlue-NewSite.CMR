@@ -15,6 +15,7 @@
 </head>
 
 <body>
+
   <!-- HAMBURGER BUTTON FOR LEFT MENU -->
   <div class="menu-toggle" onclick="toggleMenu()">
     <i class="fa-solid fa-bars"></i>
@@ -27,9 +28,7 @@
   <nav class="side-menu" id="sideMenu">
     <ul class="nav-links d-flex align-items-center">
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle clean-menu-toggle">
-          Menu
-        </a>
+        <a href="#" class="dropdown-toggle clean-menu-toggle">Menu</a>
         <ul class="dropdown-menu">
           <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
           <li><a href="#mission"><i class="fas fa-bullseye"></i> Mission</a></li>
@@ -82,57 +81,10 @@
       </div>
 
       <h1 class="hero-title">Empowering Communities, Shaping Futures</h1>
+
       <p class="hero-subtitle">
         Supporting young women and vulnerable groups through education and vocational training
       </p>
-
-      <!-- MISSION -->
-      <section id="mission" class="mission-section fade-in-on-scroll">
-        <div class="container">
-          <h2>Our Mission</h2>
-          <p>
-            The VisionBlue NGO is committed to transforming lives by equipping young women and vulnerable communities
-            with the skills, knowledge, and opportunities they need for a sustainable future.
-            We believe that every person—regardless of background or circumstance—deserves the chance to rise, learn, and grow.
-            Through education, mentoring, and community-driven development initiatives, we break cycles of poverty and create
-            pathways to dignity, resilience, and hope.
-          </p>
-        </div>
-      </section>
-
-      <!-- PROJECTS -->
-      <section id="projects" class="projects-section fade-in-on-scroll">
-        <div class="container">
-          <h2>Our Projects</h2>
-          <div class="projects-grid">
-
-            <div class="project-card">
-              <div class="project-icon"><i class="fas fa-store"></i></div>
-              <h3>Business Start-Up Support</h3>
-              <p>Provision of seed funding and coaching for women entrepreneurs to build sustainable business models.</p>
-            </div>
-
-            <div class="project-card">
-              <div class="project-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-              <h3>Mentoring & Guidance</h3>
-              <p>Regular mentoring sessions, follow-up support, and tailored assistance for our beneficiaries.</p>
-            </div>
-
-            <div class="project-card">
-              <div class="project-icon"><i class="fas fa-graduation-cap"></i></div>
-              <h3>Vocational Training</h3>
-              <p>Development of practical skills for employment and economic self‑reliance.</p>
-            </div>
-
-            <div class="project-card">
-              <div class="project-icon"><i class="fas fa-users"></i></div>
-              <h3>Community Empowerment</h3>
-              <p>Strengthening resilient communities through workshops, awareness campaigns, and local partnerships.</p>
-            </div>
-
-          </div>
-        </div>
-      </section>
 
       <!-- HERO BUTTONS -->
       <div class="hero-buttons">
@@ -143,6 +95,54 @@
       <!-- SCROLL DOWN ARROW -->
       <div class="scroll-down">
         <span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section id="mission" class="mission-section fade-in-on-scroll">
+    <div class="container">
+      <h2>Our Mission</h2>
+      <p>
+        The VisionBlue NGO is committed to transforming lives by equipping young women and vulnerable communities
+        with the skills, knowledge, and opportunities they need for a sustainable future.
+        We believe that every person—regardless of background or circumstance—deserves the chance to rise, learn, and grow.
+        Through education, mentoring, and community-driven development initiatives, we break cycles of poverty and create
+        pathways to dignity, resilience, and hope.
+      </p>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="projects-section fade-in-on-scroll">
+    <div class="container">
+      <h2>Our Projects</h2>
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-icon"><i class="fas fa-store"></i></div>
+          <h3>Business Start-Up Support</h3>
+          <p>Provision of seed funding and coaching for women entrepreneurs to build sustainable business models.</p>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+          <h3>Mentoring & Guidance</h3>
+          <p>Regular mentoring sessions, follow-up support, and tailored assistance for our beneficiaries.</p>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon"><i class="fas fa-graduation-cap"></i></div>
+          <h3>Vocational Training</h3>
+          <p>Development of practical skills for employment and economic self‑reliance.</p>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon"><i class="fas fa-users"></i></div>
+          <h3>Community Empowerment</h3>
+          <p>Strengthening resilient communities through workshops, awareness campaigns, and local partnerships.</p>
+        </div>
+
       </div>
     </div>
   </section>
@@ -399,15 +399,7 @@
         <div class="donate-card">
           <div class="donate-icon animated-icon"><i class="fas fa-university"></i></div>
           <h3>Bank Transfer (IBAN)</h3>
-          <p>Use the details below for direct transfers.</p>
-          <div class="iban-box">
-            <strong>IBAN:</strong><br>
-            <span>[INSERT IBAN HERE]</span><br><br>
-            <strong>Account Holder:</strong><br>
-            <span>The VisionBlue NGO</span>
-          </div>
-        </div>
-
+          <p>Use the details below for direct transfers.</
         <!-- MTN MOMO -->
         <div class="donate-card">
           <div class="donate-image-icon animated-icon">
@@ -436,7 +428,7 @@
           </div>
         </div>
 
-      </div>
+      </div> <!-- END donate-grid -->
 
       <!-- MONTHLY GIVING -->
       <div class="monthly-giving fade-in-on-scroll">
@@ -549,19 +541,9 @@
     <small>&copy; <span id="year"></span> The VisionBlue NGO</small>
   </footer>
 
+  <!-- SCRIPTS -->
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
-
-    const readMoreBtn = document.getElementById("readMoreBtn");
-    const moreHistory = document.getElementById("moreHistory");
-
-    if (readMoreBtn && moreHistory) {
-      readMoreBtn.addEventListener("click", () => {
-        moreHistory.classList.toggle("show");
-        readMoreBtn.textContent =
-          moreHistory.classList.contains("show") ? "Show Less" : "Show More";
-      });
-    }
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -624,29 +606,6 @@
   </script>
 
   <script>
-    const sections = document.querySelectorAll('.about-block');
-    const navLinks = document.querySelectorAll('.about-sidebar a');
-
-    window.addEventListener('scroll', () => {
-      let current = "";
-
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 150;
-        if (pageYOffset >= sectionTop) {
-          current = section.getAttribute("id");
-        }
-      });
-
-      navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href").includes(current)) {
-          link.classList.add("active");
-        }
-      });
-    });
-  </script>
-
-  <script>
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
     const closeBtn = document.querySelector(".lightbox-close");
@@ -672,5 +631,4 @@
   </script>
 
 </body>
-
 </html>
