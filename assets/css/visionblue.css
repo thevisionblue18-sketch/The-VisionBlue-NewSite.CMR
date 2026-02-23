@@ -1,0 +1,975 @@
+/* --------------------------------------------------
+   GLOBAL — MOBILE FIRST
+-------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  padding-top: 60px;
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+}
+
+section {
+  padding: 40px 20px !important;
+}
+
+h2, h3 {
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 1rem;
+}
+
+/* Responsive Image Compression */
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  image-rendering: auto;
+}
+
+/* Lazy Loading Hint */
+img[loading="lazy"] {
+  filter: blur(2px);
+  transition: filter 0.4s ease;
+}
+
+img[loading="lazy"].loaded {
+  filter: blur(0);
+}
+
+/* Cards */
+.card {
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(1px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* --------------------------------------------------
+   WATERMARK SYSTEM
+-------------------------------------------------- */
+body::before {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 260px;
+  height: 260px;
+  background-image: url("assets/img/logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.035;
+  transform: translate(-50%, -50%);
+  z-index: -9999;
+  pointer-events: none;
+}
+
+@media (min-width: 480px) {
+  body::before {
+    width: 350px;
+    height: 350px;
+    opacity: 0.04;
+  }
+}
+
+@media (min-width: 768px) {
+  body::before {
+    width: 650px;
+    height: 650px;
+    opacity: 0.05;
+  }
+}
+
+/* Transparent sections so watermark shows */
+section,
+.container,
+.row,
+.col,
+.contact-section,
+.donation-section,
+.activities-section,
+footer,
+header {
+  background-color: transparent !important;
+  position: relative;
+  z-index: 1;
+}
+
+/* --------------------------------------------------
+   NAVBAR — MOBILE FIRST
+-------------------------------------------------- */
+.navbar {
+  padding: 10px 0 !important;
+  font-size: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.12);
+  background: transparent;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar-brand {
+  position: static;
+  transform: none;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.nav-logo {
+  height: 28px;
+  margin-right: 6px;
+  transition: transform 0.3s ease;
+}
+
+.ngo-title {
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.nav-center-brand:hover .ngo-title {
+  color: #ffeb3b;
+}
+
+.nav-center-brand:hover .nav-logo {
+  transform: scale(1.08);
+}
+
+.navbar .d-flex {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  gap: 6px;
+}
+
+.dropdown-toggle,
+.donate-btn {
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  border-radius: 6px;
+}
+
+.dropdown-toggle {
+  background-color: #ffffff;
+  color: #007bff;
+}
+
+.dropdown-toggle:hover {
+  background-color: #e6e6e6;
+  color: #0056b3;
+}
+
+.navbar * {
+  white-space: nowrap;
+}
+
+/* Scroll shadow */
+.elegant-navbar.scrolled {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  background-color: #0056b3 !important;
+}
+
+/* Fade-in animation */
+.elegant-navbar {
+  opacity: 0;
+  animation: fadeInNavbar 0.8s ease forwards;
+}
+
+@keyframes fadeInNavbar {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Dropdown menu */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle::after {
+  display: none !important;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  background: #0d47a1;
+  border-radius: 6px;
+  padding: 10px 0;
+  min-width: 180px;
+  display: none;
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  z-index: 999;
+}
+
+.dropdown-menu.show,
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  color: #ffffff;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+  background: #ffcc00;
+  color: #003366;
+}
+
+/* --------------------------------------------------
+   HERO SECTION — MOBILE FIRST
+-------------------------------------------------- */
+.hero-section {
+  position: relative;
+  padding: 150px 20px 100px;
+  background: linear-gradient(135deg, #b3e5fc, #ffe6f0);
+  background-attachment: scroll;
+  animation: bgZoom 18s ease-in-out infinite alternate;
+  color: #003366;
+  overflow: hidden;
+}
+
+@keyframes bgZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.06); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  animation: fadeInUp 1.4s ease forwards;
+}
+
+.hero-logo {
+  height: 110px;
+  width: auto;
+  opacity: 0;
+  margin: 0 auto 20px;
+  display: block;
+  animation: fadeInLogo 1.8s ease forwards;
+  filter: drop-shadow(0 0 10px rgba(255,255,255,0.6));
+}
+
+@keyframes fadeInLogo {
+  from { opacity: 0; transform: translateY(-15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+.hero-subtitle {
+  font-size: 1.05rem;
+  margin-bottom: 25px;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+.hero-buttons {
+  margin-bottom: 35px;
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 12px 26px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  margin: 0 8px;
+  transition: 0.3s ease;
+}
+
+.primary-btn {
+  background: #ffcc00;
+  color: #003366;
+}
+
+.primary-btn:hover {
+  background: #ffe680;
+  transform: translateY(-3px);
+}
+
+.secondary-btn {
+  background: transparent;
+  border: 2px solid #ffcc00;
+  color: #ffcc00;
+}
+
+.secondary-btn:hover {
+  background: #ffcc00;
+  color: #003366;
+  transform: translateY(-3px);
+}
+
+/* --------------------------------------------------
+   ABOUT SECTIONS
+-------------------------------------------------- */
+.about-section {
+  padding: 60px 20px;
+  background: #ffffff;
+}
+
+.about-section:nth-child(even) {
+  background: #f7f9fc;
+}
+
+.about-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  color: #003366;
+  text-align: center;
+}
+
+.about-section h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  margin: 10px auto 0;
+  background: linear-gradient(to right, #ffcc00, #003366);
+  animation: dividerGlow 2s ease-in-out infinite alternate;
+}
+
+.about-section p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #333;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@keyframes dividerGlow {
+  from { opacity: 0.6; transform: scaleX(0.9); }
+  to { opacity: 1; transform: scaleX(1); }
+}
+
+/* --------------------------------------------------
+   MISSION + PROJECTS
+-------------------------------------------------- */
+.mission-section,
+.projects-section {
+  padding: 60px 20px;
+  background: #f7f9fc;
+}
+
+.mission-section h2,
+.projects-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  color: #003366;
+  text-align: center;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  transition: 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.project-icon {
+  font-size: 2rem;
+  color: #ffcc00;
+  margin-bottom: 10px;
+}
+
+/* --------------------------------------------------
+   TIMELINE — MOBILE FIRST
+-------------------------------------------------- */
+.timeline-section {
+  padding: 60px 20px;
+  background: #ffffff;
+}
+
+.timeline-section h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #003366;
+  margin-bottom: 30px;
+}
+
+.timeline {
+  position: relative;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, #ffcc00, #003366);
+}
+
+.timeline-item {
+  position: relative;
+  margin: 30px 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 10px;
+  width: 14px;
+  height: 14px;
+  background: #ffcc00;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(255,204,0,0.3);
+}
+
+.timeline-content {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 15px 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  margin-left: 30px;
+}
+
+/* --------------------------------------------------
+   DONATE SECTION — MOBILE FIRST
+-------------------------------------------------- */
+.donate-section {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #5a189a, #7b2cbf, #9d4edd);
+  color: white;
+}
+
+.donate-section h2 {
+  text-align: center;
+  font-size: 1.9rem;
+  margin-bottom: 20px;
+}
+
+.donate-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 35px;
+  font-size: 1.1rem;
+}
+
+/* Why Donate */
+.why-donate {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+
+.why-donate h3 {
+  font-size: 1.5rem;
+  color: #003366;
+  margin-bottom: 10px;
+}
+
+.why-donate p {
+  font-size: 1.05rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Donate Grid */
+.donate-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  justify-items: center;
+}
+
+/* Donate Card */
+.donate-card {
+  background: #ffffff;
+  color: #333;
+  border-radius: 12px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: 0.3s ease;
+  max-width: 350px;
+}
+
+.donate-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* Donate Icons */
+.donate-icon {
+  font-size: 2.4rem;
+  color: #7b2cbf;
+  margin-bottom: 15px;
+}
+
+.donate-image-icon img {
+  width: 90px;
+  height: auto;
+  margin: 0 auto 15px;
+  display: block;
+}
+
+/* Icon Hover Animation */
+.animated-icon {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.animated-icon:hover {
+  transform: scale(1.15);
+  filter: brightness(1.2);
+}
+
+/* QR Codes */
+.qr-code {
+  width: 120px;
+  height: auto;
+  margin: 15px auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Donate Button */
+.donate-btn {
+  display: inline-block;
+  background: #7b2cbf;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.donate-btn:hover {
+  background: #ffcc00;
+  color: #333;
+}
+
+/* --------------------------------------------------
+   SPONSOR TIERS
+-------------------------------------------------- */
+.sponsor-tiers {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.tier-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.tier-card {
+  background: #ffffff;
+  color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  width: 150px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: 0.3s ease;
+}
+
+.tier-card:hover {
+  transform: translateY(-5px);
+}
+
+/* --------------------------------------------------
+   DONATION PROGRESS BAR
+-------------------------------------------------- */
+.donation-progress {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.donation-progress h3 {
+  font-size: 1.5rem;
+  color: #003366;
+  margin-bottom: 15px;
+}
+
+.progress-bar {
+  width: 80%;
+  height: 20px;
+  background: #e0e0e0;
+  border-radius: 10px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ffcc00, #7b2cbf);
+  border-radius: 10px;
+}
+
+.progress-text {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* --------------------------------------------------
+   DONOR CAROUSEL
+-------------------------------------------------- */
+.d
+/* --------------------------------------------------
+   DONOR CAROUSEL
+-------------------------------------------------- */
+.donor-carousel {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 40px;
+  animation: scroll 20s linear infinite;
+  white-space: nowrap;
+  font-size: 1.1rem;
+}
+
+@keyframes scroll {
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); }
+}
+
+/* --------------------------------------------------
+   GALLERY SECTION
+-------------------------------------------------- */
+.gallery-section {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #f8c8dc, #f4a6c1, #e98bb0);
+  position: relative;
+}
+
+.gallery-title {
+  text-align: center;
+  font-size: 1.9rem;
+  color: #ffffff;
+  margin-bottom: 35px;
+}
+
+/* Wave Dividers */
+.wave-divider-top svg,
+.wave-divider-bottom svg {
+  width: 100%;
+  display: block;
+}
+
+/* --------------------------------------------------
+   MASONRY GRID — MOBILE FIRST
+-------------------------------------------------- */
+.masonry-grid {
+  column-count: 1;
+  column-gap: 20px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+body.images-loaded .masonry-grid {
+  opacity: 1;
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 20px;
+}
+
+.masonry-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Desktop masonry */
+@media (min-width: 768px) {
+  .masonry-grid {
+    column-count: 3;
+  }
+}
+
+/* --------------------------------------------------
+   GALLERY IMAGE STYLING
+-------------------------------------------------- */
+.gallery-img {
+  width: 100%;
+  border-radius: 15px;
+  display: block;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.gallery-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+/* Hover Label */
+.overlay-container {
+  position: relative;
+}
+
+.overlay-label {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.55);
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.overlay-container:hover .overlay-label {
+  opacity: 1;
+}
+
+/* --------------------------------------------------
+   LIGHTBOX
+-------------------------------------------------- */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  padding-top: 80px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+}
+
+.lightbox-content {
+  margin: auto;
+  display: block;
+  max-width: 80%;
+  border-radius: 10px;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+/* --------------------------------------------------
+   CONTACT SECTION
+-------------------------------------------------- */
+.contact-section {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #e3f2fd, #fce4ec);
+}
+
+.contact-section h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #003366;
+  margin-bottom: 20px;
+}
+
+.contact-intro {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #333;
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  justify-items: center;
+}
+
+.contact-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+  max-width: 350px;
+}
+
+.contact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.contact-icon {
+  font-size: 2.4rem;
+  color: #ffcc00;
+  margin-bottom: 15px;
+}
+
+.contact-card h3 {
+  font-size: 1.25rem;
+  color: #003366;
+  margin-bottom: 10px;
+}
+
+.contact-card p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.contact-link {
+  font-weight: 600;
+  color: #003366;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.contact-link:hover {
+  color: #ffcc00;
+}
+
+/* --------------------------------------------------
+   FADE-IN ON SCROLL
+-------------------------------------------------- */
+.fade-in-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .fade-in-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* --------------------------------------------------
+   DESKTOP ENHANCEMENTS
+-------------------------------------------------- */
+@media (min-width: 768px) {
+
+  body {
+    padding-top: 80px;
+  }
+
+  section {
+    padding: 80px 0 !important;
+  }
+
+  .hero-section {
+    padding: 180px 20px 140px;
+    background-attachment: fixed;
+  }
+
+  .hero-logo {
+    height: 150px;
+  }
+
+  .hero-title {
+    font-size: 2.6rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .nav-logo {
+    height: 55px;
+  }
+
+  .ngo-title {
+    font-size: 1.1rem;
+  }
+
+  .navbar .d-flex {
+    position: static;
+    margin-left: auto;
+    gap: 10px;
+  }
+
+  .dropdown-toggle,
+  .donate-btn {
+    padding: 6px 14px;
+    font-size: 1rem;
+  }
+
+  /* Desktop Timeline Layout */
+  .timeline::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .timeline-dot {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .timeline-content {
+    width: 46%;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-content {
+    margin-left: 54%;
+  }
+
+  .timeline-item:nth-child(even) .timeline-content {
+    margin-right: 54%;
+    margin-left: 0;
+  }
+
+  /* Desktop Masonry */
+  .masonry-grid {
+    column-count: 3;
+  }
+}
