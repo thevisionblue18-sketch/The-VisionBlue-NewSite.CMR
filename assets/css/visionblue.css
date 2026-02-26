@@ -1207,4 +1207,9 @@ body.images-loaded .masonry-grid {
     opacity: 0.02 !important;
   }
 }
+@media (max-width: 992px) {
+  .masonry-grid {
+    opacity: 1 !important;
+  }
+}
 
