@@ -1212,4 +1212,11 @@ body.images-loaded .masonry-grid {
     opacity: 1 !important;
   }
 }
+.masonry-grid {
+  opacity: 0;
+}
+body.images-loaded .masonry-grid {
+  opacity: 1;
+}
+
 
