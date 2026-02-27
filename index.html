@@ -545,43 +545,43 @@
   <footer class="text-center text-white py-3 bg-primary">
     <small>&copy; <span id="year"></span> The VisionBlue NGO</small>
   </footer>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+  const readMoreBtn = document.getElementById("readMoreBtn");
+  const moreHistory = document.getElementById("moreHistory");
 
-    const readMoreBtn = document.getElementById("readMoreBtn");
-    const moreHistory = document.getElementById("moreHistory");
-
-    if (readMoreBtn && moreHistory) {
-      readMoreBtn.addEventListener("click", () => {
-        moreHistory.classList.toggle("show");
-        readMoreBtn.textContent =
-          moreHistory.classList.contains("show") ? "Show Less" : "Show More";
-      });
-    }
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById("sideMenu");
-      menu.classList.toggle("open");
-    }
-  </script>
-
-  <script>
-    window.addEventListener("scroll", function() {
-      const navbar = document.querySelector(".elegant-navbar");
-      if (window.scrollY > 10) {
-        navbar.classList.add("scrolled");
-      } else {
-        navbar.classList.remove("scrolled");
-      }
+  if (readMoreBtn && moreHistory) {
+    readMoreBtn.addEventListener("click", () => {
+      moreHistory.classList.toggle("show");
+      readMoreBtn.textContent =
+        moreHistory.classList.contains("show") ? "Show Less" : "Show More";
     });
-  </script>
+  }
+</script>
 
-  <script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById("sideMenu");
+    menu.classList.toggle("open");
+  }
+</script>
+
+<script>
+  window.addEventListener("scroll", function() {
+    const navbar = document.querySelector(".elegant-navbar");
+    if (window.scrollY > 10) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
+  });
+</script>
+
+<!-- SAFE SMOOTH SCROLL (does NOT block dropdown links) -->
+<script>
 document.querySelectorAll('a[href^="#"]:not(.dropdown-item)').forEach(anchor => {
   anchor.addEventListener("click", function(e) {
     e.preventDefault();
@@ -591,86 +591,54 @@ document.querySelectorAll('a[href^="#"]:not(.dropdown-item)').forEach(anchor => 
     }
   });
 });
-  </script>
-  </script>
+</script>
 
-  <script>
-    const faders = document.querySelectorAll('.fade-in-on-scroll');
+<script>
+  const sections = document.querySelectorAll('.about-block');
+  const navLinks = document.querySelectorAll('.about-sidebar a');
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.2 });
+  window.addEventListener('scroll', () => {
+    let current = "";
 
-    faders.forEach(el => observer.observe(el));
-  </script>
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 150;
+      if (pageYOffset >= sectionTop) {
+        current = section.getAttribute("id");
+      }
+    });
 
-  <script>
-    const sections = document.querySelectorAll('.about-block');
-    const navLinks = document.querySelectorAll('.about-sidebar a');
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href").includes(current)) {
+        link.classList.add("active");
+      }
+    });
+  });
+</script>
 
-    window.addEventListener('scroll', () => {
-      let current = "";
+<script>
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const closeBtn = document.querySelector(".lightbox-close");
 
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 150;
-        if (pageYOffset >= sectionTop) {
-          current = section.getAttribute("id");
-        }
-      });
-
-      navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href").includes(current)) {
-          link.classList.add("active");
-        }
+  if (lightbox && lightboxImg && closeBtn) {
+    document.querySelectorAll(".gallery-img").forEach(img => {
+      img.addEventListener("click", () => {
+        lightbox.style.display = "block";
+        lightboxImg.src = img.src;
       });
     });
-  </script>
 
-  <script>
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const closeBtn = document.querySelector(".lightbox-close");
+    closeBtn.addEventListener("click", () => {
+      lightbox.style.display = "none";
+    });
 
-    if (lightbox && lightboxImg && closeBtn) {
-      document.querySelectorAll(".gallery-img").forEach(img => {
-        img.addEventListener("click", () => {
-          lightbox.style.display = "block";
-          lightboxImg.src = img.src;
-        });
-      });
-
-      closeBtn.addEventListener("click", () => {
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
         lightbox.style.display = "none";
-      });
-
-      lightbox.addEventListener("click", (e) => {
-        if (e.target === lightbox) {
-          lightbox.style.display = "none";
-        }
-      });
-    }
-  </script>
-<script>
-  window.addEventListener("load", function() {
-    document.body.classList.add("images-loaded");
-  });
-  </script>
-</body>
+      }
+    });
+  }
+</script>
+  </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
