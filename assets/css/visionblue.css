@@ -209,7 +209,6 @@ header {
   display: none;
   border: 1px solid rgba(255,255,255,0.2);
   box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-  z-index: 999;
 }
 
 .dropdown-menu.show,
@@ -1149,6 +1148,16 @@ header {
 body.images-loaded .masonry-grid {
   opacity: 1;
 }
+.language-switcher {
+  position: relative;
+  z-index: 9999;
+}
+.dropdown-menu.show {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
 
 
 
