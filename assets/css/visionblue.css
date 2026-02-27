@@ -1157,6 +1157,10 @@ body.images-loaded .masonry-grid {
   opacity: 1 !important;
   visibility: visible !important;
 }
+.dropdown-menu {
+  z-index: 9999 !important;
+}
+
 
 
 
