@@ -545,54 +545,39 @@
   <footer class="text-center text-white py-3 bg-primary">
     <small>&copy; <span id="year"></span> The VisionBlue NGO</small>
   </footer>
+<!-- YEAR IN FOOTER -->
 <script>
-  // Footer year
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-  // Read more toggle
-  const readMoreBtn = document.getElementById("readMoreBtn");
-  const moreHistory = document.getElementById("moreHistory");
-
-  if (readMoreBtn && moreHistory) {
-    readMoreBtn.addEventListener("click", () => {
-      moreHistory.classList.toggle("show");
-      readMoreBtn.textContent =
-        moreHistory.classList.contains("show") ? "Show Less" : "Show More";
-    });
-  }
-</script>
-<script>
-  // Footer year
-  const yearEl = document.getElementById("year");
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-  // Read more toggle
-  const readMoreBtn = document.getElementById("readMoreBtn");
-  const moreHistory = document.getElementById("moreHistory");
-
-  if (readMoreBtn && moreHistory) {
-    readMoreBtn.addEventListener("click", () => {
-      moreHistory.classList.toggle("show");
-      readMoreBtn.textContent =
-        moreHistory.classList.contains("show") ? "Show Less" : "Show More";
-    });
-  }
 </script>
 
-<!-- Bootstrap JS -->
+<!-- BOOTSTRAP JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+<!-- READ MORE TOGGLE -->
 <script>
-  // Mobile side menu
+  const readMoreBtn = document.getElementById("readMoreBtn");
+  const moreHistory = document.getElementById("moreHistory");
+
+  if (readMoreBtn && moreHistory) {
+    readMoreBtn.addEventListener("click", () => {
+      moreHistory.classList.toggle("show");
+      readMoreBtn.textContent =
+        moreHistory.classList.contains("show") ? "Show Less" : "Show More";
+    });
+  }
+</script>
+
+<!-- MOBILE SIDE MENU -->
+<script>
   function toggleMenu() {
     const menu = document.getElementById("sideMenu");
     if (menu) menu.classList.toggle("open");
   }
 </script>
 
+<!-- NAVBAR SCROLL EFFECT -->
 <script>
-  // Navbar scroll effect
   window.addEventListener("scroll", function() {
     const navbar = document.querySelector(".elegant-navbar");
     if (!navbar) return;
@@ -605,7 +590,7 @@
   });
 </script>
 
-<!-- Smooth scroll (safe for dropdown) -->
+<!-- SAFE SMOOTH SCROLL (DOES NOT BLOCK DROPDOWN LINKS) -->
 <script>
   document.querySelectorAll('a[href^="#"]:not(.dropdown-item)').forEach(anchor => {
     anchor.addEventListener("click", function(e) {
@@ -618,8 +603,8 @@
   });
 </script>
 
+<!-- ABOUT SIDEBAR HIGHLIGHT -->
 <script>
-  // About sidebar highlight
   const sections = document.querySelectorAll('.about-block');
   const navLinks = document.querySelectorAll('.about-sidebar a');
 
@@ -642,8 +627,8 @@
   });
 </script>
 
+<!-- LIGHTBOX -->
 <script>
-  // Lightbox
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-img");
   const closeBtn = document.querySelector(".lightbox-close");
