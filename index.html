@@ -1,204 +1,159 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The VisionBlue</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      color: #004080;
+    }
 
-<title>The VisionBlue NGO | Empowering Women & Communities</title>
+    a {
+      text-decoration: none;
+      color: #004080;
+    }
 
-<meta name="description" content="The VisionBlue NGO empowers women and vulnerable communities through entrepreneurship, vocational training and sustainable development programs.">
-<meta name="keywords" content="NGO Cameroon, Women Empowerment, Education Support, Community Development, The VisionBlue">
-<meta name="author" content="The VisionBlue NGO">
+    header {
+      background-color: #004080;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
 
-<!-- OpenGraph -->
-<meta property="og:title" content="The VisionBlue NGO">
-<meta property="og:description" content="Empowering women. Strengthening communities. Building sustainable futures.">
-<meta property="og:image" content="assets/img/images/logo.webp">
-<meta property="og:type" content="website">
+    nav a {
+      margin: 0 15px;
+      font-weight: bold;
+    }
 
-<link rel="icon" href="assets/img/images/logo.webp">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/visionblue.css">
+    /* Hero Section */
+    .hero {
+      position: relative;
+      text-align: center;
+      color: white;
+      padding: 100px 20px;
+      background-color: #004080;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      background: url('images/logo.png') no-repeat center;
+      background-size: 300px auto; /* adjust as needed */
+      opacity: 0.1; /* semi-transparent watermark */
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .hero h1, .hero p {
+      position: relative;
+      z-index: 1; /* text above watermark */
+      margin: 0;
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+    }
+
+    /* Content Sections */
+    .section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .section h2 {
+      color: #004080;
+      margin-bottom: 20px;
+    }
+
+    .section p {
+      font-size: 1em;
+      line-height: 1.6em;
+    }
+
+    footer {
+      background-color: #00264d;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    footer a {
+      color: #ffdd00;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2em;
+      }
+      .hero p {
+        font-size: 1em;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg fixed-top navbar-dark gradient-nav" aria-label="Main Navigation">
-<div class="container">
-<a class="navbar-brand d-flex align-items-center fw-bold" href="#">
-<img src="assets/img/images/logo.webp" alt="The VisionBlue Logo" class="brand-logo me-2">
-<span>The VisionBlue</span>
-</a>
+  <!-- Header / Navigation -->
+  <header>
+    <h1>The VisionBlue</h1>
+    <nav>
+      <a href="#about">About Us</a>
+      <a href="#mission">Mission</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false">
-<span class="navbar-toggler-icon"></span>
-</button>
+  <!-- Hero Section with Watermark Logo -->
+  <section class="hero">
+    <h1>Empowering Cameroonian Women</h1>
+    <p>Serving the community with dedication and vision</p>
+  </section>
 
-<div class="collapse navbar-collapse" id="navMenu">
-<ul class="navbar-nav ms-auto">
-<li class="nav-item"><a class="nav-link" href="#mission">Mission</a></li>
-<li class="nav-item"><a class="nav-link" href="#impact">Impact</a></li>
-<li class="nav-item"><a class="nav-link" href="#timeline">Timeline</a></li>
-<li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
-<li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
-<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-<li class="nav-item ms-lg-3"><a href="#donate" class="btn btn-light">Donate</a></li>
-<li class="nav-item ms-lg-3">
-<button id="darkToggle" class="btn btn-outline-light btn-sm" aria-label="Toggle dark mode">
-<i class="fas fa-moon"></i>
-</button>
-</li>
-</ul>
-</div>
-</div>
-</nav>
+  <!-- About Section -->
+  <section id="about" class="section">
+    <h2>About The VisionBlue</h2>
+    <p>
+      The VisionBlue is a non-profit organisation created and managed by a group of students and intellectuals to serve the Cameroonian female community over the long term. Our mission is to empower women through education, mentorship, and community programs that promote growth and self-reliance.
+    </p>
+  </section>
 
-<!-- HERO -->
-<section class="hero">
-<div class="container text-center">
-<h1>Empowering Women. Transforming Communities.</h1>
-<p class="lead">We provide sustainable solutions through training, entrepreneurship and community development initiatives.</p>
-<a href="#donate" class="btn btn-light btn-lg mt-3">Support Our Work</a>
-</div>
-</section>
+  <!-- Mission Section -->
+  <section id="mission" class="section">
+    <h2>Our Mission</h2>
+    <p>
+      To provide sustainable support and opportunities for Cameroonian women by promoting education, leadership, and social welfare. We believe in long-term engagement that builds a resilient, empowered community.
+    </p>
+  </section>
 
-<!-- IMPACT COUNTERS -->
-<section id="impact" class="text-center py-5">
-<div class="container">
-<h2 class="section-title">Our Impact</h2>
-<div class="row g-4">
-<div class="col-md-4">
-<h3 class="counter" data-target="150">0</h3>
-<p>Women Supported</p>
-</div>
-<div class="col-md-4">
-<h3 class="counter" data-target="25">0</h3>
-<p>Businesses Launched</p>
-</div>
-<div class="col-md-4">
-<h3 class="counter" data-target="10">0</h3>
-<p>Communities Reached</p>
-</div>
-</div>
-</div>
-</section>
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <h2>Contact Us</h2>
+    <p>Email: info@visionblue.org | Phone: +237 6XX XXX XXX</p>
+    <p>Address: Yaoundé, Cameroon</p>
+  </section>
 
-<!-- TIMELINE -->
-<section id="timeline" class="py-5 bg-light">
-<div class="container">
-<h2 class="section-title text-center">Our Journey</h2>
-<ul class="timeline">
-<li><span>2018</span> Organisation Founded</li>
-<li><span>2019</span> First Women Entrepreneurship Training</li>
-<li><span>2021</span> Expansion to Vocational Programs</li>
-<li><span>2023</span> International Partnerships</li>
-<li><span>2025</span> Expansion into Europe Support Network</li>
-</ul>
-</div>
-</section>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 The VisionBlue | All Rights Reserved</p>
+    <p><a href="https://thevisionblue18-sketch.github.io/The-VisionBlue.CMR/">Visit Our Website</a></p>
+  </footer>
 
-<!-- GALLERY GROUPED -->
-<section id="gallery" class="py-5">
-<div class="container">
-<h2 class="section-title text-center">Gallery</h2>
-
-<h4 class="mt-4">Hilda's Business</h4>
-<div class="row g-3">
-<div class="col-md-4"><img src="assets/img/images/HildaBusiness1.webp" class="gallery-img" alt="Hilda Business 1" loading="lazy"></div>
-</div>
-
-<h4 class="mt-4">Martha's Business</h4>
-<div class="row g-3">
-<div class="col-md-4"><img src="assets/img/images/MarthaBusiness1.webp" class="gallery-img" alt="Martha Business 1" loading="lazy"></div>
-</div>
-
-<h4 class="mt-4">Virginie's Business</h4>
-<div class="row g-3">
-<div class="col-md-4"><img src="assets/img/images/VirginieBusiness1.webp" class="gallery-img" alt="Virginie Business 1" loading="lazy"></div>
-</div>
-
-<h4 class="mt-4">Community Activities</h4>
-<div class="row g-3">
-<div class="col-md-4"><img src="assets/img/images/gallery2.webp" class="gallery-img" alt="Community Activity 1" loading="lazy"></div>
-<div class="col-md-4"><img src="assets/img/images/gallery3.webp" class="gallery-img" alt="Community Activity 2" loading="lazy"></div>
-<div class="col-md-4"><img src="assets/img/images/beneficiaries1.webp" class="gallery-img" alt="Beneficiaries" loading="lazy"></div>
-</div>
-
-</div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section id="testimonials" class="py-5 bg-light">
-<div class="container">
-<h2 class="section-title text-center">Testimonials</h2>
-<div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
-<div class="carousel-inner text-center">
-<div class="carousel-item active">
-<p class="lead">“The VisionBlue changed my life and helped me start my own business.”</p>
-</div>
-<div class="carousel-item">
-<p class="lead">“Thanks to their support, our community has grown stronger.”</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- DONATE -->
-<section id="donate" class="py-5 text-center gradient-section text-white">
-<div class="container">
-<h2 class="section-title">Support Our Mission</h2>
-<p>Donate via:</p>
-<p><strong>PayPal</strong></p>
-<p><strong>IBAN:</strong> [Insert IBAN]</p>
-<p><strong>Postepay Evolution:</strong> [Insert Number]</p>
-</div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="py-5 text-center">
-<div class="container">
-<h2 class="section-title">Contact</h2>
-<p>🇨🇲 Cameroon: +237 676 376 238</p>
-<p>🇩🇪 Germany: +49 15561 550887</p>
-<p>🇮🇹 Italy: +39 392 845 6152</p>
-<p>Email: thevisionblue18@gmail.com</p>
-</div>
-</section>
-
-<footer class="text-center py-4">
-<small>&copy; <span id="year"></span> The VisionBlue NGO</small>
-</footer>
-
-<script>
-document.getElementById("year").textContent=new Date().getFullYear();
-
-/* Dark Mode */
-document.getElementById("darkToggle").addEventListener("click",()=>{
-document.documentElement.dataset.theme=
-document.documentElement.dataset.theme==="dark"?"light":"dark";
-});
-
-/* Animated Counters */
-const counters=document.querySelectorAll(".counter");
-counters.forEach(counter=>{
-const update=()=>{
-const target=+counter.getAttribute("data-target");
-const current=+counter.innerText;
-const increment=target/100;
-if(current<target){
-counter.innerText=Math.ceil(current+increment);
-setTimeout(update,20);
-}else{
-counter.innerText=target;
-}
-};
-update();
-});
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
