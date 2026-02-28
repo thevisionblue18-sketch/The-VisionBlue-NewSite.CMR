@@ -1,0 +1,187 @@
+/* ===============================
+   THE VISIONBLUE – PROFESSIONAL CSS
+   =============================== */
+
+/* GLOBAL */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+    line-height: 1.6;
+}
+
+section {
+    padding: 80px 0;
+}
+
+.section-title {
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* NAVBAR */
+.navbar {
+    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.nav-link {
+    font-weight: 500;
+    margin-left: 15px;
+}
+
+.nav-link:hover {
+    color: #ffffff !important;
+    opacity: 0.8;
+}
+
+/* HERO SECTION */
+.hero {
+    background: linear-gradient(rgba(0, 60, 150, 0.75), rgba(0, 60, 150, 0.75)),
+                url('../img/images/gallery2.webp') center/cover no-repeat;
+    color: #ffffff;
+    padding: 160px 20px 120px 20px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.hero p {
+    max-width: 750px;
+    margin: 20px auto;
+    font-size: 1.2rem;
+}
+
+/* BUTTONS */
+.btn-primary {
+    background-color: #003c96;
+    border-color: #003c96;
+}
+
+.btn-primary:hover {
+    background-color: #002b6e;
+    border-color: #002b6e;
+}
+
+.btn-outline-light:hover {
+    background-color: white;
+    color: #003c96;
+}
+
+/* CARDS */
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.card i {
+    margin-bottom: 15px;
+}
+
+/* GALLERY */
+.gallery img {
+    width: 100%;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.03);
+}
+
+/* DONATE SECTION */
+#donate {
+    background: #f8f9fa;
+}
+
+#donate .btn {
+    padding: 12px 35px;
+    font-weight: 600;
+}
+
+/* CONTACT */
+#contact p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+/* FOOTER */
+footer {
+    background: #003c96;
+    color: white;
+    padding: 20px 0;
+    font-size: 0.9rem;
+}
+
+/* ===============================
+   RESPONSIVE DESIGN
+   =============================== */
+
+@media (max-width: 992px) {
+
+    .navbar-nav {
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    .nav-link {
+        margin: 10px 0;
+    }
+
+    .hero {
+        padding: 140px 20px 100px 20px;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    section {
+        padding: 60px 0;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .hero {
+        padding: 120px 15px 80px 15px;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .btn-lg {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
