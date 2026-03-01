@@ -5,19 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The VisionBlue NGO</title>
 
-  <!-- SEO & structured data -->
+  <!-- SEO Meta Tags -->
   <meta name="description" content="The VisionBlue is a non-profit supporting young women and vulnerable communities through education, entrepreneurship, and sustainable development initiatives.">
   <meta name="keywords" content="VisionBlue, NGO, non-profit, Cameroon, women empowerment, sustainable development">
   <meta name="author" content="The VisionBlue NGO">
 
-  <!-- Open Graph / Social -->
+  <!-- Open Graph -->
   <meta property="og:title" content="The VisionBlue NGO">
   <meta property="og:description" content="Empowering communities and young women through education and sustainable development.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://thevisionblue18-sketch.github.io/The-VisionBlue-NewSite.CMR/">
   <meta property="og:image" content="assets/logo.png">
 
-  <!-- Google Structured Data for NGO -->
+  <!-- Structured Data (JSON-LD) for NGO recognition -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -35,31 +35,35 @@
   }
   </script>
 
-  <!-- Google Fonts for branding typography -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
-  <!-- CSS Reset & Styles -->
+  <!-- Styles -->
   <style>
+    /* Global Styles */
     body { margin:0; font-family: 'Roboto', sans-serif; background:#f9f9f9; color:#333; }
-    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+    h1,h2,h3,h4 { font-family: 'Playfair Display', serif; }
     a { text-decoration:none; color:#0056b3; }
+    a:hover { text-decoration: underline; }
     header { background:#004080; color:#fff; padding:20px; text-align:center; }
     nav a { margin:0 15px; color:#fff; font-weight:700; }
     section { padding:60px 20px; max-width:1200px; margin:auto; }
-    .cta { background:#0066cc; color:#fff; padding:15px 30px; border-radius:5px; display:inline-block; }
+    .cta { background:#0066cc; color:#fff; padding:15px 30px; border-radius:5px; display:inline-block; cursor:pointer; }
+    .cta:hover { background:#004c99; }
     .counter { font-size:2.5em; font-weight:700; color:#004080; }
     .testimonial { background:#e6f0ff; padding:40px; border-radius:10px; margin:20px 0; }
     .testimonial-slider { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; }
     .testimonial-slider > div { scroll-snap-align:center; min-width:300px; margin-right:20px; }
+    footer { background:#004080; color:#fff; text-align:center; padding:20px; }
+    img { max-width:100%; height:auto; }
   </style>
-
 </head>
 <body>
 
 <header>
   <img src="assets/logo.png" alt="The VisionBlue Logo" width="120" aria-label="The VisionBlue Logo">
   <h1>The VisionBlue NGO</h1>
-  <nav aria-label="Main Navigation">
+  <nav role="navigation" aria-label="Main Navigation">
     <a href="#mission">Mission</a>
     <a href="#projects">Projects</a>
     <a href="#impact">Impact</a>
@@ -70,85 +74,92 @@
   </nav>
 </header>
 
-<!-- Mission Section -->
-<section id="mission">
-  <h2>Our Mission</h2>
-  <p>Empowering young women and vulnerable communities through education, entrepreneurship, and sustainable development initiatives.</p>
-</section>
+<main>
+  <!-- Mission Section -->
+  <section id="mission">
+    <h2>Our Mission</h2>
+    <p>Empowering young women and vulnerable communities through education, entrepreneurship, and sustainable development initiatives.</p>
+  </section>
 
-<!-- Projects Section -->
-<section id="projects">
-  <h2>Our Projects</h2>
-  <ul>
-    <li>Education & Scholarships</li>
-    <li>Entrepreneurship & Skills Training</li>
-    <li>Community Health & Sustainability</li>
-  </ul>
-</section>
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>Our Projects</h2>
+    <ul>
+      <li>Education & Scholarships</li>
+      <li>Entrepreneurship & Skills Training</li>
+      <li>Community Health & Sustainability</li>
+    </ul>
+  </section>
 
-<!-- Animated Counters Section -->
-<section id="impact">
-  <h2>Our Impact</h2>
-  <div class="counters">
-    <div>
-      <span class="counter" data-target="1200">0</span>
-      <p>Women Empowered</p>
+  <!-- Impact Section with Animated Counters -->
+  <section id="impact">
+    <h2>Our Impact</h2>
+    <div class="counters">
+      <div>
+        <span class="counter" data-target="1200">0</span>
+        <p>Women Empowered</p>
+      </div>
+      <div>
+        <span class="counter" data-target="35">0</span>
+        <p>Projects Completed</p>
+      </div>
+      <div>
+        <span class="counter" data-target="5000">0</span>
+        <p>Community Members Reached</p>
+      </div>
     </div>
-    <div>
-      <span class="counter" data-target="35">0</span>
-      <p>Projects Completed</p>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <p>Images of our activities grouped by project and participants.</p>
+    <!-- Add your images with descriptive alt text -->
+    <div class="gallery-grid">
+      <img src="assets/project1.jpg" alt="Women attending entrepreneurship workshop">
+      <img src="assets/project2.jpg" alt="Scholarship award ceremony">
+      <img src="assets/project3.jpg" alt="Community health awareness event">
     </div>
-    <div>
-      <span class="counter" data-target="5000">0</span>
-      <p>Community Members Reached</p>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials">
+    <h2>Testimonials</h2>
+    <div class="testimonial-slider" aria-label="Testimonials Slider">
+      <div class="testimonial">
+        <p>"VisionBlue changed my life! I could finish school thanks to their support." – Amina</p>
+      </div>
+      <div class="testimonial">
+        <p>"The entrepreneurship program helped me start my small business." – Claire</p>
+      </div>
+      <div class="testimonial">
+        <p>"Community projects are effective and sustainable." – David</p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Gallery Section -->
-<section id="gallery">
-  <h2>Gallery</h2>
-  <p>Images of our activities grouped by project and participants.</p>
-  <!-- You can add image grid here -->
-</section>
+  <!-- Donate Section -->
+  <section id="donate">
+    <h2>Support Us</h2>
+    <p>Your contribution makes a difference. Choose your preferred method:</p>
 
-<!-- Testimonials Slider -->
-<section id="testimonials">
-  <h2>Testimonials</h2>
-  <div class="testimonial-slider" aria-label="Testimonials Slider">
-    <div class="testimonial">
-      <p>"VisionBlue changed my life! I could finish school thanks to their support." – Amina</p>
-    </div>
-    <div class="testimonial">
-      <p>"The entrepreneurship program helped me start my small business." – Claire</p>
-    </div>
-    <div class="testimonial">
-      <p>"Community projects are effective and sustainable." – David</p>
-    </div>
-  </div>
-</section>
+    <!-- PayPal Integration -->
+    <form action="https://www.paypal.com/donate" method="post" target="_top">
+      <input type="hidden" name="hosted_button_id" value="YOUR_PAYPAL_BUTTON_ID">
+      <input type="submit" value="Donate with PayPal" class="cta" aria-label="Donate with PayPal">
+    </form>
 
-<!-- Donation Section -->
-<section id="donate">
-  <h2>Support Us</h2>
-  <p>Your contribution makes a difference. Choose your preferred method:</p>
+    <!-- Stripe Integration Placeholder -->
+    <button class="cta" aria-label="Donate via Stripe" onclick="alert('Stripe integration coming soon!')">Donate with Stripe</button>
+  </section>
 
-  <!-- PayPal Integration -->
-  <form action="https://www.paypal.com/donate" method="post" target="_top">
-    <input type="hidden" name="hosted_button_id" value="YOUR_PAYPAL_BUTTON_ID">
-    <input type="submit" value="Donate with PayPal" class="cta" aria-label="Donate with PayPal">
-  </form>
-
-  <!-- Stripe Integration Placeholder -->
-  <button class="cta" aria-label="Donate via Stripe" onclick="alert('Stripe integration coming soon!')">Donate with Stripe</button>
-</section>
-
-<!-- Contact Section -->
-<section id="contact">
-  <h2>Contact Us</h2>
-  <p>Email: <a href="mailto:contact@visionblue.org">contact@visionblue.org</a></p>
-  <p>Cameroon: +237 676 376 238 | Germany: +49 15561 550887 | Italy: +39 333 123 4567</p>
-</section>
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:contact@visionblue.org">contact@visionblue.org</a></p>
+    <p>Cameroon: +237 676 376 238 | Germany: +49 15561 550887 | Italy: +39 333 123 4567</p>
+  </section>
+</main>
 
 <footer>
   <p>&copy; 2026 The VisionBlue NGO. All Rights Reserved.</p>
@@ -174,7 +185,7 @@
     updateCounter();
   });
 
-  // Simple Testimonial Slider auto-scroll
+  // Testimonial slider auto-scroll
   const slider = document.querySelector('.testimonial-slider');
   let scrollPos = 0;
   setInterval(() => {
@@ -185,6 +196,5 @@
     }
   }, 4000);
 </script>
-
 </body>
 </html>
