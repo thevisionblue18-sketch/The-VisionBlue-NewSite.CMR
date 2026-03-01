@@ -4,49 +4,39 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>The VisionBlue NGO | Empowering Women & Communities</title>
+<title>The VisionBlue NGO | Empowering Communities, Shaping Futures</title>
+<meta name="description" content="The VisionBlue NGO empowers women and vulnerable communities through education, entrepreneurship, and sustainable development initiatives.">
+<meta name="author" content="The VisionBlue NGO">
+<link rel="canonical" href="https://thevisionblue18-sketch.github.io/The-VisionBlue-NewSite.CMR/">
 
-<meta name="description" content="The VisionBlue NGO empowers young women and vulnerable communities through education, vocational training, entrepreneurship support, and sustainable development programs.">
-<meta name="keywords" content="NGO Cameroon, women empowerment, education support, vocational training, community development, The VisionBlue">
-
-<!-- OpenGraph for social sharing -->
+<!-- OpenGraph -->
 <meta property="og:title" content="The VisionBlue NGO">
-<meta property="og:description" content="Empowering women. Strengthening communities. Building sustainable futures.">
+<meta property="og:description" content="Empowering women. Strengthening communities.">
 <meta property="og:image" content="assets/img/images/logo.webp">
 <meta property="og:type" content="website">
 
 <link rel="icon" type="image/webp" href="assets/img/images/logo.webp">
+<link rel="preload" as="image" href="assets/img/images/gallery2.webp">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-<style>
-body {font-family: Arial, sans-serif; scroll-behavior: smooth;}
-.navbar {box-shadow: 0 2px 10px rgba(0,0,0,0.1);}
-.hero {
-background: linear-gradient(rgba(0,60,150,0.7), rgba(0,60,150,0.7)),
-url('assets/img/images/gallery2.webp') center/cover;
-color:white;
-padding:120px 20px;
-text-align:center;
-}
-.hero h1 {font-size:2.5rem;font-weight:bold;}
-.section-title {font-weight:bold;margin-bottom:40px;}
-.card {border:none;box-shadow:0 4px 15px rgba(0,0,0,0.08);}
-.gallery img {width:100%;border-radius:8px;cursor:pointer;}
-footer {background:#003c96;color:white;}
-@media (max-width:768px){
-.hero h1 {font-size:1.8rem;}
-}
-</style>
-
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
 <div class="container">
-<a class="navbar-brand fw-bold" href="#">The VisionBlue</a>
+
+<a class="navbar-brand d-flex align-items-center fw-bold" href="#">
+<img src="assets/img/images/logo.webp" alt="VisionBlue Logo" width="40" height="40">
+The VisionBlue
+</a>
 
 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
 <span class="navbar-toggler-icon"></span>
@@ -54,159 +44,133 @@ footer {background:#003c96;color:white;}
 
 <div class="collapse navbar-collapse" id="navbarNav">
 <ul class="navbar-nav ms-auto align-items-lg-center">
-
 <li class="nav-item"><a class="nav-link" href="#mission">Mission</a></li>
 <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
 <li class="nav-item"><a class="nav-link" href="#impact">Impact</a></li>
+<li class="nav-item"><a class="nav-link" href="#timeline">Timeline</a></li>
 <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+<li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-
 <li class="nav-item ms-lg-3">
 <a href="#donate" class="btn btn-light fw-bold">Donate</a>
 </li>
-
-<li class="nav-item dropdown ms-lg-3">
-<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
-🌐 Language
-</a>
-<ul class="dropdown-menu dropdown-menu-end">
-<li><a class="dropdown-item" href="index-en.html">English</a></li>
-<li><a class="dropdown-item" href="index-fr.html">French</a></li>
-<li><a class="dropdown-item" href="index-it.html">Italian</a></li>
-<li><a class="dropdown-item" href="index-de.html">German</a></li>
-<li><a class="dropdown-item" href="index-es.html">Spanish</a></li>
-<li><a class="dropdown-item" href="index-no.html">Norwegian</a></li>
-</ul>
-</li>
-
 </ul>
 </div>
 </div>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-<div class="container">
+<header class="hero d-flex align-items-center">
+<div class="container text-center reveal">
 <h1>Empowering Women. Strengthening Communities.</h1>
 <p class="lead mt-3">
-The VisionBlue NGO supports young women and vulnerable communities through education,
-entrepreneurship, and sustainable development initiatives.
+Supporting education, entrepreneurship and sustainable development.
 </p>
-<div class="mt-4">
-<a href="#mission" class="btn btn-light btn-lg me-2">Learn More</a>
-<a href="#donate" class="btn btn-outline-light btn-lg">Support Our Work</a>
+<a href="#donate" class="btn btn-light btn-lg mt-4">Support Our Work</a>
 </div>
-</div>
-</section>
-
-<!-- MISSION -->
-<section id="mission" class="py-5">
-<div class="container text-center">
-<h2 class="section-title">Our Mission</h2>
-<p class="lead">
-We equip women and vulnerable groups with the skills, knowledge, and financial support
-needed to build sustainable livelihoods and transform their communities.
-</p>
-</div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects" class="py-5 bg-light">
-<div class="container">
-<h2 class="section-title text-center">What We Do</h2>
-
-<div class="row g-4">
-
-<div class="col-md-6 col-lg-3">
-<div class="card p-4 text-center">
-<i class="fas fa-store fa-2x text-primary mb-3"></i>
-<h5>Entrepreneurship Support</h5>
-<p>Seed funding and coaching for small businesses.</p>
-</div>
-</div>
-
-<div class="col-md-6 col-lg-3">
-<div class="card p-4 text-center">
-<i class="fas fa-graduation-cap fa-2x text-primary mb-3"></i>
-<h5>Vocational Training</h5>
-<p>Practical skills training for economic independence.</p>
-</div>
-</div>
-
-<div class="col-md-6 col-lg-3">
-<div class="card p-4 text-center">
-<i class="fas fa-users fa-2x text-primary mb-3"></i>
-<h5>Community Outreach</h5>
-<p>Workshops, mentoring and awareness campaigns.</p>
-</div>
-</div>
-
-<div class="col-md-6 col-lg-3">
-<div class="card p-4 text-center">
-<i class="fas fa-hands-helping fa-2x text-primary mb-3"></i>
-<h5>Women Empowerment</h5>
-<p>Supporting women to lead and thrive.</p>
-</div>
-</div>
-
-</div>
-</div>
-</section>
+</header>
 
 <!-- IMPACT -->
-<section id="impact" class="py-5">
-<div class="container text-center">
+<section id="impact" class="py-5 text-center">
+<div class="container reveal">
 <h2 class="section-title">Our Impact</h2>
-<p class="lead">
-Through strategic partnerships and community engagement,
-we are building long-term transformation in Cameroon and beyond.
-</p>
+<div class="row">
+<div class="col-md-4">
+<div class="counter" data-target="150">0</div>
+<p>Women Empowered</p>
+</div>
+<div class="col-md-4">
+<div class="counter" data-target="25">0</div>
+<p>Businesses Supported</p>
+</div>
+<div class="col-md-4">
+<div class="counter" data-target="10">0</div>
+<p>Communities Reached</p>
+</div>
+</div>
 </div>
 </section>
 
-<!-- GALLERY -->
-<section id="gallery" class="py-5 bg-light">
-<div class="container">
+<!-- TIMELINE -->
+<section id="timeline" class="py-5 bg-light">
+<div class="container reveal">
+<h2 class="section-title text-center">Our Journey</h2>
+<ul class="timeline">
+<li><strong>2018:</strong> VisionBlue founded.</li>
+<li><strong>2020:</strong> First entrepreneurship funding initiative.</li>
+<li><strong>2023:</strong> Expanded international partnerships.</li>
+</ul>
+</div>
+</section>
+
+<!-- GALLERY GRID -->
+<section id="gallery" class="py-5">
+<div class="container reveal">
 <h2 class="section-title text-center">Gallery</h2>
 
-<div class="row g-4 gallery">
-<div class="col-md-4"><img src="assets/img/images/gallery2.webp" loading="lazy"></div>
-<div class="col-md-4"><img src="assets/img/images/HildaBusiness1.webp" loading="lazy"></div>
-<div class="col-md-4"><img src="assets/img/images/MarthaBusiness1.webp" loading="lazy"></div>
+<div class="gallery-grid">
+
+<div class="gallery-item">
+<img src="assets/img/images/HildaBusiness1.webp" alt="Hilda Business Activity" loading="lazy">
+<div class="gallery-caption">Hilda – Business Support</div>
 </div>
 
+<div class="gallery-item">
+<img src="assets/img/images/MarthaBusiness1.webp" alt="Martha Business Activity" loading="lazy">
+<div class="gallery-caption">Martha – Business Support</div>
+</div>
+
+<div class="gallery-item">
+<img src="assets/img/images/gallery2.webp" alt="Community Outreach" loading="lazy">
+<div class="gallery-caption">Community Outreach Program</div>
+</div>
+
+</div>
 </div>
 </section>
 
-<!-- DONATE -->
-<section id="donate" class="py-5">
-<div class="container text-center">
-<h2 class="section-title">Support Our Mission</h2>
-<p class="lead mb-4">
-Your contribution helps us empower women and transform communities.
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="py-5 bg-light">
+<div class="container reveal">
+<h2 class="section-title text-center">Testimonials</h2>
+
+<div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+<div class="carousel-inner text-center">
+
+<div class="carousel-item active">
+<p class="testimonial-text">
+“VisionBlue helped me start my own business and support my family.”
 </p>
-<a href="#" class="btn btn-primary btn-lg">Donate Now</a>
+<h6>- Hilda</h6>
+</div>
+
+<div class="carousel-item">
+<p class="testimonial-text">
+“The training changed my life and gave me confidence.”
+</p>
+<h6>- Martha</h6>
+</div>
+
+</div>
+
+<button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+<span class="carousel-control-prev-icon"></span>
+</button>
+
+<button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+<span class="carousel-control-next-icon"></span>
+</button>
+</div>
 </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="py-5 bg-light">
-<div class="container text-center">
-<h2 class="section-title">Contact Us</h2>
-<p><i class="fas fa-envelope text-primary"></i> thevisionblue18@gmail.com</p>
-<p><i class="fas fa-phone text-primary"></i> +237 676 376 238</p>
-</div>
-</section>
-
+<!-- FOOTER -->
 <footer class="py-4 text-center">
 <small>&copy; <span id="year"></span> The VisionBlue NGO. All rights reserved.</small>
 </footer>
 
-<script>
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script defer src="assets/js/main.js"></script>
 
 </body>
 </html>
