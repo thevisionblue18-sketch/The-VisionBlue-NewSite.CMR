@@ -1,0 +1,33 @@
+// Year
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// Counter Animation
+const counters = document.querySelectorAll('.counter');
+counters.forEach(counter => {
+const update = () => {
+const target = +counter.getAttribute('data-target');
+const count = +counter.innerText;
+const increment = target / 100;
+if (count < target) {
+counter.innerText = Math.ceil(count + increment);
+setTimeout(update, 20);
+} else {
+counter.innerText = target;
+}
+};
+update();
+});
+
+// Scroll Reveal
+function revealOnScroll() {
+const reveals = document.querySelectorAll(".reveal");
+reveals.forEach(element => {
+const windowHeight = window.innerHeight;
+const elementTop = element.getBoundingClientRect().top;
+if (elementTop < windowHeight - 100) {
+element.classList.add("active");
+}
+});
+}
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
