@@ -365,33 +365,50 @@ color:white;
 cursor:pointer;
 }
 
-/* ============================= */
-/* DONATE */
-/* ============================= */
+/* DONATE SECTION */
 
 .donate-section{
 background:#f4f6fb;
+padding:90px 0;
+text-align:center;
+}
+
+.donate-intro{
+max-width:750px;
+margin:auto;
+margin-bottom:50px;
+font-size:1.05rem;
+line-height:1.7;
 }
 
 .donate-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:30px;
-margin-top:40px;
+margin-bottom:60px;
 }
 
 .donate-card{
-background:white;
-padding:25px;
-border-radius:10px;
-text-align:center;
-box-shadow:0 5px 15px rgba(0,0,0,0.08);
+background:#fff;
+padding:30px;
+border-radius:12px;
+box-shadow:0 8px 24px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.donate-card:hover{
+transform:translateY(-6px);
 }
 
 .donate-icon{
 font-size:36px;
-color:var(--accent);
+color:#0d6efd;
 margin-bottom:10px;
+}
+
+.donate-number{
+font-weight:700;
+font-size:18px;
 }
 
 .qr-code{
@@ -401,17 +418,20 @@ display:block;
 }
 
 .donate-btn{
-background:var(--accent);
-color:white;
-border:none;
+display:inline-block;
+margin-top:12px;
 padding:10px 20px;
+background:#0d6efd;
+color:#fff;
 border-radius:25px;
-cursor:pointer;
+text-decoration:none;
 }
 
-/* ============================= */
 /* SPONSOR TIERS */
-/* ============================= */
+
+.sponsor-tiers{
+margin-top:50px;
+}
 
 .tier-grid{
 display:grid;
@@ -421,28 +441,34 @@ margin-top:20px;
 }
 
 .tier-card{
-background:white;
+background:#fff;
 padding:20px;
-border-radius:8px;
-box-shadow:0 4px 12px rgba(0,0,0,0.08);
-text-align:center;
+border-radius:10px;
+box-shadow:0 6px 16px rgba(0,0,0,0.08);
 }
 
-/* ============================= */
-/* DONATION PROGRESS */
-/* ============================= */
+/* PROGRESS BAR */
+
+.donation-progress{
+margin-top:50px;
+}
 
 .progress-bar{
 background:#ddd;
 height:10px;
 border-radius:20px;
 overflow:hidden;
-margin-top:10px;
+margin:15px auto;
+max-width:500px;
 }
 
 .progress-fill{
-background:var(--accent);
+background:#0d6efd;
 height:100%;
+}
+
+.progress-text{
+font-weight:500;
 }
 
 /* ============================= */
