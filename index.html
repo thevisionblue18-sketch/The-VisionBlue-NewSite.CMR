@@ -543,5 +543,20 @@ function toggleMenu(){
   document.getElementById("sideMenu").classList.toggle("open");
 }
 </script>
+        <script>
+function toggleLangMenu(){
+  document.getElementById("langDropdown").classList.toggle("show");
+}
+
+window.onclick = function(event){
+  if(!event.target.matches('.lang-btn')){
+    var dropdown = document.getElementById("langDropdown");
+    if(dropdown.classList.contains('show')){
+      dropdown.classList.remove('show');
+    }
+  }
+}
+</script>
 </body>
 </html>
+
