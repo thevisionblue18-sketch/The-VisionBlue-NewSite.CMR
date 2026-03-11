@@ -1490,3 +1490,8 @@ box-shadow:none !important;
 background:#f1f1f1 !important;
 color:#000 !important;
 }
+.language-switcher .btn{
+border-radius:20px;
+padding:6px 14px;
+font-weight:600;
+}
