@@ -247,15 +247,29 @@
       <h2 class="gallery-title">Gallery</h2>
       <div class="masonry-grid">
         <!-- GROUP 1 -->
-        <div class="masonry-item overlay-container">
-  <div class="masonry-item">
+        <div class="masonry-item">
 
 <picture>
 
-<source srcset="assets/img/images/gallery2.webp" type="image/webp">
+<source 
+srcset="
+assets/img/images/gallery2-400.webp 400w,
+assets/img/images/gallery2-800.webp 800w,
+assets/img/images/gallery2-1200.webp 1200w"
+sizes="(max-width: 600px) 100vw,
+       (max-width: 1000px) 50vw,
+       33vw"
+type="image/webp">
 
-<img 
-src="assets/img/images/gallery2.jpg"
+<img
+src="assets/img/images/gallery2-800.jpg"
+srcset="
+assets/img/images/gallery2-400.jpg 400w,
+assets/img/images/gallery2-800.jpg 800w,
+assets/img/images/gallery2-1200.jpg 1200w"
+sizes="(max-width: 600px) 100vw,
+       (max-width: 1000px) 50vw,
+       33vw"
 class="gallery-img"
 loading="lazy"
 decoding="async"
