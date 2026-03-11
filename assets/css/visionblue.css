@@ -1462,8 +1462,7 @@ body{
 margin-left:0;
 }
 
-}
-/* ============================= */
+}/* ============================= */
 /* LANGUAGE DROPDOWN FIX */
 /* ============================= */
 
@@ -1494,4 +1493,7 @@ color:#000 !important;
 border-radius:20px;
 padding:6px 14px;
 font-weight:600;
+}
+.side-menu i{
+margin-right:10px;
 }
