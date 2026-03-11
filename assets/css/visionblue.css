@@ -1463,3 +1463,30 @@ margin-left:0;
 }
 
 }
+/* ============================= */
+/* LANGUAGE DROPDOWN FIX */
+/* ============================= */
+
+.language-switcher .btn:focus,
+.language-switcher .btn:active,
+.language-switcher .btn.show{
+outline:none !important;
+box-shadow:none !important;
+background:#fff !important;
+color:#000 !important;
+}
+
+/* prevent persistent blue highlight */
+
+.dropdown-toggle:focus{
+outline:none !important;
+box-shadow:none !important;
+}
+
+/* fix dropdown items highlight */
+
+.dropdown-item:focus,
+.dropdown-item:active{
+background:#f1f1f1 !important;
+color:#000 !important;
+}
