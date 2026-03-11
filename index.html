@@ -51,45 +51,45 @@
   <!-- FLOATING DONATE BUTTON -->
   <a href="#donate" class="floating-donate-btn">Donate</a>
 
-  <!-- LEFT SIDE MENU -->
-  <nav class="side-menu" id="sideMenu" aria-label="Sidebar Navigation">
-    <ul class="nav-links">
-      <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
-      <li><a href="#mission"><i class="fas fa-bullseye"></i> Mission</a></li>
-      <li><a href="#projects"><i class="fas fa-hands-helping"></i> Projects</a></li>
-      <li><a href="#gallery"><i class="fas fa-images"></i> Gallery</a></li>
-      <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
-    </ul>
-  </nav>
+<!-- LEFT SIDE MENU -->
+<nav class="side-menu" id="sideMenu">
+  <ul class="nav-links">
+    <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+    <li><a href="#mission"><i class="fas fa-bullseye"></i> Mission</a></li>
+    <li><a href="#projects"><i class="fas fa-hands-helping"></i> Projects</a></li>
+    <li><a href="#gallery"><i class="fas fa-images"></i> Gallery</a></li>
+    <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+  </ul>
+</nav>
 
   <!-- NAVBAR -->
-  <nav class="navbar navbar-dark bg-primary fixed-top elegant-navbar">
-    <div class="container d-flex justify-content-between align-items-center">
+<nav class="navbar navbar-dark bg-primary fixed-top elegant-navbar">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
 
-      <!-- LEFT: LOGO + NAME -->
-      <a class="navbar-brand fw-bold d-flex align-items-center" href="#home">
-        <img src="assets/img/images/logo.webp" alt="The VisionBlue Logo" class="nav-logo-left">
-        <span class="ngo-title">The VisionBlue NGO</span>
-      </a>
-
-      <!-- RIGHT: LANGUAGE SWITCHER -->
-      <div class="d-flex align-items-center gap-2">
-        <div class="dropdown">
-          <button class="btn btn-light dropdown-toggle fw-bold" type="button" data-bs-toggle="dropdown">
-            🇬🇧 EN
-          </button>
-          <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="index-en.html">🇬🇧 English</a></li>
-            <li><a class="dropdown-item" href="index-fr.html">🇫🇷 French</a></li>
-            <li><a class="dropdown-item" href="index-it.html">🇮🇹 Italian</a></li>
-            <li><a class="dropdown-item" href="index-de.html">🇩🇪 German</a></li>
-            <li><a class="dropdown-item" href="index-es.html">🇪🇸 Spanish</a></li>
-            <li><a class="dropdown-item" href="index-no.html">🇳🇴 Norwegian</a></li>
-          </ul>
-        </div>
-      </div>
+    <!-- LEFT: LOGO + NAME -->
+    <div class="d-flex align-items-center">
+      <img src="assets/img/images/logo.webp" alt="VisionBlue Logo" class="nav-logo-left">
+      <span class="ngo-title text-white fw-bold ms-2">The VisionBlue NGO</span>
     </div>
-  </nav>
+
+    <!-- RIGHT: LANGUAGE SWITCHER -->
+    <div class="dropdown">
+      <button class="btn btn-light dropdown-toggle fw-bold" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        🇬🇧 EN
+      </button>
+
+      <ul class="dropdown-menu dropdown-menu-end">
+        <li><a class="dropdown-item" href="index-en.html">🇬🇧 English</a></li>
+        <li><a class="dropdown-item" href="index-fr.html">🇫🇷 French</a></li>
+        <li><a class="dropdown-item" href="index-it.html">🇮🇹 Italian</a></li>
+        <li><a class="dropdown-item" href="index-de.html">🇩🇪 German</a></li>
+        <li><a class="dropdown-item" href="index-es.html">🇪🇸 Spanish</a></li>
+        <li><a class="dropdown-item" href="index-no.html">🇳🇴 Norwegian</a></li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
 
   <!-- HERO SECTION -->
   <section id="home" class="hero-section" aria-label="Homepage Hero Section">
@@ -159,9 +159,9 @@
 
   <!-- ABOUT -->
   <section id="about" class="about-wide-section fade-in-on-scroll">
-    <div class="container">
+    <div class="container text-center">
       <h2>About The VisionBlue NGO</h2>
-      <p class="about-intro">
+      <p class="about-intro mx-auto">
         The VisionBlue NGO strengthens communities through education, vocational training, and human‑centered development work.
       </p>
       <div class="about-wide-grid">
@@ -519,7 +519,10 @@ alt="VisionBlue NGO activity">
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+function toggleMenu(){
+  document.getElementById("sideMenu").classList.toggle("open");
+}
+</script>
 </body>
 </html>
-
-
