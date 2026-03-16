@@ -7,286 +7,97 @@
 <meta name="description" content="The VisionBlue NGO empowers young women and vulnerable communities through education, vocational training and sustainable development programs.">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
 <style>
-/* ==================== BASE ==================== */
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  scroll-behavior: smooth;
-  background: #f7faff;
-  color: #222;
-}
-h2 { text-align: center; color: #001f4d; margin: 2rem 0; }
-
-/* ==================== TOP BAR ==================== */
-.top-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background: #001f4d;
-  color: #fff;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-.brand-area { display: flex; align-items: center; }
-.brand-area img { height: 50px; margin-right: 1rem; }
-.brand-area span { font-weight: bold; font-size: 1.5rem; color: #fff; }
-.language-switcher .btn { border-radius: 5px; }
-
-/* ==================== HERO ==================== */
-.hero-section {
-  min-height: 75vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: linear-gradient(135deg, #6cb4ee 0%, #001f4d 100%);
-  color: #fff;
-}
-.hero-logo { height: 120px; margin-bottom: 1rem; }
-.hero-title { font-size: 2.8rem; font-weight: bold; margin-bottom: 1rem; }
-.hero-subtitle { font-size: 1.1rem; margin-bottom: 2rem; }
-.hero-buttons .hero-btn {
-  margin: 0 0.5rem; padding: 0.6rem 1.2rem; border-radius: 50px;
-  font-weight: bold; transition: 0.3s;
-}
-.hero-btn.primary-btn { background: #ff6f61; color: #fff; border: none; }
-.hero-btn.primary-btn:hover { background: #ff4a3c; }
-.hero-btn.secondary-btn { background: transparent; color: #fff; border: 2px solid #fff; }
-.hero-btn.secondary-btn:hover { background: #fff; color: #001f4d; }
-
-/* ==================== MISSION ==================== */
-.mission-section {
-  background: linear-gradient(to right, #6cb4ee, #ff6f61);
-  padding: 3rem 1rem;
-  color: #fff;
-}
-.mission-section h2 { color: #fff; margin-bottom: 3rem; }
-.mission-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  justify-items: center;
-}
-.mission-card {
-  background: rgba(255,255,255,0.15);
-  border-radius: 20px;
-  padding: 2rem;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-  backdrop-filter: blur(8px);
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
-  width: 100%;
-  max-width: 320px;
-}
-.mission-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.35); }
-.mission-card h3 { margin-bottom: 1rem; font-size: 1.3rem; color: #fff; }
-.mission-card p { font-size: 1rem; line-height: 1.6; }
-
-/* ==================== PROJECTS ==================== */
-.project-section {
-  padding: 2rem 1rem;
-}
-.project-section h2 { margin-bottom: 2rem; }
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
-  gap: 1.5rem;
-  justify-items: center;
-}
-.project-card {
-  background: linear-gradient(to bottom right, #ffffff, #6cb4ee);
-  border-radius: 15px;
-  padding: 1rem 1.2rem;
-  text-align: center;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-  aspect-ratio: 1 / 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  max-width: 220px;
-}
-.project-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
-.project-card h3 { color: #001f4d; margin-bottom: 0.5rem; font-size: 1rem; }
-.project-card p { font-size: 0.85rem; line-height: 1.4; }
-
-/* ==================== TEAM ==================== */
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
-  gap: 1.5rem;
-  margin: 0 2rem 3rem 2rem;
-  justify-items: center;
-}
-.team-member {
-  background: #f0f8ff;
-  width: 140px;
-  height: 160px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0.8rem;
-  text-align: center;
-  border: 2px dashed #001f4d;
-}
-.team-member img {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 0.4rem;
-}
-.team-member h3 { font-size: 0.9rem; color: #001f4d; margin: 0; }
-
-/* ==================== TIMELINE ==================== */
-.timeline {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 2rem 1rem;
-  gap: 1rem;
-}
-.timeline-item {
-  background: #fff;
-  padding: 1rem 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  text-align: center;
-  width: 100%;
-  max-width: 500px;
-}
-.timeline-item h3 { font-size: 1rem; color: #001f4d; margin-bottom: 0.4rem; }
-.timeline-item p { font-size: 0.9rem; line-height: 1.4; }
-
-/* ==================== GALLERY ==================== */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px,1fr));
-  gap: 10px;
-  margin: 1rem 2rem 3rem 2rem;
-  justify-items: center;
-}
-.gallery-img {
-  width: 100%;
-  max-width: 120px;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 10px;
-  transition: transform 0.3s;
-}
-.gallery-img:hover { transform: scale(1.05); cursor: pointer; }
-
-/* ==================== DONATE ==================== */
-.donate-section { padding: 2rem 1rem; }
-.donate-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
-  gap: 1rem;
-  justify-items: center;
-  margin: 0 2rem 3rem 2rem;
-}
-.donate-card {
-  background: #6cb4ee;
-  color: #fff;
-  padding: 1.5rem;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  transition: transform 0.3s;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 160px;  /* uniform height */
-}
-.donate-card a { color: #fff; text-decoration: none; font-weight: bold; }
-.donate-card:hover { transform: translateY(-3px) scale(1.02); background: #5aa0d9; }
-
-/* ==================== CONTACT ==================== */
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
-  gap: 1rem;
-  margin: 0 2rem 3rem 2rem;
-  justify-items: center;
-}
-.contact-card {
-  background: #fff;
-  text-align: center;
-  padding: 0.8rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-  transition: transform 0.3s;
-  aspect-ratio: 1/1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.contact-card:hover { transform: translateY(-3px) scale(1.02); }
-.contact-card a, .contact-card p { color: #001f4d; text-decoration: none; font-weight: bold; }
-.contact-icon { font-size: 1.5rem; color: #001f4d; margin-bottom: 0.4rem; }
-
-/* ==================== FOOTER ==================== */
-.footer { background: #001f4d; color: #fff; padding: 2rem 0; text-align: center; }
-
-/* ==================== FLOATING DONATE ==================== */
-.floating-donate-btn {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  background: #ff4d4d;
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  border-radius: 50px;
-  font-weight: bold;
-  z-index: 999;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  transition: transform 0.3s, background 0.3s;
-  text-decoration: none;
-}
-.floating-donate-btn:hover { 
-  transform: translateY(-3px); 
-  background: #e63946; 
-}
-
-/* ==================== FADE-IN ==================== */
-.fade-in-on-scroll { opacity: 0; transform: translateY(15px); transition: opacity 0.6s ease, transform 0.6s ease; }
-.fade-in-on-scroll.visible { opacity: 1; transform: translateY(0); }
-
-/* ==================== RESPONSIVE ==================== */
-@media (max-width: 768px) {
-  .mission-grid, .project-grid, .donate-grid, .contact-grid { grid-template-columns: repeat(auto-fit, minmax(120px,1fr)); }
-  .team-grid { grid-template-columns: repeat(auto-fit, minmax(120px,1fr)); }
-  .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(100px,1fr)); }
-}
-@media (max-width: 480px) {
-  .hero-title { font-size: 2rem; }
-  .hero-subtitle { font-size: 0.95rem; }
-}
+html, body { margin:0; padding:0; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; scroll-behavior:smooth; background:#f7faff; color:#222; }
+h2 { text-align:center; color:#001f4d; margin:2rem 0; }
+/* Top Bar */
+.top-bar { display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem; background:#001f4d; color:#fff; position:sticky; top:0; z-index:1000; }
+.brand-area { display:flex; align-items:center; }
+.brand-area img { height:50px; margin-right:1rem; }
+.brand-area span { font-weight:bold; font-size:1.5rem; color:#fff; }
+.language-switcher .btn { border-radius:5px; }
+/* Hero */
+.hero-section { min-height:75vh; display:flex; align-items:center; justify-content:center; text-align:center; background:linear-gradient(135deg, #6cb4ee 0%, #001f4d 100%); color:#fff; }
+.hero-logo { height:120px; margin-bottom:1rem; }
+.hero-title { font-size:2.8rem; font-weight:bold; margin-bottom:1rem; }
+.hero-subtitle { font-size:1.1rem; margin-bottom:2rem; }
+.hero-buttons .hero-btn { margin:0 0.5rem; padding:0.6rem 1.2rem; border-radius:50px; font-weight:bold; transition:0.3s; }
+.hero-btn.primary-btn { background:#ff6f61; color:#fff; border:none; }
+.hero-btn.primary-btn:hover { background:#ff4a3c; }
+.hero-btn.secondary-btn { background:transparent; color:#fff; border:2px solid #fff; }
+.hero-btn.secondary-btn:hover { background:#fff; color:#001f4d; }
+/* Mission */
+.mission-section { background: linear-gradient(to right, #6cb4ee, #ff6f61); padding:3rem 1rem; color:#fff; }
+.mission-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:2rem; justify-items:center; }
+.mission-card { background: rgba(255,255,255,0.15); border-radius:20px; padding:2rem; box-shadow:0 8px 20px rgba(0,0,0,0.25); backdrop-filter:blur(8px); text-align:center; transition: transform 0.3s, box-shadow 0.3s; width:100%; max-width:320px; }
+.mission-card:hover { transform: translateY(-5px); box-shadow:0 12px 30px rgba(0,0,0,0.35); }
+.mission-card h3 { margin-bottom:1rem; font-size:1.3rem; color:#fff; }
+.mission-card p { font-size:1rem; line-height:1.6; }
+/* Projects */
+.projects-section { padding:2rem 1rem; }
+.projects-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:1.5rem; justify-items:center; }
+.project-card { background: linear-gradient(to bottom right, #ffffff, #6cb4ee); border-radius:15px; padding:1rem 1.2rem; text-align:center; box-shadow:0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; aspect-ratio:1/1; display:flex; flex-direction:column; justify-content:center; width:100%; max-width:220px; }
+.project-card:hover { transform: translateY(-4px); box-shadow:0 8px 25px rgba(0,0,0,0.2); }
+.project-card h3 { color:#001f4d; margin-bottom:0.5rem; font-size:1rem; }
+.project-card p { font-size:0.85rem; line-height:1.4; }
+.project-icon { font-size:2rem; color:#001f4d; margin-bottom:0.5rem; }
+/* About */
+.about-wide-section { padding:2rem 1rem; background:#f0f8ff; }
+.about-intro { text-align:center; margin-bottom:2rem; font-size:1rem; color:#001f4d; }
+.about-wide-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:1.5rem; }
+.about-wide-card { display:flex; background:#fff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.12); padding:1rem; align-items:flex-start; gap:0.8rem; }
+.about-wide-icon { font-size:2rem; color:#6cb4ee; margin-top:0.2rem; }
+.about-wide-text h3 { margin:0 0 0.4rem 0; color:#001f4d; font-size:1rem; }
+.about-wide-text p { margin:0; font-size:0.9rem; line-height:1.4; }
+/* Team */
+.team-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr)); gap:1.5rem; margin:0 2rem 3rem 2rem; justify-items:center; }
+.team-member { background:#f0f8ff; width:140px; height:160px; border-radius:10px; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0.8rem; text-align:center; border:2px dashed #001f4d; }
+.team-member img { width:80px; height:80px; object-fit:cover; border-radius:50%; margin-bottom:0.4rem; }
+.team-member h3 { font-size:0.9rem; color:#001f4d; margin:0; }
+/* Timeline */
+.timeline { display:flex; flex-direction:column; align-items:center; margin:2rem 1rem; gap:1rem; }
+.timeline-item { background:#fff; padding:1rem 1.5rem; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; width:100%; max-width:500px; }
+.timeline-item h3 { font-size:1rem; color:#001f4d; margin-bottom:0.4rem; }
+.timeline-item p { font-size:0.9rem; line-height:1.4; }
+/* Gallery */
+.gallery-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(120px,1fr)); gap:10px; margin:1rem 2rem 3rem 2rem; justify-items:center; }
+.gallery-img { width:100%; max-width:120px; aspect-ratio:1/1; object-fit:cover; border-radius:10px; transition: transform 0.3s; }
+.gallery-img:hover { transform:scale(1.05); cursor:pointer; }
+/* Donate */
+.donate-section { padding:2rem 1rem; }
+.donate-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr)); gap:1rem; justify-items:center; margin:0 2rem 3rem 2rem; }
+.donate-card { background:#6cb4ee; color:#fff; padding:1.5rem; border-radius:12px; text-align:center; box-shadow:0 4px 12px rgba(0,0,0,0.15); transition: transform 0.3s; display:flex; flex-direction:column; justify-content:center; min-height:160px; }
+.donate-card a { color:#fff; text-decoration:none; font-weight:bold; }
+.donate-card:hover { transform:translateY(-3px) scale(1.02); background:#5aa0d9; }
+/* Contact */
+.contact-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr)); gap:1rem; margin:0 2rem 3rem 2rem; justify-items:center; }
+.contact-card { background:#fff; text-align:center; padding:0.8rem; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.12); transition: transform 0.3s; aspect-ratio:1/1; display:flex; flex-direction:column; justify-content:center; }
+.contact-card:hover { transform:translateY(-3px) scale(1.02); }
+.contact-card a, .contact-card p { color:#001f4d; text-decoration:none; font-weight:bold; }
+.contact-icon { font-size:1.5rem; color:#001f4d; margin-bottom:0.4rem; }
+/* Footer */
+.footer { background:#001f4d; color:#fff; padding:2rem 0; text-align:center; }
+/* Floating Donate */
+.floating-donate-btn { position:fixed; bottom:25px; right:25px; background:#ff4d4d; color:#fff; padding:0.75rem 1.5rem; border-radius:50px; font-weight:bold; z-index:999; box-shadow:0 5px 15px rgba(0,0,0,0.2); transition: transform 0.3s, background 0.3s; text-decoration:none; }
+.floating-donate-btn:hover { transform:translateY(-3px); background:#e63946; }
+/* Fade-in */
+.fade-in-on-scroll { opacity:0; transform:translateY(15px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-in-on-scroll.visible { opacity:1; transform:translateY(0); }
+/* Responsive */
+@media (max-width:768px) { .mission-grid, .projects-grid, .about-wide-grid, .donate-grid, .contact-grid { grid-template-columns:repeat(auto-fit, minmax(120px,1fr)); } .team-grid { grid-template-columns:repeat(auto-fit, minmax(120px,1fr)); } .gallery-grid { grid-template-columns:repeat(auto-fit, minmax(100px,1fr)); } }
+@media (max-width:480px) { .hero-title { font-size:2rem; } .hero-subtitle { font-size:0.95rem; } }
 </style>
 </head>
 <body>
 
-<!-- FLOATING DONATE -->
+<!-- Floating Donate -->
 <a href="#donate" class="floating-donate-btn">Donate</a>
 
-<!-- TOP BAR -->
+<!-- Top Bar -->
 <header class="top-bar">
-  <div class="brand-area">
-    <img src="assets/img/images/logo.webp" alt="VisionBlue Logo">
-    <span>The VisionBlue NGO</span>
-  </div>
+  <div class="brand-area"><img src="assets/img/images/logo.webp" alt="VisionBlue Logo"><span>The VisionBlue NGO</span></div>
   <div class="language-switcher dropdown">
-    <button class="btn btn-light dropdown-toggle fw-bold" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-      🇬🇧 EN
-    </button>
+    <button class="btn btn-light dropdown-toggle fw-bold" type="button" data-bs-toggle="dropdown" aria-expanded="false">🇬🇧 EN</button>
     <ul class="dropdown-menu dropdown-menu-end">
       <li><a class="dropdown-item" href="index-en.html">🇬🇧 English</a></li>
       <li><a class="dropdown-item" href="index-fr.html">🇫🇷 French</a></li>
@@ -298,124 +109,176 @@ h2 { text-align: center; color: #001f4d; margin: 2rem 0; }
   </div>
 </header>
 
-<!-- HERO -->
+<!-- Hero Section -->
 <section class="hero-section">
   <div class="hero-content">
     <img src="assets/img/images/logo.webp" alt="VisionBlue Logo" class="hero-logo">
     <h1 class="hero-title">Empowering Communities, Shaping Futures</h1>
-    <p class="hero-subtitle">
-      Supporting young women and vulnerable communities through education, vocational training and sustainable development.
-    </p>
-    <div class="hero-buttons">
-      <a href="#mission" class="hero-btn primary-btn">Our Mission</a>
-    </div>
+    <p class="hero-subtitle">Supporting young women and vulnerable communities through education, vocational training and sustainable development.</p>
+    <div class="hero-buttons"><a href="#mission" class="hero-btn primary-btn">Our Mission</a></div>
   </div>
 </section>
 
 <!-- MISSION -->
-<section id="mission" class="mission-section fade-in-on-scroll">
-  <h2>Our Mission</h2>
-  <div class="mission-grid">
-    <div class="mission-card">
-      <h3>Empowering Women</h3>
-      <p>The VisionBlue NGO equips young women with skills, knowledge, and opportunities for a sustainable future.</p>
+  <section id="mission" class="mission-section fade-in-on-scroll">
+    <div class="container">
+      <h2>Our Mission</h2>
+      <p>
+        The VisionBlue NGO is committed to transforming lives by equipping young women, and vulnerable communities
+        with the skills, knowledge, and opportunities they need for a sustainable future.
+        We believe that every person—regardless of background or circumstance—deserves the chance to rise, learn, and grow.
+        Through education, mentoring, and community-driven development initiatives, we break cycles of poverty and create
+        pathways to dignity, resilience, and hope.
+      </p>
     </div>
-    <div class="mission-card">
-      <h3>Supporting Communities</h3>
-      <p>We break cycles of poverty and create pathways to resilience and dignity through community-driven development.</p>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="projects-section fade-in-on-scroll">
+    <div class="container">
+      <h2>Our Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-icon"><i class="fas fa-store"></i></div>
+          <h3>Business Start-Up Support</h3>
+          <p>Provision of seed funding and coaching for women entrepreneurs to build sustainable business models.</p>
+        </div>
+        <div class="project-card">
+          <div class="project-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+          <h3>Mentoring & Guidance</h3>
+          <p>Regular mentoring sessions, follow-up support, and tailored assistance for our beneficiaries.</p>
+        </div>
+        <div class="project-card">
+          <div class="project-icon"><i class="fas fa-graduation-cap"></i></div>
+          <h3>Vocational Training</h3>
+          <p>Development of practical skills for employment and economic self‑reliance.</p>
+        </div>
+        <div class="project-card">
+          <div class="project-icon"><i class="fas fa-users"></i></div>
+          <h3>Community Empowerment</h3>
+          <p>Strengthening resilient communities through workshops, awareness campaigns, and local partnerships.</p>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- PROJECTS -->
-<section id="projects" class="project-section fade-in-on-scroll">
-  <h2>Our Projects</h2>
-  <div class="project-grid">
-    <div class="project-card"><h3>Business Start-Up Support</h3><p>Seed funding and coaching for women entrepreneurs.</p></div>
-    <div class="project-card"><h3>Mentoring & Guidance</h3><p>Regular mentoring sessions and follow-up support for beneficiaries.</p></div>
-    <div class="project-card"><h3>Vocational Training</h3><p>Practical skills for employment and self-reliance.</p></div>
-  </div>
-</section>
-
-<!-- TEAM -->
+  <!-- ABOUT -->
+  <section id="about" class="about-wide-section fade-in-on-scroll">
+    <div class="container">
+      <h2>About The VisionBlue NGO</h2>
+      <p class="about-intro">
+        The VisionBlue NGO strengthens communities through education, vocational training, and human‑centered development work.
+      </p>
+      <div class="about-wide-grid">
+        <div class="about-wide-card">
+          <div class="about-wide-icon"><i class="fas fa-seedling"></i></div>
+          <div class="about-wide-text">
+            <h3>Origins & Vision</h3>
+            <p>
+              The VisionBlue NGO was founded with a clear mission: to support young women between the ages of 15 and 25 and communities facing social and economic challenges.
+              Its origins lie in the commitment to create practical and sustainable pathways to empowerment—particularly for young women, and vulnerable groups.
+            </p>
+          </div>
+        </div>
+        <div class="about-wide-card">
+          <div class="about-wide-icon"><i class="fas fa-university"></i></div>
+          <div class="about-wide-text">
+            <h3>Academic & Professional Foundations</h3>
+            <p>
+              The work of The VisionBlue NGO is grounded in the academic and professional background of its founder,
+              whose commitment spans ethics, community development, and social responsibility.
+              This foundation shapes our evidence‑based, human‑centered approach.
+            </p>
+          </div>
+        </div>
+        <div class="about-wide-card">
+          <div class="about-wide-icon"><i class="fas fa-hands-helping"></i></div>
+          <div class="about-wide-text">
+            <h3>Response to Crises</h3>
+            <p>
+              The VisionBlue NGO emerged during a period of significant social and economic strain in Cameroon.
+              Our response focuses on constructive action—through support, training, and opportunities that foster stability,
+              self‑determination, and long‑term resilience.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- Team Section -->
 <section id="team" class="fade-in-on-scroll">
-  <h2>Leadership Team</h2>
-  <div class="team-grid">
-    <div class="team-member"><img src="" alt="Chairman"><h3>Chairman</h3></div>
-    <div class="team-member"><img src="" alt="CEO"><h3>CEO</h3></div>
-    <div class="team-member"><img src="" alt="Vice President"><h3>Vice President</h3></div>
-    <div class="team-member"><img src="" alt="General Secretary"><h3>General Secretary</h3></div>
-    <div class="team-member"><img src="" alt="Treasurer"><h3>Treasurer</h3></div>
-    <div class="team-member"><img src="" alt="Financial Secretary"><h3>Financial Secretary</h3></div>
-    <div class="team-member"><img src="" alt="Publicity Secretary"><h3>Publicity Secretary</h3></div>
-  </div>
+<h2>Leadership Team</h2>
+<div class="team-grid">
+<div class="team-member"><img src="" alt="Chairman"><h3>Chairman</h3></div>
+<div class="team-member"><img src="" alt="CEO"><h3>CEO</h3></div>
+<div class="team-member"><img src="" alt="VP"><h3>Vice President</h3></div>
+<div class="team-member"><img src="" alt="General Secretary"><h3>General Secretary</h3></div>
+<div class="team-member"><img src="" alt="Treasurer"><h3>Treasurer</h3></div>
+<div class="team-member"><img src="" alt="Financial Secretary"><h3>Financial Secretary</h3></div>
+<div class="team-member"><img src="" alt="Publicity Secretary"><h3>Publicity Secretary</h3></div>
+</div>
 </section>
 
-<!-- TIMELINE -->
+<!-- Timeline Section -->
 <section id="timeline" class="fade-in-on-scroll">
-  <h2>Our Journey</h2>
-  <div class="timeline">
-    <div class="timeline-item"><h3>Feb 2019 – Nov 2021</h3><p>Analysis and Launch of Business Support</p></div>
-    <div class="timeline-item"><h3>Jan 2022</h3><p>Mentoring & Follow-Up Program</p></div>
-    <div class="timeline-item"><h3>Jan 2023</h3><p>Continuous coaching, Follow-Up Program, School campaigns & workshops.</p></div>
-    <div class="timeline-item"><h3>2024</h3><p>Back to school programs, packages, picnics, and fun holiday programs.</p></div>
-    <div class="timeline-item"><h3>2025</h3><p>Expansion to New Communities to deepen impact.</p></div>
-  </div>
+<h2>Our Journey</h2>
+<div class="timeline">
+<div class="timeline-item"><h3>Feb 2019 – Nov 2021</h3><p>Analysis and Launch of Business Support</p></div>
+<div class="timeline-item"><h3>Jan 2022</h3><p>Mentoring & Follow-Up Program</p></div>
+<div class="timeline-item"><h3>Jan 2023</h3><p>Continuous coaching, Follow-Up Program, School campaigns & workshops.</p></div>
+<div class="timeline-item"><h3>2024</h3><p>Back to school programs, packages, picnics, and fun holiday programs.</p></div>
+<div class="timeline-item"><h3>2025</h3><p>Expansion to New Communities to deepen impact.</p></div>
+</div>
 </section>
 
-<!-- GALLERY -->
+<!-- Gallery Section -->
 <section id="gallery" class="fade-in-on-scroll">
-  <h2>Gallery</h2>
-  <div class="gallery-grid">
-    <img src="assets/img/images/gallery2.webp" class="gallery-img" alt="Gallery">
-    <img src="assets/img/images/gallery3.webp" class="gallery-img" alt="Gallery">
-    <img src="assets/img/images/beneficiaries1.webp" class="gallery-img" alt="Gallery">
-    <img src="assets/img/images/HildaBusiness1.webp" class="gallery-img" alt="Gallery">
-    <img src="assets/img/images/HildaBusiness2.webp" class="gallery-img" alt="Gallery">
-    <img src="assets/img/images/MarthaBusiness1.webp" class="gallery-img" alt="Gallery">
-    <img src="assets/img/images/VirginieBusiness1.webp" class="gallery-img" alt="Gallery">
-    <img src="assets/img/images/BeneficiariesGroupPicture1.webp" class="gallery-img" alt="Gallery">
-    <img src="assets/img/images/Hilda.webp" class="gallery-img" alt="Gallery">
-  </div>
+<h2>Gallery</h2>
+<div class="gallery-grid">
+<img src="assets/img/images/gallery2.webp" class="gallery-img" alt="Gallery">
+<img src="assets/img/images/gallery3.webp" class="gallery-img" alt="Gallery">
+<img src="assets/img/images/beneficiaries1.webp" class="gallery-img" alt="Gallery">
+<img src="assets/img/images/HildaBusiness1.webp" class="gallery-img" alt="Gallery">
+<img src="assets/img/images/HildaBusiness2.webp" class="gallery-img" alt="Gallery">
+<img src="assets/img/images/MarthaBusiness1.webp" class="gallery-img" alt="Gallery">
+<img src="assets/img/images/VirginieBusiness1.webp" class="gallery-img" alt="Gallery">
+<img src="assets/img/images/BeneficiariesGroupPicture1.webp" class="gallery-img" alt="Gallery">
+<img src="assets/img/images/Hilda.webp" class="gallery-img" alt="Gallery">
+</div>
 </section>
 
-<!-- DONATE -->
+<!-- Donate Section -->
 <section id="donate" class="donate-section fade-in-on-scroll">
-  <h2>Support Our Mission</h2>
-  <div class="donate-grid">
-    <div class="donate-card"><h3>Mobile Money</h3><p>+237 676 376 238 (MTN / Orange)</p></div>
-    <div class="donate-card"><h3>Bank Transfer</h3><p>Contact us for IBAN details</p></div>
-    <div class="donate-card"><h3>PayPal</h3><a href="https://www.paypal.com/donate" target="_blank">Donate Now</a></div>
-  </div>
+<h2>Support Our Mission</h2>
+<div class="donate-grid">
+<div class="donate-card"><h3>Mobile Money</h3><a href="tel:+237676376238">+237 676 376 238</a></div>
+<div class="donate-card"><h3>Bank Transfer</h3><a href="#">Contact us for IBAN details</a></div>
+<div class="donate-card"><h3>PayPal</h3><a href="https://www.paypal.me/thevisionblue" target="_blank">Donate via PayPal</a></div>
+</div>
 </section>
 
-<!-- CONTACT -->
+<!-- Contact Section -->
 <section id="contact" class="fade-in-on-scroll">
-  <h2>Contact</h2>
-  <div class="contact-grid">
-    <div class="contact-card"><i class="fas fa-envelope contact-icon"></i><h3>Email</h3><a href="mailto:thevisionblue18@gmail.com">thevisionblue18@gmail.com</a></div>
-    <div class="contact-card"><i class="fas fa-phone contact-icon"></i><h3>Cameroon</h3><a href="tel:+237676376238">+237 676 376 238</a></div>
-    <div class="contact-card"><i class="fas fa-phone contact-icon"></i><h3>Germany</h3><a href="tel:+4915561550887">+49 155 6155 0887</a></div>
-    <div class="contact-card"><i class="fas fa-phone contact-icon"></i><h3>Italy</h3><a href="tel:+393928456152">+39 392 845 6152</a></div>
-  </div>
+<h2>Contact</h2>
+<div class="contact-grid">
+<div class="contact-card"><i class="fas fa-envelope contact-icon"></i><h3>Email</h3><a href="mailto:thevisionblue18@gmail.com">thevisionblue18@gmail.com</a></div>
+<div class="contact-card"><i class="fas fa-phone contact-icon"></i><h3>Cameroon</h3><a href="tel:+237676376238">+237 676 376 238</a></div>
+<div class="contact-card"><i class="fas fa-phone contact-icon"></i><h3>Germany</h3><a href="tel:+4915561550887">+49 155 6155 0887</a></div>
+<div class="contact-card"><i class="fas fa-phone contact-icon"></i><h3>Italy</h3><a href="tel:+393928456152">+39 392 845 6152</a></div>
+</div>
 </section>
 
-<!-- FOOTER -->
+<!-- Footer -->
 <footer class="footer">
-  <p>© <span id="year"></span> The VisionBlue NGO. All rights reserved.</p>
+<p>© <span id="year"></span> The VisionBlue NGO</p>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 document.getElementById("year").textContent = new Date().getFullYear();
-
-// Fade-in observer
 const faders = document.querySelectorAll('.fade-in-on-scroll');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => { if(entry.isIntersecting){entry.target.classList.add('visible');} });
-}, {threshold:0.2});
+const observer = new IntersectionObserver(entries => { entries.forEach(entry => { if(entry.isIntersecting){entry.target.classList.add('visible');} }); }, {threshold:0.2});
 faders.forEach(el => observer.observe(el));
 </script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
