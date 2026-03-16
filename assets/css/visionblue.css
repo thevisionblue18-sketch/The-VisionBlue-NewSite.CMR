@@ -659,3 +659,37 @@ grid-template-columns:1fr;
 }
 
 }
+html, body {
+max-width: 100%;
+overflow-x: hidden;
+}
+.container{
+max-width:1200px;
+margin:auto;
+padding:0 20px;
+width:100%;
+}
+img{
+max-width:100%;
+height:auto;
+display:block;
+}
+.timeline{
+max-width:800px;
+margin:auto;
+position:relative;
+}
+
+.timeline-event{
+width:100%;
+}.row
+{
+margin-left:0;
+margin-right:0;
+}.hero-section{
+width:100%;
+overflow:hidden;
+}
+*{
+box-sizing:border-box;
+}
