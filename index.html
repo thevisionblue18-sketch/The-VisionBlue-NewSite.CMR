@@ -206,7 +206,8 @@ h2 { text-align: center; color: #001f4d; margin: 2rem 0; }
   flex-direction: column;
   justify-content: center;
 }
-.donate-card:hover { transform: translateY(-3px); background: #5aa0d9; }
+.donate-card:hover { transform: translateY(-3px) scale(1.02); background: #5aa0d9; }
+.donate-card a { color: #fff; text-decoration: none; font-weight: bold; }
 .donate-card img { max-width: 80px; margin-top: 0.5rem; }
 
 /* ==================== CONTACT ==================== */
@@ -230,6 +231,7 @@ h2 { text-align: center; color: #001f4d; margin: 2rem 0; }
   justify-content: center;
 }
 .contact-card:hover { transform: translateY(-3px) scale(1.02); }
+.contact-card a, .contact-card p { color: #001f4d; text-decoration: none; font-weight: bold; }
 .contact-icon { font-size: 1.5rem; color: #001f4d; margin-bottom: 0.4rem; }
 
 /* ==================== FOOTER ==================== */
@@ -364,7 +366,11 @@ h2 { text-align: center; color: #001f4d; margin: 2rem 0; }
   <div class="donate-grid">
     <div class="donate-card"><h3>Mobile Money</h3><p>+237 676 376 238 (MTN / Orange)</p></div>
     <div class="donate-card"><h3>Bank Transfer</h3><p>Contact us for IBAN details</p></div>
-    <div class="donate-card"><h3>QR Donation</h3><img src="assets/img/donate/qr-code.png" alt="QR Code"></div>
+    <div class="donate-card">
+      <h3>PayPal</h3>
+      <a href="https://www.paypal.com/donate?hosted_button_id=YOUR_BUTTON_ID" target="_blank">Donate Now</a>
+      <img src="assets/img/donate/paypal.png" alt="PayPal">
+    </div>
   </div>
 </section>
 
@@ -373,9 +379,9 @@ h2 { text-align: center; color: #001f4d; margin: 2rem 0; }
   <h2>Contact</h2>
   <div class="contact-grid">
     <div class="contact-card"><i class="fas fa-envelope contact-icon"></i><h3>Email</h3><a href="mailto:thevisionblue18@gmail.com">thevisionblue18@gmail.com</a></div>
-    <div class="contact-card"><i class="fas fa-phone contact-icon"></i><h3>Cameroon</h3><p>+237 676 376 238</p></div>
-    <div class="contact-card"><i class="fas fa-phone contact-icon"></i><h3>Germany</h3><p>+49 155 6155 0887</p></div>
-    <div class="contact-card"><i class="fas fa-phone contact-icon"></i><h3>Italy</h3><p>+39 392 845 6152</p></div>
+    <div class="contact-card"><i class="fas fa-phone contact-icon"></i><h3>Cameroon</h3><a href="tel:+237676376238">+237 676 376 238</a></div>
+    <div class="contact-card"><i class="fas fa-phone contact-icon"></i><h3>Germany</h3><a href="tel:+4915561550887">+49 155 6155 0887</a></div>
+    <div class="contact-card"><i class="fas fa-phone contact-icon"></i><h3>Italy</h3><a href="tel:+393928456152">+39 392 845 6152</a></div>
   </div>
 </section>
 
@@ -386,13 +392,14 @@ h2 { text-align: center; color: #001f4d; margin: 2rem 0; }
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("year").textContent = new Date().getFullYear();
 
-  const faders = document.querySelectorAll('.fade-in-on-scroll');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => { if(entry.isIntersecting){entry.target.classList.add('visible');} });
-  }, {threshold:0.2});
-  faders.forEach(el => observer.observe(el));
+// Fade-in observer
+const faders = document.querySelectorAll('.fade-in-on-scroll');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => { if(entry.isIntersecting){entry.target.classList.add('visible');} });
+}, {threshold:0.2});
+faders.forEach(el => observer.observe(el));
 </script>
 
 </body>
