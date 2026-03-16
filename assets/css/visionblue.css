@@ -573,3 +573,30 @@ box-shadow: none;
 .nav-links a:focus {
 background: transparent;
 }
+.team-section{
+padding:100px 0;
+background:#f5f7fb;
+text-align:center;
+}
+
+.team-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.team-member{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.team-member img{
+width:150px;
+height:150px;
+object-fit:cover;
+border-radius:50%;
+margin-bottom:15px;
+}
