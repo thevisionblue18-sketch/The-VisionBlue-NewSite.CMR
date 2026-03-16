@@ -7,6 +7,7 @@
 <meta name="description" content="The VisionBlue NGO empowers young women and vulnerable communities through education, vocational training and sustainable development programs.">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
 <style>
 /* ==================== BASE ==================== */
 html, body {
@@ -352,3 +353,23 @@ h2 { text-align: center; color: #001f4d; margin-top: 2rem; margin-bottom: 2rem; 
 <footer class="footer">
   <p>© <span id="year"></span> The VisionBlue NGO. All rights reserved.</p>
 </footer>
+
+<!-- SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Update year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Fade-in animation on scroll
+  const faders = document.querySelectorAll('.fade-in-on-scroll');
+  const appearOptions = { threshold: 0.1 };
+  const appearOnScroll = new IntersectionObserver(function(entries, observer){
+    entries.forEach(entry => {
+      if(entry.isIntersecting){ entry.target.classList.add('visible'); observer.unobserve(entry.target);}
+    });
+  }, appearOptions);
+  faders.forEach(fader => appearOnScroll.observe(fader));
+</script>
+
+</body>
+</html>
