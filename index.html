@@ -8,96 +8,45 @@
 
 <title>The VisionBlue NGO</title>
 
-<meta name="description" content="The VisionBlue NGO empowers young women and vulnerable communities through education, vocational training and sustainable development programs.">
+<meta name="description" content="The VisionBlue NGO empowers young women and vulnerable communities through education, mentoring and sustainable development programs.">
 
-<link rel="canonical" href="https://thevisionblue18-sketch.github.io/The-VisionBlue-NewSite.CMR/">
-
-<meta name="robots" content="index, follow">
-<meta name="author" content="The VisionBlue NGO">
-
-<meta property="og:title" content="The VisionBlue NGO">
-<meta property="og:description" content="Empowering young women and vulnerable communities through education and sustainable development.">
-<meta property="og:type" content="website">
+<link rel="stylesheet" href="assets/css/visionblue.css">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<link rel="stylesheet" href="assets/css/visionblue.css">
-
-<style>
-
-html,body{
-max-width:100%;
-overflow-x:hidden;
-}
-
-section{
-scroll-margin-top:120px;
-}
-
-img{
-max-width:100%;
-height:auto;
-display:block;
-}
-
-</style>
-
 </head>
 
 <body>
 
+<!-- HEADER -->
 
-<!-- MOBILE MENU BUTTON -->
-<div class="menu-toggle d-md-none" onclick="toggleMenu()">
-<i class="fa-solid fa-bars"></i>
+<header class="topbar">
+
+<div class="container header-flex">
+
+<div class="logo-area">
+<img src="assets/img/images/logo.webp" class="logo">
+<h1 class="site-title">The VisionBlue NGO</h1>
 </div>
 
+<nav class="main-nav">
 
-<!-- FLOATING DONATE -->
-<a href="#donate" class="floating-donate-btn">Donate</a>
-
-
-
-<!-- SIDE MENU -->
-<nav class="side-menu" id="sideMenu">
-
-<ul class="nav-links menu-clean">
-
-<li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
-<li><a href="#mission"><i class="fas fa-bullseye"></i> Mission</a></li>
-<li><a href="#projects"><i class="fas fa-hands-helping"></i> Projects</a></li>
-<li><a href="#timeline"><i class="fas fa-history"></i> Journey</a></li>
-<li><a href="#gallery"><i class="fas fa-images"></i> Gallery</a></li>
-<li><a href="#donate"><i class="fas fa-heart"></i> Donate</a></li>
-<li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
-
-</ul>
+<a href="#home">Home</a>
+<a href="#mission">Mission</a>
+<a href="#projects">Projects</a>
+<a href="#timeline">Journey</a>
+<a href="#team">Team</a>
+<a href="#gallery">Gallery</a>
+<a href="#donate">Donate</a>
+<a href="#contact">Contact</a>
 
 </nav>
 
-
-
-<!-- HEADER -->
-<header class="top-bar">
-
-<div class="brand-area">
-
-<img src="assets/img/images/logo.webp" alt="VisionBlue Logo" class="nav-logo-left">
-
-<span class="ngo-title">The VisionBlue NGO</span>
-
-</div>
-
-
-<!-- LANGUAGE SWITCHER -->
 <div class="language-switcher dropdown">
 
-<button class="btn btn-light dropdown-toggle fw-bold"
-type="button"
-data-bs-toggle="dropdown"
-aria-expanded="false">
+<button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
 
 🇬🇧 EN
 
@@ -116,58 +65,56 @@ aria-expanded="false">
 
 </div>
 
+</div>
+
 </header>
 
-
-
 <!-- HERO -->
-<section id="home" class="hero-section">
+
+<section id="home" class="hero">
 
 <div class="hero-overlay"></div>
 
-<div class="container text-center hero-content">
+<div class="hero-content container">
 
-<img src="assets/img/images/logo.webp" alt="VisionBlue Logo" class="hero-logo">
+<img src="assets/img/images/logo.webp" class="hero-logo">
 
-<h1 class="hero-title">Empowering Communities, Shaping Futures</h1>
+<h1>Empowering Communities, Shaping Futures</h1>
 
-<p class="hero-subtitle">
-Supporting young women and vulnerable communities through education, societal reintegration, vocational training and sustainable development.
+<p>
+Supporting young women and vulnerable communities through education,
+mentorship and sustainable development.
 </p>
 
-<div class="hero-buttons">
-
-<a href="#projects" class="hero-btn primary-btn">Learn More</a>
-
-<a href="#mission" class="hero-btn secondary-btn">Our Mission</a>
-
-</div>
+<a href="#donate" class="btn-primary">Support Our Mission</a>
 
 </div>
 
 </section>
 
-
-
 <!-- MISSION -->
-<section id="mission" class="mission-section fade-in-on-scroll">
+
+<section id="mission" class="section-light">
 
 <div class="container">
 
 <h2>Our Mission</h2>
 
-<p>
-The VisionBlue NGO is committed to transforming lives by equipping young women and vulnerable communities with the skills, knowledge, and opportunities they need for a sustainable future.
+<p class="section-text">
+
+The VisionBlue NGO is committed to empowering young women and vulnerable
+communities through education, mentorship, vocational training and
+sustainable economic initiatives.
+
 </p>
 
 </div>
 
 </section>
 
-
-
 <!-- PROJECTS -->
-<section id="projects" class="projects-section fade-in-on-scroll">
+
+<section id="projects" class="section-gray">
 
 <div class="container">
 
@@ -176,21 +123,27 @@ The VisionBlue NGO is committed to transforming lives by equipping young women a
 <div class="projects-grid">
 
 <div class="project-card">
-<div class="project-icon"><i class="fas fa-store"></i></div>
-<h3>Business Start-Up Support</h3>
-<p>Provision of seed funding and coaching for women entrepreneurs.</p>
+
+<i class="fas fa-store"></i>
+<h3>Business Support</h3>
+<p>Helping women launch and sustain small businesses.</p>
+
 </div>
 
 <div class="project-card">
-<div class="project-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-<h3>Mentoring & Guidance</h3>
-<p>Regular mentoring sessions and follow-up support.</p>
-</div>
 
-<div class="project-card">
-<div class="project-icon"><i class="fas fa-graduation-cap"></i></div>
+<i class="fas fa-graduation-cap"></i>
 <h3>Vocational Training</h3>
-<p>Development of practical skills for employment and economic self-reliance.</p>
+<p>Equipping beneficiaries with practical employment skills.</p>
+
+</div>
+
+<div class="project-card">
+
+<i class="fas fa-hands-helping"></i>
+<h3>Mentoring</h3>
+<p>Providing long-term guidance and mentorship.</p>
+
 </div>
 
 </div>
@@ -199,10 +152,9 @@ The VisionBlue NGO is committed to transforming lives by equipping young women a
 
 </section>
 
-
-
 <!-- TIMELINE -->
-<section id="timeline" class="timeline-section fade-in-on-scroll">
+
+<section id="timeline" class="section-light">
 
 <div class="container">
 
@@ -211,23 +163,35 @@ The VisionBlue NGO is committed to transforming lives by equipping young women a
 <div class="timeline">
 
 <div class="timeline-item">
-<h3>2018</h3>
-<p>First beneficiaries identified in Yaoundé.</p>
+
+<span class="timeline-year">2018</span>
+
+<p>VisionBlue NGO founded and first beneficiaries supported.</p>
+
 </div>
 
 <div class="timeline-item">
-<h3>2019</h3>
-<p>Business support program launched.</p>
+
+<span class="timeline-year">2019</span>
+
+<p>Launch of small business empowerment program.</p>
+
 </div>
 
 <div class="timeline-item">
-<h3>2022</h3>
-<p>Mentoring and follow-up programs established.</p>
+
+<span class="timeline-year">2022</span>
+
+<p>Expansion of mentoring and community training programs.</p>
+
 </div>
 
 <div class="timeline-item">
-<h3>2025</h3>
-<p>Expansion to new communities.</p>
+
+<span class="timeline-year">2025</span>
+
+<p>Scaling impact to additional communities.</p>
+
 </div>
 
 </div>
@@ -236,26 +200,57 @@ The VisionBlue NGO is committed to transforming lives by equipping young women a
 
 </section>
 
+<!-- TEAM -->
 
-
-<!-- GALLERY -->
-<section id="gallery" class="gallery-section">
+<section id="team" class="section-gray">
 
 <div class="container">
 
-<h2 class="gallery-title">Gallery</h2>
+<h2>Leadership Team</h2>
 
-<div class="gallery-grid">
+<div class="team-grid">
 
-<img src="assets/img/images/gallery2.webp" class="gallery-img" loading="lazy">
-<img src="assets/img/images/gallery3.webp" class="gallery-img" loading="lazy">
-<img src="assets/img/images/beneficiaries1.webp" class="gallery-img" loading="lazy">
-<img src="assets/img/images/HildaBusiness1.webp" class="gallery-img" loading="lazy">
-<img src="assets/img/images/HildaBusiness2.webp" class="gallery-img" loading="lazy">
-<img src="assets/img/images/MarthaBusiness1.webp" class="gallery-img" loading="lazy">
-<img src="assets/img/images/VirginieBusiness1.webp" class="gallery-img" loading="lazy">
-<img src="assets/img/images/BeneficiariesGroupPicture1.webp" class="gallery-img" loading="lazy">
-<img src="assets/img/images/Hilda.webp" class="gallery-img" loading="lazy">
+<div class="team-card">
+<img src="assets/img/team/chairman.webp">
+<h3>Chairman of the Board</h3>
+<p>Name</p>
+</div>
+
+<div class="team-card">
+<img src="assets/img/team/ceo.webp">
+<h3>Chief Executive Officer</h3>
+<p>Name</p>
+</div>
+
+<div class="team-card">
+<img src="assets/img/team/vp.webp">
+<h3>Vice President</h3>
+<p>Name</p>
+</div>
+
+<div class="team-card">
+<img src="assets/img/team/secretary.webp">
+<h3>General Secretary</h3>
+<p>Name</p>
+</div>
+
+<div class="team-card">
+<img src="assets/img/team/treasurer.webp">
+<h3>Treasurer</h3>
+<p>Name</p>
+</div>
+
+<div class="team-card">
+<img src="assets/img/team/financial.webp">
+<h3>Financial Secretary</h3>
+<p>Name</p>
+</div>
+
+<div class="team-card">
+<img src="assets/img/team/publicity.webp">
+<h3>Publicity Secretary</h3>
+<p>Name</p>
+</div>
 
 </div>
 
@@ -263,27 +258,85 @@ The VisionBlue NGO is committed to transforming lives by equipping young women a
 
 </section>
 
+<!-- GALLERY -->
 
+<section id="gallery" class="section-light">
+
+<div class="container">
+
+<h2>Gallery</h2>
+
+<div class="gallery-grid">
+
+<img src="assets/img/images/gallery2.webp">
+<img src="assets/img/images/gallery3.webp">
+<img src="assets/img/images/beneficiaries1.webp">
+
+<img src="assets/img/images/HildaBusiness1.webp">
+<img src="assets/img/images/HildaBusiness2.webp">
+<img src="assets/img/images/MarthaBusiness1.webp">
+
+<img src="assets/img/images/VirginieBusiness1.webp">
+<img src="assets/img/images/BeneficiariesGroupPicture1.webp">
+<img src="assets/img/images/Hilda.webp">
+
+</div>
+
+</div>
+
+</section>
 
 <!-- DONATE -->
-<section id="donate" class="donate-section fade-in-on-scroll">
+
+<section id="donate" class="section-dark">
 
 <div class="container">
 
 <h2>Support Our Mission</h2>
 
-<p class="donate-intro">
-Your support helps VisionBlue empower vulnerable communities.
-</p>
+<p>Your support empowers women and communities.</p>
+
+<div class="donate-grid">
+
+<div class="donate-card">
+
+<i class="fab fa-paypal"></i>
+
+<h3>PayPal</h3>
+
+<p>Donate securely via PayPal.</p>
+
+</div>
+
+<div class="donate-card">
+
+<i class="fas fa-mobile-alt"></i>
+
+<h3>Mobile Money</h3>
+
+<p>Support via mobile payment.</p>
+
+</div>
+
+<div class="donate-card">
+
+<i class="fas fa-university"></i>
+
+<h3>Bank Transfer</h3>
+
+<p>Support through bank donation.</p>
+
+</div>
+
+</div>
 
 </div>
 
 </section>
 
-
-
 <!-- CONTACT -->
-<section id="contact" class="contact-section fade-in-on-scroll">
+
+<section id="contact" class="section-light">
 
 <div class="container">
 
@@ -293,11 +346,21 @@ Your support helps VisionBlue empower vulnerable communities.
 
 <div class="contact-card">
 
-<i class="fas fa-envelope contact-icon"></i>
+<i class="fas fa-envelope"></i>
 
 <h3>Email</h3>
 
 <a href="mailto:thevisionblue18@gmail.com">thevisionblue18@gmail.com</a>
+
+</div>
+
+<div class="contact-card">
+
+<i class="fas fa-phone"></i>
+
+<h3>Phone</h3>
+
+<p>+237 XXX XXX XXX</p>
 
 </div>
 
@@ -307,12 +370,11 @@ Your support helps VisionBlue empower vulnerable communities.
 
 </section>
 
-
-
 <!-- FOOTER -->
+
 <footer class="footer">
 
-<div class="container text-center">
+<div class="container">
 
 <p>© <span id="year"></span> The VisionBlue NGO</p>
 
@@ -320,20 +382,14 @@ Your support helps VisionBlue empower vulnerable communities.
 
 </footer>
 
-
-
-<!-- SCRIPTS -->
 <script>
 
-document.getElementById("year").textContent=new Date().getFullYear();
-
-function toggleMenu(){
-document.getElementById("sideMenu").classList.toggle("open");
-}
+document.getElementById("year").textContent = new Date().getFullYear();
 
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
 </html>
