@@ -561,3 +561,15 @@ font-size:16px;
 }
 
 }
+/* Remove blue focus highlight */
+
+a:focus,
+button:focus,
+select:focus {
+outline: none;
+box-shadow: none;
+}
+
+.nav-links a:focus {
+background: transparent;
+}
