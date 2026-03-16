@@ -10,25 +10,99 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/visionblue.css">
 <style>
-html, body { max-width:100%; overflow-x:hidden; }
-section { scroll-margin-top:120px; }
-img { max-width:100%; height:auto; display:block; }
+/* ==================== GENERAL ==================== */
+body, html { margin:0; padding:0; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f8f9fa; color:#333; scroll-behavior:smooth; }
+a { text-decoration:none; color:inherit; }
+h2 { font-size:2.5rem; text-align:center; color:#0d6efd; margin-bottom:2rem; }
+section { padding:80px 0; scroll-margin-top:120px; }
+
+/* ==================== TOP BAR ==================== */
+.top-bar { display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem; background:#fff; box-shadow:0 2px 8px rgba(0,0,0,0.1); position:sticky; top:0; z-index:999; }
+.brand-area { display:flex; align-items:center; }
+.nav-logo-left { height:50px; margin-right:1rem; }
+.ngo-title { font-weight:bold; font-size:1.5rem; color:#0d6efd; }
+.language-switcher .btn { border-radius:5px; }
+
+/* ==================== SIDE MENU ==================== */
+.side-menu { position:fixed; left:-250px; top:0; width:250px; height:100%; background:#fff; box-shadow:2px 0 10px rgba(0,0,0,0.1); transition:left 0.3s ease; z-index:1000; }
+.side-menu.open { left:0; }
+.side-menu ul { list-style:none; padding:2rem 1rem; }
+.side-menu ul li { margin:1rem 0; }
+.side-menu ul li a { display:flex; align-items:center; font-weight:500; font-size:1.1rem; padding:0.5rem 1rem; border-radius:5px; transition:0.3s; }
+.side-menu ul li a:hover { background:#0d6efd; color:#fff; }
+
+/* ==================== MOBILE MENU ==================== */
+.menu-toggle { position:fixed; top:15px; left:15px; font-size:1.5rem; cursor:pointer; z-index:1001; color:#0d6efd; }
+
+/* ==================== HERO ==================== */
+.hero-section { position:relative; min-height:90vh; display:flex; align-items:center; justify-content:center; text-align:center; background:#0d6efd; color:#fff; }
+.hero-content { max-width:900px; z-index:2; }
+.hero-logo { height:120px; margin-bottom:1rem; }
+.hero-title { font-size:3rem; font-weight:bold; margin-bottom:1rem; }
+.hero-subtitle { font-size:1.2rem; margin-bottom:2rem; }
+.hero-buttons .hero-btn { margin:0 0.5rem; padding:0.75rem 1.5rem; border-radius:50px; font-weight:bold; transition:0.3s; }
+.hero-btn.primary-btn { background:#fff; color:#0d6efd; border:none; }
+.hero-btn.primary-btn:hover { background:#e6e6e6; }
+.hero-btn.secondary-btn { background:#fff; color:#0d6efd; border:2px solid #fff; }
+.hero-btn.secondary-btn:hover { background:#fff; color:#0d6efd; }
+
+/* ==================== CARDS ==================== */
+.card-section { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:2rem; margin-top:2rem; }
+.card { background:#fff; padding:2rem; border-radius:15px; box-shadow:0 4px 20px rgba(0,0,0,0.1); transition:0.3s; }
+.card:hover { transform:translateY(-5px); box-shadow:0 8px 25px rgba(0,0,0,0.2); }
+.card h3 { margin-bottom:1rem; color:#0d6efd; }
+.card p { line-height:1.6; }
+
+/* ==================== TEAM ==================== */
+.team-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:2rem; margin-top:2rem; }
+.team-member img { width:120px; height:120px; object-fit:cover; border-radius:50%; margin-bottom:1rem; }
+.team-member h3 { margin-bottom:0.3rem; color:#0d6efd; }
+
+/* ==================== TIMELINE ==================== */
+.timeline { position:relative; padding-left:30px; margin-top:2rem; }
+.timeline::before { content:''; position:absolute; left:10px; top:0; width:4px; height:100%; background:#0d6efd; border-radius:2px; }
+.timeline-item { position:relative; margin-bottom:2rem; padding-left:2rem; }
+.timeline-item::before { content:''; position:absolute; left:-10px; top:5px; width:20px; height:20px; background:#fff; border:4px solid #0d6efd; border-radius:50%; }
+.timeline-item h3 { font-size:1.2rem; color:#0d6efd; margin-bottom:0.5rem; }
+
+/* ==================== GALLERY ==================== */
+.gallery-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:15px; margin-top:2rem; }
+.gallery-img { width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:10px; transition:transform 0.3s; }
+.gallery-img:hover { transform:scale(1.05); cursor:pointer; }
+
+/* ==================== DONATE ==================== */
+.floating-donate-btn { position:fixed; bottom:25px; right:25px; background:#ff4d4d; color:#fff; padding:0.75rem 1.5rem; border-radius:50px; font-weight:bold; z-index:999; box-shadow:0 5px 15px rgba(0,0,0,0.2); transition:0.3s; }
+.floating-donate-btn:hover { transform:translateY(-3px); background:#e63946; }
+
+/* ==================== CONTACT ==================== */
+.contact-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:2rem; margin-top:2rem; }
+.contact-card { background:#fff; text-align:center; padding:1.5rem; border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,0.1); }
+.contact-icon { font-size:2rem; color:#0d6efd; margin-bottom:0.5rem; }
+
+/* ==================== FOOTER ==================== */
+.footer { background:#0d6efd; color:#fff; padding:2rem 0; text-align:center; }
+
+/* ==================== FADE-IN ==================== */
+.fade-in-on-scroll { opacity:0; transform:translateY(20px); transition:opacity 0.6s ease, transform 0.6s ease; }
+.fade-in-on-scroll.visible { opacity:1; transform:translateY(0); }
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width:768px){.gallery-grid{grid-template-columns:repeat(2,1fr)}.card-section{grid-template-columns:1fr}.team-grid{grid-template-columns:1fr}}
+@media (max-width:480px){.gallery-grid{grid-template-columns:1fr}.hero-title{font-size:2rem}.hero-subtitle{font-size:1rem}}
 </style>
 </head>
 
 <body>
 
-<!-- MOBILE MENU BUTTON -->
-<div class="menu-toggle d-md-none" onclick="toggleMenu()">
-<i class="fa-solid fa-bars"></i>
-</div>
+<!-- MOBILE MENU -->
+<div class="menu-toggle d-md-none" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
 
 <!-- FLOATING DONATE -->
 <a href="#donate" class="floating-donate-btn">Donate</a>
 
 <!-- SIDE MENU -->
 <nav class="side-menu" id="sideMenu">
-<ul class="nav-links menu-clean">
+<ul class="nav-links">
 <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
 <li><a href="#mission"><i class="fas fa-bullseye"></i> Mission</a></li>
 <li><a href="#projects"><i class="fas fa-hands-helping"></i> Projects</a></li>
@@ -40,19 +114,15 @@ img { max-width:100%; height:auto; display:block; }
 </ul>
 </nav>
 
-<!-- HEADER -->
+<!-- TOP BAR -->
 <header class="top-bar">
 <div class="brand-area">
 <img src="assets/img/images/logo.webp" alt="VisionBlue Logo" class="nav-logo-left">
 <span class="ngo-title">The VisionBlue NGO</span>
 </div>
 
-<!-- LANGUAGE SWITCHER -->
 <div class="language-switcher dropdown">
-<button class="btn btn-light dropdown-toggle fw-bold"
-type="button" data-bs-toggle="dropdown" aria-expanded="false">
-🇬🇧 EN
-</button>
+<button class="btn btn-light dropdown-toggle fw-bold" type="button" data-bs-toggle="dropdown" aria-expanded="false">🇬🇧 EN</button>
 <ul class="dropdown-menu dropdown-menu-end">
 <li><a class="dropdown-item" href="index-en.html">🇬🇧 English</a></li>
 <li><a class="dropdown-item" href="index-fr.html">🇫🇷 French</a></li>
@@ -66,11 +136,10 @@ type="button" data-bs-toggle="dropdown" aria-expanded="false">
 
 <!-- HERO -->
 <section id="home" class="hero-section">
-<div class="hero-overlay"></div>
-<div class="container text-center hero-content">
+<div class="hero-content">
 <img src="assets/img/images/logo.webp" alt="VisionBlue Logo" class="hero-logo">
 <h1 class="hero-title">Empowering Communities, Shaping Futures</h1>
-<p class="hero-subtitle">Supporting young women and vulnerable communities through education, vocational training, and sustainable development.</p>
+<p class="hero-subtitle">Supporting young women and vulnerable communities through education, societal reintegration, vocational training, and sustainable development.</p>
 <div class="hero-buttons">
 <a href="#projects" class="hero-btn primary-btn">Learn More</a>
 <a href="#mission" class="hero-btn secondary-btn">Our Mission</a>
@@ -79,184 +148,107 @@ type="button" data-bs-toggle="dropdown" aria-expanded="false">
 </section>
 
 <!-- MISSION -->
-<section id="mission" class="mission-section fade-in-on-scroll">
+<section id="mission" class="fade-in-on-scroll">
 <div class="container">
 <h2>Our Mission</h2>
-<p>The VisionBlue NGO is committed to transforming lives by equipping young women and vulnerable communities with the skills, knowledge, and opportunities they need for a sustainable future. Through education, mentoring, and community-driven programs, we break cycles of poverty and create pathways to dignity, resilience, and hope.</p>
+<div class="card-section">
+<div class="card">
+<h3>Empowerment</h3>
+<p>We equip young women and vulnerable communities with the skills, knowledge, and opportunities they need for a sustainable future.</p>
+</div>
+<div class="card">
+<h3>Education</h3>
+<p>Through education, mentoring, and community-driven initiatives, we break cycles of poverty and create pathways to dignity, resilience, and hope.</p>
+</div>
+<div class="card">
+<h3>Development</h3>
+<p>We implement programs for vocational training, social reintegration, and sustainable community development.</p>
+</div>
+</div>
 </div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="projects-section fade-in-on-scroll">
+<section id="projects" class="fade-in-on-scroll">
 <div class="container">
 <h2>Our Projects</h2>
-<div class="projects-grid">
-<div class="project-card">
-<div class="project-icon"><i class="fas fa-store"></i></div>
-<h3>Business Start-Up Support</h3>
-<p>Seed funding and coaching for women entrepreneurs to build sustainable businesses.</p>
-</div>
-<div class="project-card">
-<div class="project-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-<h3>Mentoring & Guidance</h3>
-<p>Regular mentoring sessions and follow-ups for beneficiaries’ personal growth.</p>
-</div>
-<div class="project-card">
-<div class="project-icon"><i class="fas fa-graduation-cap"></i></div>
-<h3>Vocational Training</h3>
-<p>Practical skills development to empower employment and economic independence.</p>
-</div>
-<div class="project-card">
-<div class="project-icon"><i class="fas fa-users"></i></div>
-<h3>Community Empowerment</h3>
-<p>Workshops, awareness campaigns, and local partnerships to strengthen communities.</p>
-</div>
+<div class="card-section">
+<div class="card"><h3>Business Start-Up Support</h3><p>Provision of seed funding and coaching for women entrepreneurs.</p></div>
+<div class="card"><h3>Mentoring & Guidance</h3><p>Regular mentoring sessions and follow-up support for our beneficiaries.</p></div>
+<div class="card"><h3>Vocational Training</h3><p>Practical skill development for employment and economic self-reliance.</p></div>
 </div>
 </div>
 </section>
 
 <!-- TEAM -->
-<section id="team" class="team-section fade-in-on-scroll">
+<section id="team" class="fade-in-on-scroll">
 <div class="container">
-<h2>Our Leadership Team</h2>
+<h2>Leadership Team</h2>
 <div class="team-grid">
-<div class="team-member">
-<img src="assets/img/images/team/chairman.jpg" alt="Chairman">
-<h3>Chairman of the Board</h3>
-<p>Name Here</p>
-</div>
-<div class="team-member">
-<img src="assets/img/images/team/ceo.jpg" alt="CEO">
-<h3>Chief Executive Officer</h3>
-<p>Name Here</p>
-</div>
-<div class="team-member">
-<img src="assets/img/images/team/vp.jpg" alt="Vice President">
-<h3>Vice President</h3>
-<p>Name Here</p>
-</div>
-<div class="team-member">
-<img src="assets/img/images/team/gs.jpg" alt="General Secretary">
-<h3>General Secretary</h3>
-<p>Name Here</p>
-</div>
-<div class="team-member">
-<img src="assets/img/images/team/treasurer.jpg" alt="Treasurer">
-<h3>Treasurer</h3>
-<p>Name Here</p>
-</div>
-<div class="team-member">
-<img src="assets/img/images/team/finance.jpg" alt="Financial Secretary">
-<h3>Financial Secretary</h3>
-<p>Name Here</p>
-</div>
-<div class="team-member">
-<img src="assets/img/images/team/publicity.jpg" alt="Publicity Secretary">
-<h3>Publicity Secretary</h3>
-<p>Name Here</p>
-</div>
+<div class="team-member"><img src="assets/img/team/chairman.jpg"><h3>Chairman</h3><p>Name</p></div>
+<div class="team-member"><img src="assets/img/team/ceo.jpg"><h3>CEO</h3><p>Name</p></div>
+<div class="team-member"><img src="assets/img/team/vp.jpg"><h3>Vice President</h3><p>Name</p></div>
+<div class="team-member"><img src="assets/img/team/gs.jpg"><h3>General Secretary</h3><p>Name</p></div>
+<div class="team-member"><img src="assets/img/team/treasurer.jpg"><h3>Treasurer</h3><p>Name</p></div>
+<div class="team-member"><img src="assets/img/team/finance.jpg"><h3>Financial Secretary</h3><p>Name</p></div>
+<div class="team-member"><img src="assets/img/team/publicity.jpg"><h3>Publicity Secretary</h3><p>Name</p></div>
 </div>
 </div>
 </section>
 
 <!-- TIMELINE -->
-<section id="timeline" class="timeline-section fade-in-on-scroll">
+<section id="timeline" class="fade-in-on-scroll">
 <div class="container">
 <h2>Our Journey</h2>
 <div class="timeline">
-<div class="timeline-item">
-<h3>February 2019 – November 2021</h3>
-<p>Analysis and Launch of Business Support program.</p>
-</div>
-<div class="timeline-item">
-<h3>January 2022</h3>
-<p>Mentoring & Follow-Up Program started.</p>
-</div>
-<div class="timeline-item">
-<h3>January 2023</h3>
-<p>Continuous coaching sessions, school campaigns and workshops on healthy living and drug abuse prevention.</p>
-</div>
-<div class="timeline-item">
-<h3>2024</h3>
-<p>Back to school programs and packages distributed; picnics and fun holiday programs organized for kids.</p>
-</div>
-<div class="timeline-item">
-<h3>2025</h3>
-<p>Expansion to new communities to reach more beneficiaries and deepen impact.</p>
-</div>
+<div class="timeline-item"><h3>Feb 2019 – Nov 2021</h3><p>Analysis and Launch of Business Support</p></div>
+<div class="timeline-item"><h3>Jan 2022</h3><p>Mentoring & Follow-Up Program</p></div>
+<div class="timeline-item"><h3>Jan 2023</h3><p>Continuous coaching session, follow-up, school campaigns, workshops against drug abuse and promotion of healthy living</p></div>
+<div class="timeline-item"><h3>2024</h3><p>Back to school programs and packages handed out, regular picnics and fun holiday programs for kids</p></div>
+<div class="timeline-item"><h3>2025</h3><p>Expansion to New Communities, Scaling activities to reach more beneficiaries</p></div>
 </div>
 </div>
 </section>
 
 <!-- GALLERY -->
-<section id="gallery" class="gallery-section fade-in-on-scroll">
+<section id="gallery" class="fade-in-on-scroll">
 <div class="container">
-<h2 class="gallery-title">Gallery</h2>
+<h2>Gallery</h2>
 <div class="gallery-grid">
-<img src="assets/img/images/gallery2.webp" class="gallery-img" alt="Community Support Program">
-<img src="assets/img/images/gallery3.webp" class="gallery-img" alt="Mentoring session">
-<img src="assets/img/images/beneficiaries1.webp" class="gallery-img" alt="First Beneficiaries">
-<img src="assets/img/images/HildaBusiness1.webp" class="gallery-img" alt="Hilda Business">
-<img src="assets/img/images/HildaBusiness2.webp" class="gallery-img" alt="Hilda Business">
-<img src="assets/img/images/MarthaBusiness1.webp" class="gallery-img" alt="Martha Business">
-<img src="assets/img/images/VirginieBusiness1.webp" class="gallery-img" alt="Virginie Business">
-<img src="assets/img/images/BeneficiariesGroupPicture1.webp" class="gallery-img" alt="Beneficiaries group">
-<img src="assets/img/images/Hilda.webp" class="gallery-img" alt="Grant ceremony">
+<img src="assets/img/images/gallery2.webp" class="gallery-img">
+<img src="assets/img/images/gallery3.webp" class="gallery-img">
+<img src="assets/img/images/beneficiaries1.webp" class="gallery-img">
+<img src="assets/img/images/HildaBusiness1.webp" class="gallery-img">
+<img src="assets/img/images/HildaBusiness2.webp" class="gallery-img">
+<img src="assets/img/images/MarthaBusiness1.webp" class="gallery-img">
+<img src="assets/img/images/VirginieBusiness1.webp" class="gallery-img">
+<img src="assets/img/images/BeneficiariesGroupPicture1.webp" class="gallery-img">
+<img src="assets/img/images/Hilda.webp" class="gallery-img">
 </div>
 </div>
 </section>
 
 <!-- DONATE -->
-<section id="donate" class="donate-section fade-in-on-scroll">
+<section id="donate" class="fade-in-on-scroll">
 <div class="container">
 <h2>Support Our Mission</h2>
-<p class="donate-intro">Your support helps VisionBlue empower young women and vulnerable communities through education and sustainable development.</p>
-<div class="donate-grid">
-<div class="donate-card">
-<i class="fas fa-mobile-alt donate-icon"></i>
-<h3>Mobile Money</h3>
-<p>+237 676 376 238</p>
-<p>MTN MoMo / Orange Money</p>
-</div>
-<div class="donate-card">
-<i class="fas fa-university donate-icon"></i>
-<h3>Bank Transfer</h3>
-<p>Contact us for IBAN details.</p>
-</div>
-<div class="donate-card">
-<i class="fas fa-qrcode donate-icon"></i>
-<h3>QR Donation</h3>
-<img src="assets/img/donate/qr-code.png" class="qr-code">
-</div>
+<div class="card-section">
+<div class="card"><h3>Mobile Money</h3><p>+237 676 376 238 (MTN MoMo / Orange Money)</p></div>
+<div class="card"><h3>Bank Transfer</h3><p>Contact us for IBAN details.</p></div>
+<div class="card"><h3>QR Donation</h3><img src="assets/img/donate/qr-code.png" class="gallery-img"></div>
 </div>
 </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="contact-section fade-in-on-scroll">
+<section id="contact" class="fade-in-on-scroll">
 <div class="container">
 <h2>Contact</h2>
 <div class="contact-grid">
-<div class="contact-card">
-<i class="fas fa-envelope contact-icon"></i>
-<h3>Email</h3>
-<a href="mailto:thevisionblue18@gmail.com">thevisionblue18@gmail.com</a>
-</div>
-<div class="contact-card">
-<i class="fas fa-phone contact-icon"></i>
-<h3>Cameroon</h3>
-<a href="tel:+237676376238">+237 676 376 238</a>
-</div>
-<div class="contact-card">
-<i class="fas fa-phone contact-icon"></i>
-<h3>Germany</h3>
-<a href="tel:+4915561550887">+49 155 6155 0887</a>
-</div>
-<div class="contact-card">
-<i class="fas fa-phone contact-icon"></i>
-<h3>Italy</h3>
-<a href="tel:+393928456152">+39 392 845 6152</a>
-</div>
+<div class="contact-card"><i class="fas fa-envelope contact-icon"></i><h3>Email</h3><a href="mailto:thevisionblue18@gmail.com">thevisionblue18@gmail.com</a></div>
+<div class="contact-card"><i class="fas fa-phone contact-icon"></i><h3>Cameroon</h3><p>+237 676 376 238</p></div>
+<div class="contact-card"><i class="fas fa-phone contact-icon"></i><h3>Germany</h3><p>+49 155 6155 0887</p></div>
+<div class="contact-card"><i class="fas fa-phone contact-icon"></i><h3>Italy</h3><p>+39 392 845 6152</p></div>
 </div>
 </div>
 </section>
@@ -265,35 +257,21 @@ type="button" data-bs-toggle="dropdown" aria-expanded="false">
 <footer class="footer">
 <div class="container text-center">
 <p>© <span id="year"></span> The VisionBlue NGO</p>
-<p>Empowering young women and vulnerable communities.</p>
 </div>
 </footer>
 
 <!-- SCRIPTS -->
 <script>
 document.getElementById("year").textContent = new Date().getFullYear();
-
-function toggleMenu() {
-document.getElementById("sideMenu").classList.toggle("open");
-}
-
-// Smooth scroll for anchors
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-anchor.addEventListener("click", function(e){
-e.preventDefault();
-document.querySelector(this.getAttribute("href")).scrollIntoView({behavior:"smooth"});
+function toggleMenu(){ document.getElementById("sideMenu").classList.toggle("open"); }
+document.querySelectorAll('.fade-in-on-scroll').forEach(el=>{
+    const observer = new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{ if(entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, {threshold:0.2});
+    observer.observe(el);
 });
-});
-
-// Fade-in on scroll
-const faders = document.querySelectorAll('.fade-in-on-scroll');
-const observer = new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting) entry.target.classList.add('visible');
-});
-},{threshold:0.2});
-faders.forEach(el=>observer.observe(el));
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
