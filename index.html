@@ -236,6 +236,26 @@ h2 { text-align: center; color: #001f4d; margin: 2rem 0; }
 /* ==================== FOOTER ==================== */
 .footer { background: #001f4d; color: #fff; padding: 2rem 0; text-align: center; }
 
+/* ==================== FLOATING DONATE ==================== */
+.floating-donate-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #ff4d4d;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: bold;
+  z-index: 999;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s, background 0.3s;
+  text-decoration: none;
+}
+.floating-donate-btn:hover { 
+  transform: translateY(-3px); 
+  background: #e63946; 
+}
+
 /* ==================== FADE-IN ==================== */
 .fade-in-on-scroll { opacity: 0; transform: translateY(15px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .fade-in-on-scroll.visible { opacity: 1; transform: translateY(0); }
@@ -363,18 +383,9 @@ h2 { text-align: center; color: #001f4d; margin: 2rem 0; }
 <section id="donate" class="donate-section fade-in-on-scroll">
   <h2>Support Our Mission</h2>
   <div class="donate-grid">
-    <div class="donate-card">
-      <h3>Mobile Money</h3>
-      <p>+237 676 376 238 (MTN / Orange)</p>
-    </div>
-    <div class="donate-card">
-      <h3>Bank Transfer</h3>
-      <p>Contact us for IBAN details</p>
-    </div>
-    <div class="donate-card">
-      <h3>PayPal</h3>
-      <a href="https://www.paypal.com/donate?hosted_button_id=YOUR_BUTTON_ID" target="_blank">Donate Now</a>
-    </div>
+    <div class="donate-card"><h3>Mobile Money</h3><p>+237 676 376 238 (MTN / Orange)</p></div>
+    <div class="donate-card"><h3>Bank Transfer</h3><p>Contact us for IBAN details</p></div>
+    <div class="donate-card"><h3>PayPal</h3><a href="https://www.paypal.com/donate" target="_blank">Donate Now</a></div>
   </div>
 </section>
 
