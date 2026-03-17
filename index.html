@@ -1,4 +1,4 @@
-<!DOCTYPE html>  
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -10,512 +10,168 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <style>
-
+/* ====== GENERAL STYLES ====== */
 html, body {
-margin:0;
-padding:0;
-font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-scroll-behavior:smooth;
-background:#0b0f1a;
-color:#eaeaea;
+  margin:0;
+  padding:0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  scroll-behavior:smooth;
+  background:#0b0f1a;
+  color:#eaeaea;
 }
+h2 { text-align:center; color:#d4af37; margin:2rem 0; }
 
-h2 {
-text-align:center;
-color:#d4af37;
-margin:2rem 0;
-}
-
-/* Top Bar */
-
+/* ====== TOP BAR ====== */
 .top-bar {
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:1rem 2rem;
-background:#000814;
-color:#fff;
-position:sticky;
-top:0;
-z-index:1000;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1rem 2rem;
+  background:#000814;
+  color:#fff;
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
+.brand-area { display:flex; align-items:center; }
+.brand-area img { height:50px; margin-right:1rem; }
+.brand-area span { font-weight:bold; font-size:1.5rem; color:#d4af37; }
+.language-switcher .btn { border-radius:5px; }
 
-.brand-area {
-display:flex;
-align-items:center;
-}
-
-.brand-area img {
-height:50px;
-margin-right:1rem;
-}
-
-.brand-area span {
-font-weight:bold;
-font-size:1.5rem;
-color:#d4af37;
-}
-
-.language-switcher .btn {
-border-radius:5px;
-}
-
-/* Hero */
-
+/* ====== HERO ====== */
 .hero-section {
-min-height:75vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-background:linear-gradient(135deg,#001f4d 0%,#000000 100%);
-color:#fff;
+  min-height:75vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:linear-gradient(135deg,#001f4d 0%,#000000 100%);
+  color:#fff;
 }
-
-.hero-logo {
-height:120px;
-margin-bottom:1rem;
-}
-
-.hero-title {
-font-size:2.8rem;
-font-weight:bold;
-margin-bottom:1rem;
-}
-
-.hero-subtitle {
-font-size:1.1rem;
-margin-bottom:2rem;
-}
-
+.hero-logo { height:120px; margin-bottom:1rem; }
+.hero-title { font-size:2.8rem; font-weight:bold; margin-bottom:1rem; }
+.hero-subtitle { font-size:1.1rem; margin-bottom:2rem; }
 .hero-buttons .hero-btn {
-margin:0 0.5rem;
-padding:0.6rem 1.2rem;
-border-radius:50px;
-font-weight:bold;
-transition:0.3s;
+  margin:0 0.5rem;
+  padding:0.6rem 1.2rem;
+  border-radius:50px;
+  font-weight:bold;
+  transition:0.3s;
 }
+.hero-btn.primary-btn { background:#d4af37; color:#000; border:none; }
+.hero-btn.primary-btn:hover { background:#f1c94a; }
+.hero-btn.secondary-btn { background:transparent; color:#fff; border:2px solid #d4af37; }
+.hero-btn.secondary-btn:hover { background:#d4af37; color:#000; }
 
-.hero-btn.primary-btn {
-background:#d4af37;
-color:#000;
-border:none;
-}
+/* ====== MISSION ====== */
+.mission-section { background:linear-gradient(to right,#001f4d,#000814); padding:3rem 1rem; color:#fff; text-align:center; }
+.mission-card { background:rgba(255,255,255,0.05); border:1px solid #d4af37; border-radius:20px; padding:2rem; box-shadow:0 8px 20px rgba(0,0,0,0.4); text-align:center; transition: transform 0.3s, box-shadow 0.3s; max-width:320px; margin:auto; }
+.mission-card p { text-align:center; }
 
-.hero-btn.primary-btn:hover {
-background:#f1c94a;
-}
-
-.hero-btn.secondary-btn {
-background:transparent;
-color:#fff;
-border:2px solid #d4af37;
-}
-
-.hero-btn.secondary-btn:hover {
-background:#d4af37;
-color:#000;
-}
-
-
-/* Mission */
-
-.mission-section {
-background:linear-gradient(to right,#001f4d,#000814);
-padding:3rem 1rem;
-color:#fff;
-text-align:center;
-}
-
-.mission-grid {
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:2rem;
-justify-content:center;
-margin-top:2rem;
-}
-
-.mission-card {
-background:rgba(255,255,255,0.05);
-border:1px solid #d4af37;
-border-radius:20px;
-padding:2rem;
-box-shadow:0 8px 20px rgba(0,0,0,0.4);
-text-align:center;
-transition: transform 0.3s, box-shadow 0.3s;
-max-width:320px;
-margin:auto;
-}
-
-.mission-card p{
-text-align:center;
-}
-
-/* Projects */
-
-.projects-section {
-padding:2rem 1rem;
-background:#0f1626;
-}
-
-.projects-grid {
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:1.5rem;
-justify-items:center;
-}
-
+/* ====== PROJECTS ====== */
+.projects-section { padding:2rem 1rem; background:#0f1626; }
+.projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1.5rem; justify-items:center; }
 .project-card {
-background:#ffffff;
-border-radius:15px;
-padding:1rem 1.2rem;
-text-align:center;
-box-shadow:0 4px 15px rgba(0,0,0,0.25);
-transition: transform 0.3s, box-shadow 0.3s;
-aspect-ratio:1/1;
-display:flex;
-flex-direction:column;
-justify-content:center;
-width:100%;
-max-width:220px;
+  background:#fff;
+  border-radius:15px;
+  padding:1rem 1.2rem;
+  text-align:center;
+  box-shadow:0 4px 15px rgba(0,0,0,0.25);
+  transition: transform 0.3s, box-shadow 0.3s;
+  aspect-ratio:1/1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  width:100%;
+  max-width:220px;
 }
+.project-card:hover { transform: translateY(-4px); box-shadow:0 8px 25px rgba(0,0,0,0.4); }
+.project-card h3 { color:#001f4d; margin-bottom:0.5rem; font-size:1rem; }
+.project-card p { font-size:0.85rem; line-height:1.4; color:#000; }
+.project-icon { font-size:2rem; color:#d4af37; margin-bottom:0.5rem; }
 
-.project-card:hover {
-transform: translateY(-4px);
-box-shadow:0 8px 25px rgba(0,0,0,0.4);
-}
-.project-card {
-text-align:center;
-align-items:center;
-}
+/* ====== ABOUT ====== */
+.about-wide-section { padding:2rem 1rem; background:#0b0f1a; }
+.about-intro { text-align:center; margin-bottom:2rem; font-size:1rem; color:#ddd; }
+.about-wide-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1.5rem; }
+.about-wide-card { display:flex; background:#101728; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.4); padding:1rem; align-items:flex-start; gap:0.8rem; }
+.about-wide-icon { font-size:2rem; color:#d4af37; margin-top:0.2rem; }
+.about-wide-text h3 { margin:0 0 0.4rem 0; color:#d4af37; font-size:1rem; }
+.about-wide-text p { margin:0; font-size:0.9rem; line-height:1.4; }
 
-.project-card p{
-text-align:center;
-}
+/* ====== TEAM ====== */
+.team-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:1.5rem; margin:0 2rem 3rem 2rem; justify-items:center; }
+.team-member { background:#101728; width:140px; height:160px; border-radius:10px; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0.8rem; text-align:center; border:1px solid #d4af37; }
+.team-member img { width:80px; height:80px; object-fit:cover; border-radius:50%; margin-bottom:0.4rem; }
+.team-member h3 { font-size:0.9rem; color:#d4af37; margin:0; }
 
-/* Project Titles (keep blue) */
-.project-card h3 {
-color:#001f4d;
-margin-bottom:0.5rem;
-font-size:1rem;
-}
+/* ====== TIMELINE ====== */
+.timeline { display:flex; flex-direction:column; align-items:center; margin:2rem 1rem; gap:1rem; }
+.timeline-item { background:#101728; padding:1rem 1.5rem; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.3); text-align:center; width:100%; max-width:500px; border-left:4px solid #d4af37; }
+.timeline-item h3 { font-size:1rem; color:#d4af37; margin-bottom:0.4rem; }
 
-/* Project Description (now black for readability) */
-.project-card p {
-font-size:0.85rem;
-line-height:1.4;
-color:#000;
-}
+/* ====== GALLERY ====== */
+.gallery-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin:2rem auto 3rem auto; max-width:900px; justify-items:center; }
+.gallery-img { width:100%; max-width:260px; aspect-ratio:1/1; object-fit:cover; border-radius:12px; transition: transform 0.3s; border:2px solid #d4af37; }
+.gallery-img:hover { transform:scale(1.05); cursor:pointer; }
 
-.project-icon {
-font-size:2rem;
-color:#d4af37;
-margin-bottom:0.5rem;
-}
+/* ====== DONATE ====== */
+.donate-section { padding:2rem 1rem; background:#000814; }
+.donate-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:1rem; justify-items:center; margin:0 2rem 3rem 2rem; }
+.donate-card { background:#d4af37; color:#000; padding:1.5rem; border-radius:12px; text-align:center; box-shadow:0 4px 12px rgba(0,0,0,0.3); transition: transform 0.3s; display:flex; flex-direction:column; justify-content:center; min-height:160px; }
+.donate-card a { color:#000; text-decoration:none; font-weight:bold; }
+.donate-card:hover { transform:translateY(-3px) scale(1.02); background:#f1c94a; }
 
-/* About */
+/* ====== CONTACT ====== */
+.contact-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:1rem; margin:0 2rem 3rem 2rem; justify-items:center; }
+.contact-card { background:#101728; text-align:center; padding:0.8rem; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.3); transition: transform 0.3s; aspect-ratio:1/1; display:flex; flex-direction:column; justify-content:center; border:1px solid #d4af37; }
+.contact-card:hover { transform:translateY(-3px) scale(1.02); }
+.contact-card a, .contact-card p { color:#d4af37; text-decoration:none; font-weight:bold; }
+.contact-icon { font-size:1.5rem; color:#d4af37; margin-bottom:0.4rem; }
 
-.about-wide-section {
-padding:2rem 1rem;
-background:#0b0f1a;
-}
+/* ====== FOOTER ====== */
+.footer { background:#000814; color:#d4af37; padding:2rem 0; text-align:center; }
 
-.about-intro {
-text-align:center;
-margin-bottom:2rem;
-font-size:1rem;
-color:#ddd;
-}
+/* ====== FLOATING DONATE ====== */
+.floating-donate-btn { position:fixed; bottom:25px; right:25px; background:#d4af37; color:#000; padding:0.75rem 1.5rem; border-radius:50px; font-weight:bold; z-index:999; box-shadow:0 5px 15px rgba(0,0,0,0.4); transition: transform 0.3s, background 0.3s; text-decoration:none; }
+.floating-donate-btn:hover { transform:translateY(-3px); background:#f1c94a; }
 
-.about-wide-grid {
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:1.5rem;
-}
+/* ====== FADE-IN ====== */
+.fade-in-on-scroll { opacity:0; transform:translateY(15px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-in-on-scroll.visible { opacity:1; transform:translateY(0); }
 
-.about-wide-card {
-display:flex;
-background:#101728;
-border-radius:12px;
-box-shadow:0 4px 12px rgba(0,0,0,0.4);
-padding:1rem;
-align-items:flex-start;
-gap:0.8rem;
-}
-
-.about-wide-icon {
-font-size:2rem;
-color:#d4af37;
-margin-top:0.2rem;
-}
-
-.about-wide-text h3 {
-margin:0 0 0.4rem 0;
-color:#d4af37;
-font-size:1rem;
-}
-
-.about-wide-text p {
-margin:0;
-font-size:0.9rem;
-line-height:1.4;
-}
-
-/* Team */
-
-.team-grid {
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-gap:1.5rem;
-margin:0 2rem 3rem 2rem;
-justify-items:center;
-}
-
-.team-member {
-background:#101728;
-width:140px;
-height:160px;
-border-radius:10px;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-padding:0.8rem;
-text-align:center;
-border:1px solid #d4af37;
-}
-
-.team-member img {
-width:80px;
-height:80px;
-object-fit:cover;
-border-radius:50%;
-margin-bottom:0.4rem;
-}
-
-.team-member h3 {
-font-size:0.9rem;
-color:#d4af37;
-margin:0;
-}
-
-/* Timeline */
-
-.timeline {
-display:flex;
-flex-direction:column;
-align-items:center;
-margin:2rem 1rem;
-gap:1rem;
-}
-
-.timeline-item {
-background:#101728;
-padding:1rem 1.5rem;
-border-radius:12px;
-box-shadow:0 4px 12px rgba(0,0,0,0.3);
-text-align:center;
-width:100%;
-max-width:500px;
-border-left:4px solid #d4af37;
-}
-
-.timeline-item h3 {
-font-size:1rem;
-color:#d4af37;
-margin-bottom:0.4rem;
-}
-
-/* Gallery */
-
-.gallery-grid {
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
-margin:2rem auto 3rem auto;
-max-width:900px;
-justify-items:center;
-}
-
-.gallery-img {
-width:100%;
-max-width:260px;
-aspect-ratio:1/1;
-object-fit:cover;
-border-radius:12px;
-transition: transform 0.3s;
-border:2px solid #d4af37;
-}
-
-.gallery-img:hover {
-transform:scale(1.05);
-cursor:pointer;
-}
-
-/* Donate */
-
-.donate-section {
-padding:2rem 1rem;
-background:#000814;
-}
-
-.donate-grid {
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-gap:1rem;
-justify-items:center;
-margin:0 2rem 3rem 2rem;
-}
-
-.donate-card {
-background:#d4af37;
-color:#000;
-padding:1.5rem;
-border-radius:12px;
-text-align:center;
-box-shadow:0 4px 12px rgba(0,0,0,0.3);
-transition: transform 0.3s;
-display:flex;
-flex-direction:column;
-justify-content:center;
-min-height:160px;
-}
-
-.donate-card a {
-color:#000;
-text-decoration:none;
-font-weight:bold;
-}
-
-.donate-card:hover {
-transform:translateY(-3px) scale(1.02);
-background:#f1c94a;
-}
-
-/* Contact */
-
-.contact-grid {
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-gap:1rem;
-margin:0 2rem 3rem 2rem;
-justify-items:center;
-}
-
-.contact-card {
-background:#101728;
-text-align:center;
-padding:0.8rem;
-border-radius:12px;
-box-shadow:0 4px 12px rgba(0,0,0,0.3);
-transition: transform 0.3s;
-aspect-ratio:1/1;
-display:flex;
-flex-direction:column;
-justify-content:center;
-border:1px solid #d4af37;
-}
-
-.contact-card:hover {
-transform:translateY(-3px) scale(1.02);
-}
-
-.contact-card a,
-.contact-card p {
-color:#d4af37;
-text-decoration:none;
-font-weight:bold;
-}
-
-.contact-icon {
-font-size:1.5rem;
-color:#d4af37;
-margin-bottom:0.4rem;
-}
-
-/* Footer */
-
-.footer {
-background:#000814;
-color:#d4af37;
-padding:2rem 0;
-text-align:center;
-}
-
-/* Floating Donate */
-
-.floating-donate-btn {
-position:fixed;
-bottom:25px;
-right:25px;
-background:#d4af37;
-color:#000;
-padding:0.75rem 1.5rem;
-border-radius:50px;
-font-weight:bold;
-z-index:999;
-box-shadow:0 5px 15px rgba(0,0,0,0.4);
-transition: transform 0.3s, background 0.3s;
-text-decoration:none;
-}
-
-.floating-donate-btn:hover {
-transform:translateY(-3px);
-background:#f1c94a;
-}
-
-/* Fade-in */
-
-.fade-in-on-scroll {
-opacity:0;
-transform:translateY(15px);
-transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.fade-in-on-scroll.visible {
-opacity:1;
-transform:translateY(0);
-}
-
+/* ====== GOOGLE TRANSLATE HIDE ====== */
+.goog-te-banner-frame.skiptranslate { display: none !important; }
+body { top:0px !important; }
 </style>
 </head>
-
 <body>
 
 <!-- Google Translate Hidden -->
 <div id="google_translate_element" style="display:none;"></div>
-<style>
-.goog-te-banner-frame.skiptranslate { display: none !important; }
-body { top:0px !important; }
-</style>
 
+<!-- Floating Donate Button -->
 <a href="#donate" class="floating-donate-btn">Donate</a>
 
+<!-- Top Bar -->
 <header class="top-bar">
-
-<div class="brand-area">
-<img src="assets/img/images/logo.webp" alt="VisionBlue Logo">
-<span>The VisionBlue NGO</span>
-</div>
-
-<div class="language-switcher dropdown">
-
-<button class="btn btn-light dropdown-toggle fw-bold" type="button" data-bs-toggle="dropdown">
-🇬🇧 EN
-</button>
-
-<ul class="dropdown-menu dropdown-menu-end">
-
-<li><a class="dropdown-item" href="javascript:void(0)" onclick="translateLanguage('en')">🇬🇧 English</a></li>
-<li><a class="dropdown-item" href="javascript:void(0)" onclick="translateLanguage('fr')">🇫🇷 French</a></li>
-<li><a class="dropdown-item" href="javascript:void(0)" onclick="translateLanguage('it')">🇮🇹 Italian</a></li>
-<li><a class="dropdown-item" href="javascript:void(0)" onclick="translateLanguage('de')">🇩🇪 German</a></li>
-<li><a class="dropdown-item" href="javascript:void(0)" onclick="translateLanguage('es')">🇪🇸 Spanish</a></li>
-<li><a class="dropdown-item" href="javascript:void(0)" onclick="translateLanguage('sv')">🇸🇪 Swedish</a></li>
-
-</ul>
-
-</div>
+  <div class="brand-area">
+    <img src="assets/img/images/logo.webp" alt="VisionBlue Logo">
+    <span>The VisionBlue NGO</span>
+  </div>
+  <div class="language-switcher dropdown">
+    <button class="btn btn-light dropdown-toggle fw-bold" type="button" data-bs-toggle="dropdown">
+      🇬🇧 EN
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end">
+      <li><a class="dropdown-item" href="javascript:void(0)" onclick="translateLanguage('en')">🇬🇧 English</a></li>
+      <li><a class="dropdown-item" href="javascript:void(0)" onclick="translateLanguage('fr')">🇫🇷 French</a></li>
+      <li><a class="dropdown-item" href="javascript:void(0)" onclick="translateLanguage('it')">🇮🇹 Italian</a></li>
+      <li><a class="dropdown-item" href="javascript:void(0)" onclick="translateLanguage('de')">🇩🇪 German</a></li>
+      <li><a class="dropdown-item" href="javascript:void(0)" onclick="translateLanguage('es')">🇪🇸 Spanish</a></li>
+      <li><a class="dropdown-item" href="javascript:void(0)" onclick="translateLanguage('sv')">🇸🇪 Swedish</a></li>
+    </ul>
+  </div>
 </header>
 
 <!-- Hero Section -->
@@ -528,776 +184,45 @@ body { top:0px !important; }
   </div>
 </section>
 
-<!-- MISSION -->
-  <section id="mission" class="mission-section fade-in-on-scroll">
-    <div class="container">
-      <h2>Our Mission</h2>
-      <p>
-        The VisionBlue NGO is committed to transforming lives by equipping young women, and vulnerable communities
-        with the skills, knowledge, and opportunities they need for a sustainable future.
-        We believe that every person—regardless of background or circumstance—deserves the chance to rise, learn, and grow.
-        Through education, mentoring, and community-driven development initiatives, we break cycles of poverty and create
-        pathways to dignity, resilience, and hope.
-      </p>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects" class="projects-section fade-in-on-scroll">
-    <div class="container">
-      <h2>Our Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="project-icon"><i class="fas fa-store"></i></div>
-          <h3>Business Start-Up Support</h3>
-          <p>Provision of seed funding and coaching for women entrepreneurs to build sustainable business models.</p>
-        </div>
-        <div class="project-card">
-          <div class="project-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-          <h3>Mentoring & Guidance</h3>
-          <p>Regular mentoring sessions, follow-up support, and tailored assistance for our beneficiaries.</p>
-        </div>
-        <div class="project-card">
-          <div class="project-icon"><i class="fas fa-graduation-cap"></i></div>
-          <h3>Vocational Training</h3>
-          <p>Development of practical skills for employment and economic self‑reliance.</p>
-        </div>
-        <div class="project-card">
-          <div class="project-icon"><i class="fas fa-users"></i></div>
-          <h3>Community Empowerment</h3>
-          <p>Strengthening resilient communities through workshops, awareness campaigns, and local partnerships.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" class="about-wide-section fade-in-on-scroll">
-    <div class="container">
-      <h2>About The VisionBlue NGO</h2>
-      <p class="about-intro">
-        The VisionBlue NGO strengthens communities through education, vocational training, and human‑centered development work.
-      </p>
-      <div class="about-wide-grid">
-        <div class="about-wide-card">
-          <div class="about-wide-icon"><i class="fas fa-seedling"></i></div>
-          <div class="about-wide-text">
-            <h3>Origins & Vision</h3>
-            <p>
-              The VisionBlue NGO was founded with a clear mission: to support young women between the ages of 15 and 25 and communities facing social and economic challenges.
-              Its origins lie in the commitment to create practical and sustainable pathways to empowerment—particularly for young women, and vulnerable groups.
-            </p>
-          </div>
-        </div>
-        <div class="about-wide-card">
-          <div class="about-wide-icon"><i class="fas fa-university"></i></div>
-          <div class="about-wide-text">
-            <h3>Academic & Professional Foundations</h3>
-            <p>
-              The work of The VisionBlue NGO is grounded in the academic and professional background of its founder,
-              whose commitment spans ethics, community development, and social responsibility.
-              This foundation shapes our evidence‑based, human‑centered approach.
-            </p>
-          </div>
-        </div>
-        <div class="about-wide-card">
-          <div class="about-wide-icon"><i class="fas fa-hands-helping"></i></div>
-          <div class="about-wide-text">
-            <h3>Response to Crises</h3>
-            <p>
-              The VisionBlue NGO emerged during a period of significant social and economic strain in Cameroon.
-              Our response focuses on constructive action—through support, training, and opportunities that foster stability,
-              self‑determination, and long‑term resilience.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-<!-- Team Section -->
-<section id="team" class="fade-in-on-scroll">
-<h2>Leadership Team</h2>
-<div class="team-grid">
-<div class="team-member"><img src="" alt="Chairman"><h3>Chairman</h3></div>
-<div class="team-member"><img src="" alt="CEO"><h3>CEO</h3></div>
-<div class="team-member"><img src="" alt="VP"><h3>Vice President</h3></div>
-<div class="team-member"><img src="" alt="General Secretary"><h3>General Secretary</h3></div>
-<div class="team-member"><img src="" alt="Treasurer"><h3>Treasurer</h3></div>
-<div class="team-member"><img src="" alt="Financial Secretary"><h3>Financial Secretary</h3></div>
-<div class="team-member"><img src="" alt="Publicity Secretary"><h3>Publicity Secretary</h3></div>
-</div>
-</section>
-
-<!-- Timeline Section -->
-<section id="timeline" class="fade-in-on-scroll">
-<h2>Our Journey</h2>
-<div class="timeline">
-<div class="timeline-item"><h3>Feb 2019 – Nov 2021</h3><p>Analysis and Launch of Business Support</p></div>
-<div class="timeline-item"><h3>Jan 2022</h3><p>Mentoring & Follow-Up Program</p></div>
-<div class="timeline-item"><h3>Jan 2023</h3><p>Continuous coaching, Follow-Up Program, School campaigns & workshops.</p></div>
-<div class="timeline-item"><h3>2024</h3><p>Back to school programs, packages, picnics, and fun holiday programs.</p></div>
-<div class="timeline-item"><h3>2025</h3><p>Expansion to New Communities to deepen impact.</p></div>
-</div>
-</section>
-
-<!-- Gallery Section -->
-<section id="gallery" class="fade-in-on-scroll">
-<h2>Gallery</h2>
-<div class="gallery-grid">
-<img src="assets/img/images/gallery2.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/gallery3.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/beneficiaries1.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/HildaBusiness1.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/HildaBusiness2.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/MarthaBusiness1.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/VirginieBusiness1.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/BeneficiariesGroupPicture1.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/Hilda.webp" class="gallery-img" alt="Gallery">
-</div>
-</section>
-
-<!-- Donate Section -->
-<section id="donate" class="donate-section fade-in-on-scroll">
-<h2>Support Our Mission</h2>
-<div class="donate-grid">
-<div class="donate-card"><h3>Mobile Money</h3><a href="tel:+237676376238">+237 676 376 238</a></div>
-<div class="donate-card"><h3>Bank Transfer</h3><a href="#">Contact us for IBAN details</a></div>
-<div class="donate-card"><h3>PayPal</h3><a href="https://www.paypal.me/thevisionblue" target="_blank">Donate via PayPal</a></div>
-</div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact" class="fade-in-on-scroll">
-<h2>Contact</h2>
-<div class="contact-grid">
-<div class="contact-card"><i class="fas fa-envelope contact-icon"></i><h3>Email</h3><a href="mailto:thevisionblue18@gmail.com">thevisionblue18@gmail.com</a></div>
-<div class="contact-card"><i class="fas fa-phone contact-icon"></i><h3>Cameroon</h3><a href="tel:+237676376238">+237 676 376 238</a></div>
-<div class="contact-card"><i class="fas fa-phone contact-icon"></i><h3>Germany</h3><a href="tel:+4915561550887">+49 178 134-2019</a></div>
-<div class="contact-card"><i class="fas fa-phone contact-icon"></i><h3>Italy</h3><a href="tel:+393928456152">+39 392 845 6152</a></div>
-</div>
-</section>
-
-<!-- Footer -->
-<footer class="footer">
-<p>© <span id="year"></span> The VisionBlue NGO</p>
-</footer>
-
-<!DOCTYPE html>  
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The VisionBlue NGO</title>
-<meta name="description" content="The VisionBlue NGO empowers young women and vulnerable communities through education, vocational training and sustainable development programs.">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<style>
-
-html, body {
-margin:0;
-padding:0;
-font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-scroll-behavior:smooth;
-background:#0b0f1a;
-color:#eaeaea;
-}
-
-h2 {
-text-align:center;
-color:#d4af37;
-margin:2rem 0;
-}
-
-/* Top Bar */
-
-.top-bar {
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:1rem 2rem;
-background:#000814;
-color:#fff;
-position:sticky;
-top:0;
-z-index:1000;
-}
-
-.brand-area {
-display:flex;
-align-items:center;
-}
-
-.brand-area img {
-height:50px;
-margin-right:1rem;
-}
-
-.brand-area span {
-font-weight:bold;
-font-size:1.5rem;
-color:#d4af37;
-}
-
-.language-switcher .btn {
-border-radius:5px;
-}
-
-/* Hero */
-
-.hero-section {
-min-height:75vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-background:linear-gradient(135deg,#001f4d 0%,#000000 100%);
-color:#fff;
-}
-
-.hero-logo {
-height:120px;
-margin-bottom:1rem;
-}
-
-.hero-title {
-font-size:2.8rem;
-font-weight:bold;
-margin-bottom:1rem;
-}
-
-.hero-subtitle {
-font-size:1.1rem;
-margin-bottom:2rem;
-}
-
-.hero-buttons .hero-btn {
-margin:0 0.5rem;
-padding:0.6rem 1.2rem;
-border-radius:50px;
-font-weight:bold;
-transition:0.3s;
-}
-
-.hero-btn.primary-btn {
-background:#d4af37;
-color:#000;
-border:none;
-}
-
-.hero-btn.primary-btn:hover {
-background:#f1c94a;
-}
-
-.hero-btn.secondary-btn {
-background:transparent;
-color:#fff;
-border:2px solid #d4af37;
-}
-
-.hero-btn.secondary-btn:hover {
-background:#d4af37;
-color:#000;
-}
-
-
-/* Mission */
-
-.mission-section {
-background:linear-gradient(to right,#001f4d,#000814);
-padding:3rem 1rem;
-color:#fff;
-text-align:center;
-}
-
-.mission-grid {
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:2rem;
-justify-content:center;
-margin-top:2rem;
-}
-
-.mission-card {
-background:rgba(255,255,255,0.05);
-border:1px solid #d4af37;
-border-radius:20px;
-padding:2rem;
-box-shadow:0 8px 20px rgba(0,0,0,0.4);
-text-align:center;
-transition: transform 0.3s, box-shadow 0.3s;
-max-width:320px;
-margin:auto;
-}
-
-.mission-card p{
-text-align:center;
-}
-
-/* Projects */
-
-.projects-section {
-padding:2rem 1rem;
-background:#0f1626;
-}
-
-.projects-grid {
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:1.5rem;
-justify-items:center;
-}
-
-.project-card {
-background:#ffffff;
-border-radius:15px;
-padding:1rem 1.2rem;
-text-align:center;
-box-shadow:0 4px 15px rgba(0,0,0,0.25);
-transition: transform 0.3s, box-shadow 0.3s;
-aspect-ratio:1/1;
-display:flex;
-flex-direction:column;
-justify-content:center;
-width:100%;
-max-width:220px;
-}
-
-.project-card:hover {
-transform: translateY(-4px);
-box-shadow:0 8px 25px rgba(0,0,0,0.4);
-}
-.project-card {
-text-align:center;
-align-items:center;
-}
-
-.project-card p{
-text-align:center;
-}
-
-/* Project Titles (keep blue) */
-.project-card h3 {
-color:#001f4d;
-margin-bottom:0.5rem;
-font-size:1rem;
-}
-
-/* Project Description (now black for readability) */
-.project-card p {
-font-size:0.85rem;
-line-height:1.4;
-color:#000;
-}
-
-.project-icon {
-font-size:2rem;
-color:#d4af37;
-margin-bottom:0.5rem;
-}
-
-/* About */
-
-.about-wide-section {
-padding:2rem 1rem;
-background:#0b0f1a;
-}
-
-.about-intro {
-text-align:center;
-margin-bottom:2rem;
-font-size:1rem;
-color:#ddd;
-}
-
-.about-wide-grid {
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:1.5rem;
-}
-
-.about-wide-card {
-display:flex;
-background:#101728;
-border-radius:12px;
-box-shadow:0 4px 12px rgba(0,0,0,0.4);
-padding:1rem;
-align-items:flex-start;
-gap:0.8rem;
-}
-
-.about-wide-icon {
-font-size:2rem;
-color:#d4af37;
-margin-top:0.2rem;
-}
-
-.about-wide-text h3 {
-margin:0 0 0.4rem 0;
-color:#d4af37;
-font-size:1rem;
-}
-
-.about-wide-text p {
-margin:0;
-font-size:0.9rem;
-line-height:1.4;
-}
-
-/* Team */
-
-.team-grid {
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-gap:1.5rem;
-margin:0 2rem 3rem 2rem;
-justify-items:center;
-}
-
-.team-member {
-background:#101728;
-width:140px;
-height:160px;
-border-radius:10px;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-padding:0.8rem;
-text-align:center;
-border:1px solid #d4af37;
-}
-
-.team-member img {
-width:80px;
-height:80px;
-object-fit:cover;
-border-radius:50%;
-margin-bottom:0.4rem;
-}
-
-.team-member h3 {
-font-size:0.9rem;
-color:#d4af37;
-margin:0;
-}
-
-/* Timeline */
-
-.timeline {
-display:flex;
-flex-direction:column;
-align-items:center;
-margin:2rem 1rem;
-gap:1rem;
-}
-
-.timeline-item {
-background:#101728;
-padding:1rem 1.5rem;
-border-radius:12px;
-box-shadow:0 4px 12px rgba(0,0,0,0.3);
-text-align:center;
-width:100%;
-max-width:500px;
-border-left:4px solid #d4af37;
-}
-
-.timeline-item h3 {
-font-size:1rem;
-color:#d4af37;
-margin-bottom:0.4rem;
-}
-
-/* Gallery */
-
-.gallery-grid {
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
-margin:2rem auto 3rem auto;
-max-width:900px;
-justify-items:center;
-}
-
-.gallery-img {
-width:100%;
-max-width:260px;
-aspect-ratio:1/1;
-object-fit:cover;
-border-radius:12px;
-transition: transform 0.3s;
-border:2px solid #d4af37;
-}
-
-.gallery-img:hover {
-transform:scale(1.05);
-cursor:pointer;
-}
-
-/* Donate */
-
-.donate-section {
-padding:2rem 1rem;
-background:#000814;
-}
-
-.donate-grid {
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-gap:1rem;
-justify-items:center;
-margin:0 2rem 3rem 2rem;
-}
-
-.donate-card {
-background:#d4af37;
-color:#000;
-padding:1.5rem;
-border-radius:12px;
-text-align:center;
-box-shadow:0 4px 12px rgba(0,0,0,0.3);
-transition: transform 0.3s;
-display:flex;
-flex-direction:column;
-justify-content:center;
-min-height:160px;
-}
-
-.donate-card a {
-color:#000;
-text-decoration:none;
-font-weight:bold;
-}
-
-.donate-card:hover {
-transform:translateY(-3px) scale(1.02);
-background:#f1c94a;
-}
-
-/* Contact */
-
-.contact-grid {
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-gap:1rem;
-margin:0 2rem 3rem 2rem;
-justify-items:center;
-}
-
-.contact-card {
-background:#101728;
-text-align:center;
-padding:0.8rem;
-border-radius:12px;
-box-shadow:0 4px 12px rgba(0,0,0,0.3);
-transition: transform 0.3s;
-aspect-ratio:1/1;
-display:flex;
-flex-direction:column;
-justify-content:center;
-border:1px solid #d4af37;
-}
-
-.contact-card:hover {
-transform:translateY(-3px) scale(1.02);
-}
-
-.contact-card a,
-.contact-card p {
-color:#d4af37;
-text-decoration:none;
-font-weight:bold;
-}
-
-.contact-icon {
-font-size:1.5rem;
-color:#d4af37;
-margin-bottom:0.4rem;
-}
-
-/* Footer */
-
-.footer {
-background:#000814;
-color:#d4af37;
-padding:2rem 0;
-text-align:center;
-}
-
-/* Floating Donate */
-
-.floating-donate-btn {
-position:fixed;
-bottom:25px;
-right:25px;
-background:#d4af37;
-color:#000;
-padding:0.75rem 1.5rem;
-border-radius:50px;
-font-weight:bold;
-z-index:999;
-box-shadow:0 5px 15px rgba(0,0,0,0.4);
-transition: transform 0.3s, background 0.3s;
-text-decoration:none;
-}
-
-.floating-donate-btn:hover {
-transform:translateY(-3px);
-background:#f1c94a;
-}
-
-/* Fade-in */
-
-.fade-in-on-scroll {
-opacity:0;
-transform:translateY(15px);
-transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.fade-in-on-scroll.visible {
-opacity:1;
-transform:translateY(0);
-}
-
-</style>
-</head>
-
-<body>
-
-<!-- Google Translate Hidden -->
-<div id="google_translate_element" style="display:none;"></div>
-<style>
-.goog-te-banner-frame.skiptranslate { display: none !important; }
-body { top:0px !important; }
-</style>
-
-<a href="#donate" class="floating-donate-btn">Donate</a>
-
-<header class="top-bar">
-
-<div class="brand-area">
-<img src="assets/img/images/logo.webp" alt="VisionBlue Logo">
-<span>The VisionBlue NGO</span>
-</div>
-
-<div class="language-switcher dropdown">
-
-<button class="btn btn-light dropdown-toggle fw-bold" type="button" data-bs-toggle="dropdown">
-🇬🇧 EN
-</button>
-
-<ul class="dropdown-menu dropdown-menu-end">
-
-<li><a class="dropdown-item" href="javascript:void(0)" onclick="translateLanguage('en')">🇬🇧 English</a></li>
-<li><a class="dropdown-item" href="javascript:void(0)" onclick="translateLanguage('fr')">🇫🇷 French</a></li>
-<li><a class="dropdown-item" href="javascript:void(0)" onclick="translateLanguage('it')">🇮🇹 Italian</a></li>
-<li><a class="dropdown-item" href="javascript:void(0)" onclick="translateLanguage('de')">🇩🇪 German</a></li>
-<li><a class="dropdown-item" href="javascript:void(0)" onclick="translateLanguage('es')">🇪🇸 Spanish</a></li>
-<li><a class="dropdown-item" href="javascript:void(0)" onclick="translateLanguage('sv')">🇸🇪 Swedish</a></li>
-
-</ul>
-
-</div>
-</header>
-
-<!-- Hero Section -->
-<section class="hero-section">
-  <div class="hero-content">
-    <img src="assets/img/images/logo.webp" alt="VisionBlue Logo" class="hero-logo">
-    <h1 class="hero-title">Empowering Communities, Shaping Futures</h1>
-    <p class="hero-subtitle">Supporting young women and vulnerable communities through education, vocational training and sustainable development.</p>
-    <div class="hero-buttons"><a href="#mission" class="hero-btn primary-btn">Our Mission</a></div>
+<!-- Mission Section -->
+<section id="mission" class="mission-section fade-in-on-scroll">
+  <div class="container">
+    <h2>Our Mission</h2>
+    <p>
+      The VisionBlue NGO is committed to transforming lives by equipping young women, and vulnerable communities
+      with the skills, knowledge, and opportunities they need for a sustainable future.
+      We believe that every person—regardless of background or circumstance—deserves the chance to rise, learn, and grow.
+      Through education, mentoring, and community-driven development initiatives, we break cycles of poverty and create
+      pathways to dignity, resilience, and hope.
+    </p>
   </div>
 </section>
 
-<!-- MISSION -->
-  <section id="mission" class="mission-section fade-in-on-scroll">
-    <div class="container">
-      <h2>Our Mission</h2>
-      <p>
-        The VisionBlue NGO is committed to transforming lives by equipping young women, and vulnerable communities
-        with the skills, knowledge, and opportunities they need for a sustainable future.
-        We believe that every person—regardless of background or circumstance—deserves the chance to rise, learn, and grow.
-        Through education, mentoring, and community-driven development initiatives, we break cycles of poverty and create
-        pathways to dignity, resilience, and hope.
-      </p>
+<!-- Projects Section -->
+<section id="projects" class="projects-section fade-in-on-scroll">
+  <div class="container">
+    <h2>Our Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card"><div class="project-icon"><i class="fas fa-store"></i></div><h3>Business Start-Up Support</h3><p>Provision of seed funding and coaching for women entrepreneurs to build sustainable business models.</p></div>
+      <div class="project-card"><div class="project-icon"><i class="fas fa-chalkboard-teacher"></i></div><h3>Mentoring & Guidance</h3><p>Regular mentoring sessions, follow-up support, and tailored assistance for our beneficiaries.</p></div>
+      <div class="project-card"><div class="project-icon"><i class="fas fa-graduation-cap"></i></div><h3>Vocational Training</h3><p>Development of practical skills for employment and economic self‑reliance.</p></div>
+      <div class="project-card"><div class="project-icon"><i class="fas fa-users"></i></div><h3>Community Empowerment</h3><p>Strengthening resilient communities through workshops, awareness campaigns, and local partnerships.</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="projects-section fade-in-on-scroll">
-    <div class="container">
-      <h2>Our Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="project-icon"><i class="fas fa-store"></i></div>
-          <h3>Business Start-Up Support</h3>
-          <p>Provision of seed funding and coaching for women entrepreneurs to build sustainable business models.</p>
-        </div>
-        <div class="project-card">
-          <div class="project-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-          <h3>Mentoring & Guidance</h3>
-          <p>Regular mentoring sessions, follow-up support, and tailored assistance for our beneficiaries.</p>
-        </div>
-        <div class="project-card">
-          <div class="project-icon"><i class="fas fa-graduation-cap"></i></div>
-          <h3>Vocational Training</h3>
-          <p>Development of practical skills for employment and economic self‑reliance.</p>
-        </div>
-        <div class="project-card">
-          <div class="project-icon"><i class="fas fa-users"></i></div>
-          <h3>Community Empowerment</h3>
-          <p>Strengthening resilient communities through workshops, awareness campaigns, and local partnerships.</p>
-        </div>
-      </div>
+<!-- About Section -->
+<section id="about" class="about-wide-section fade-in-on-scroll">
+  <div class="container">
+    <h2>About The VisionBlue NGO</h2>
+    <p class="about-intro">The VisionBlue NGO strengthens communities through education, vocational training, and human‑centered development work.</p>
+    <div class="about-wide-grid">
+      <div class="about-wide-card"><div class="about-wide-icon"><i class="fas fa-seedling"></i></div><div class="about-wide-text"><h3>Origins & Vision</h3><p>The VisionBlue NGO was founded with a clear mission: to support young women between the ages of 15 and 25 and communities facing social and economic challenges. Its origins lie in the commitment to create practical and sustainable pathways to empowerment—particularly for young women, and vulnerable groups.</p></div></div>
+      <div class="about-wide-card"><div class="about-wide-icon"><i class="fas fa-university"></i></div><div class="about-wide-text"><h3>Academic & Professional Foundations</h3><p>The work of The VisionBlue NGO is grounded in the academic and professional background of its founder, whose commitment spans ethics, community development, and social responsibility. This foundation shapes our evidence‑based, human‑centered approach.</p></div></div>
+      <div class="about-wide-card"><div class="about-wide-icon"><i class="fas fa-hands-helping"></i></div><div class="about-wide-text"><h3>Response to Crises</h3><p>The VisionBlue NGO emerged during a period of significant social and economic strain in Cameroon. Our response focuses on constructive action—through support, training, and opportunities that foster stability, self‑determination, and long‑term resilience.</p></div></div>
     </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" class="about-wide-section fade-in-on-scroll">
-    <div class="container">
-      <h2>About The VisionBlue NGO</h2>
-      <p class="about-intro">
-        The VisionBlue NGO strengthens communities through education, vocational training, and human‑centered development work.
-      </p>
-      <div class="about-wide-grid">
-        <div class="about-wide-card">
-          <div class="about-wide-icon"><i class="fas fa-seedling"></i></div>
-          <div class="about-wide-text">
-            <h3>Origins & Vision</h3>
-            <p>
-              The VisionBlue NGO was founded with a clear mission: to support young women between the ages of 15 and 25 and communities facing social and economic challenges.
-              Its origins lie in the commitment to create practical and sustainable pathways to empowerment—particularly for young women, and vulnerable groups.
-            </p>
-          </div>
-        </div>
-        <div class="about-wide-card">
-          <div class="about-wide-icon"><i class="fas fa-university"></i></div>
-          <div class="about-wide-text">
-            <h3>Academic & Professional Foundations</h3>
-            <p>
-              The work of The VisionBlue NGO is grounded in the academic and professional background of its founder,
-              whose commitment spans ethics, community development, and social responsibility.
-              This foundation shapes our evidence‑based, human‑centered approach.
-            </p>
-          </div>
-        </div>
-        <div class="about-wide-card">
-          <div class="about-wide-icon"><i class="fas fa-hands-helping"></i></div>
-          <div class="about-wide-text">
-            <h3>Response to Crises</h3>
-            <p>
-              The VisionBlue NGO emerged during a period of significant social and economic strain in Cameroon.
-              Our response focuses on constructive action—through support, training, and opportunities that foster stability,
-              self‑determination, and long‑term resilience.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 <!-- Team Section -->
 <section id="team" class="fade-in-on-scroll">
 <h2>Leadership Team</h2>
@@ -1367,63 +292,28 @@ body { top:0px !important; }
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<script type="text/javascript">
-/* ===========================
-   Dynamic Year in Footer
-   =========================== */
+<script>
 document.getElementById("year").textContent = new Date().getFullYear();
-
-/* ===========================
-   Fade-in on Scroll
-   =========================== */
 const faders = document.querySelectorAll('.fade-in-on-scroll');
 const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.2 });
+  entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); } });
+},{threshold:0.2});
 faders.forEach(el => observer.observe(el));
 
-/* ===========================
-   Google Translate Initialization
-   =========================== */
 function googleTranslateElementInit() {
-  new google.translate.TranslateElement(
-    {
-      pageLanguage: 'en',
-      includedLanguages: 'en,fr,it,de,es,sv',
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-    },
-    'google_translate_element'
-  );
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: 'en,fr,it,de,es,sv',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element');
 }
 
-/* ===========================
-   Translate via Dropdown
-   =========================== */
-function translateLanguage(lang) {
-  // Retry until the iframe is ready
-  const interval = setInterval(() => {
-    const iframe = document.querySelector('iframe.goog-te-menu-frame');
-    if (iframe) {
-      const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
-      const select = innerDoc.querySelector('.goog-te-combo');
-      if (select) {
-        select.value = lang;
-        select.dispatchEvent(new Event('change'));
-        clearInterval(interval);
-      }
-    }
-  }, 100);
+function translateLanguage(lang){
+  var select = document.querySelector(".goog-te-combo");
+  if(select){ select.value = lang; select.dispatchEvent(new Event("change")); }
 }
 </script>
-
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-</body>
-</html>
 </body>
 </html>
