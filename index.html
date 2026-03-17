@@ -9,18 +9,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- GOOGLE TRANSLATE -->
-<script>
-function googleTranslateElementInit() {
-new google.translate.TranslateElement(
-{pageLanguage: 'en', autoDisplay:false},
-'google_translate_element'
-);
-}
-</script>
-
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
 <style>
 
 html, body {
@@ -30,14 +18,6 @@ font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 scroll-behavior:smooth;
 background:#0b0f1a;
 color:#eaeaea;
-}
-
-/* HIDE GOOGLE TOOLBAR */
-.goog-te-banner-frame.skiptranslate {
-display:none !important;
-}
-body {
-top:0 !important;
 }
 
 h2 {
@@ -80,29 +60,7 @@ color:#d4af37;
 border-radius:5px;
 }
 
-/* FLOATING DONATE BUTTON RESTORED */
-
-.floating-donate-btn {
-position:fixed;
-bottom:25px;
-right:25px;
-background:#d4af37;
-color:#000;
-padding:0.75rem 1.5rem;
-border-radius:50px;
-font-weight:bold;
-z-index:999;
-box-shadow:0 5px 15px rgba(0,0,0,0.4);
-transition: transform 0.3s, background 0.3s;
-text-decoration:none;
-}
-
-.floating-donate-btn:hover{
-transform:translateY(-3px);
-background:#f1c94a;
-}
-
-/* HERO */
+/* Hero */
 
 .hero-section {
 min-height:75vh;
@@ -130,42 +88,419 @@ font-size:1.1rem;
 margin-bottom:2rem;
 }
 
-/* (ALL YOUR OTHER CSS REMAINS EXACTLY THE SAME) */
+.hero-buttons .hero-btn {
+margin:0 0.5rem;
+padding:0.6rem 1.2rem;
+border-radius:50px;
+font-weight:bold;
+transition:0.3s;
+}
+
+.hero-btn.primary-btn {
+background:#d4af37;
+color:#000;
+border:none;
+}
+
+.hero-btn.primary-btn:hover {
+background:#f1c94a;
+}
+
+.hero-btn.secondary-btn {
+background:transparent;
+color:#fff;
+border:2px solid #d4af37;
+}
+
+.hero-btn.secondary-btn:hover {
+background:#d4af37;
+color:#000;
+}
+
+
+/* Mission */
+
+.mission-section {
+background:linear-gradient(to right,#001f4d,#000814);
+padding:3rem 1rem;
+color:#fff;
+text-align:center;
+}
+
+.mission-grid {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:2rem;
+justify-content:center;
+margin-top:2rem;
+}
+
+.mission-card {
+background:rgba(255,255,255,0.05);
+border:1px solid #d4af37;
+border-radius:20px;
+padding:2rem;
+box-shadow:0 8px 20px rgba(0,0,0,0.4);
+text-align:center;
+transition: transform 0.3s, box-shadow 0.3s;
+max-width:320px;
+margin:auto;
+}
+
+.mission-card p{
+text-align:center;
+}
+
+/* Projects */
+
+.projects-section {
+padding:2rem 1rem;
+background:#0f1626;
+}
+
+.projects-grid {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:1.5rem;
+justify-items:center;
+}
+
+.project-card {
+background:#ffffff;
+border-radius:15px;
+padding:1rem 1.2rem;
+text-align:center;
+box-shadow:0 4px 15px rgba(0,0,0,0.25);
+transition: transform 0.3s, box-shadow 0.3s;
+aspect-ratio:1/1;
+display:flex;
+flex-direction:column;
+justify-content:center;
+width:100%;
+max-width:220px;
+}
+
+.project-card:hover {
+transform: translateY(-4px);
+box-shadow:0 8px 25px rgba(0,0,0,0.4);
+}
+.project-card {
+text-align:center;
+align-items:center;
+}
+
+.project-card p{
+text-align:center;
+}
+
+/* Project Titles (keep blue) */
+.project-card h3 {
+color:#001f4d;
+margin-bottom:0.5rem;
+font-size:1rem;
+}
+
+/* Project Description (now black for readability) */
+.project-card p {
+font-size:0.85rem;
+line-height:1.4;
+color:#000;
+}
+
+.project-icon {
+font-size:2rem;
+color:#d4af37;
+margin-bottom:0.5rem;
+}
+
+/* About */
+
+.about-wide-section {
+padding:2rem 1rem;
+background:#0b0f1a;
+}
+
+.about-intro {
+text-align:center;
+margin-bottom:2rem;
+font-size:1rem;
+color:#ddd;
+}
+
+.about-wide-grid {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:1.5rem;
+}
+
+.about-wide-card {
+display:flex;
+background:#101728;
+border-radius:12px;
+box-shadow:0 4px 12px rgba(0,0,0,0.4);
+padding:1rem;
+align-items:flex-start;
+gap:0.8rem;
+}
+
+.about-wide-icon {
+font-size:2rem;
+color:#d4af37;
+margin-top:0.2rem;
+}
+
+.about-wide-text h3 {
+margin:0 0 0.4rem 0;
+color:#d4af37;
+font-size:1rem;
+}
+
+.about-wide-text p {
+margin:0;
+font-size:0.9rem;
+line-height:1.4;
+}
+
+/* Team */
+
+.team-grid {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+gap:1.5rem;
+margin:0 2rem 3rem 2rem;
+justify-items:center;
+}
+
+.team-member {
+background:#101728;
+width:140px;
+height:160px;
+border-radius:10px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+padding:0.8rem;
+text-align:center;
+border:1px solid #d4af37;
+}
+
+.team-member img {
+width:80px;
+height:80px;
+object-fit:cover;
+border-radius:50%;
+margin-bottom:0.4rem;
+}
+
+.team-member h3 {
+font-size:0.9rem;
+color:#d4af37;
+margin:0;
+}
+
+/* Timeline */
+
+.timeline {
+display:flex;
+flex-direction:column;
+align-items:center;
+margin:2rem 1rem;
+gap:1rem;
+}
+
+.timeline-item {
+background:#101728;
+padding:1rem 1.5rem;
+border-radius:12px;
+box-shadow:0 4px 12px rgba(0,0,0,0.3);
+text-align:center;
+width:100%;
+max-width:500px;
+border-left:4px solid #d4af37;
+}
+
+.timeline-item h3 {
+font-size:1rem;
+color:#d4af37;
+margin-bottom:0.4rem;
+}
+
+/* Gallery */
+
+.gallery-grid {
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+margin:2rem auto 3rem auto;
+max-width:900px;
+justify-items:center;
+}
+
+.gallery-img {
+width:100%;
+max-width:260px;
+aspect-ratio:1/1;
+object-fit:cover;
+border-radius:12px;
+transition: transform 0.3s;
+border:2px solid #d4af37;
+}
+
+.gallery-img:hover {
+transform:scale(1.05);
+cursor:pointer;
+}
+
+/* Donate */
+
+.donate-section {
+padding:2rem 1rem;
+background:#000814;
+}
+
+.donate-grid {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+gap:1rem;
+justify-items:center;
+margin:0 2rem 3rem 2rem;
+}
+
+.donate-card {
+background:#d4af37;
+color:#000;
+padding:1.5rem;
+border-radius:12px;
+text-align:center;
+box-shadow:0 4px 12px rgba(0,0,0,0.3);
+transition: transform 0.3s;
+display:flex;
+flex-direction:column;
+justify-content:center;
+min-height:160px;
+}
+
+.donate-card a {
+color:#000;
+text-decoration:none;
+font-weight:bold;
+}
+
+.donate-card:hover {
+transform:translateY(-3px) scale(1.02);
+background:#f1c94a;
+}
+
+/* Contact */
+
+.contact-grid {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+gap:1rem;
+margin:0 2rem 3rem 2rem;
+justify-items:center;
+}
+
+.contact-card {
+background:#101728;
+text-align:center;
+padding:0.8rem;
+border-radius:12px;
+box-shadow:0 4px 12px rgba(0,0,0,0.3);
+transition: transform 0.3s;
+aspect-ratio:1/1;
+display:flex;
+flex-direction:column;
+justify-content:center;
+border:1px solid #d4af37;
+}
+
+.contact-card:hover {
+transform:translateY(-3px) scale(1.02);
+}
+
+.contact-card a,
+.contact-card p {
+color:#d4af37;
+text-decoration:none;
+font-weight:bold;
+}
+
+.contact-icon {
+font-size:1.5rem;
+color:#d4af37;
+margin-bottom:0.4rem;
+}
+
+/* Footer */
+
+.footer {
+background:#000814;
+color:#d4af37;
+padding:2rem 0;
+text-align:center;
+}
+
+/* Floating Donate */
+
+.floating-donate-btn {
+position:fixed;
+bottom:25px;
+right:25px;
+background:#d4af37;
+color:#000;
+padding:0.75rem 1.5rem;
+border-radius:50px;
+font-weight:bold;
+z-index:999;
+box-shadow:0 5px 15px rgba(0,0,0,0.4);
+transition: transform 0.3s, background 0.3s;
+text-decoration:none;
+}
+
+.floating-donate-btn:hover {
+transform:translateY(-3px);
+background:#f1c94a;
+}
+
+/* Fade-in */
+
+.fade-in-on-scroll {
+opacity:0;
+transform:translateY(15px);
+transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-on-scroll.visible {
+opacity:1;
+transform:translateY(0);
+}
 
 </style>
 </head>
 
 <body>
 
-<!-- Hidden translator -->
-<div id="google_translate_element" style="display:none;"></div>
-
 <a href="#donate" class="floating-donate-btn">Donate</a>
 
+<!-- Top Bar -->
 <header class="top-bar">
-
 <div class="brand-area">
 <img src="assets/img/images/logo.webp" alt="VisionBlue Logo">
 <span>The VisionBlue NGO</span>
 </div>
 
 <div class="language-switcher dropdown">
-
-<button class="btn btn-light dropdown-toggle fw-bold" type="button" data-bs-toggle="dropdown">
-🇬🇧 EN
-</button>
-
+<button class="btn btn-light dropdown-toggle fw-bold" type="button" data-bs-toggle="dropdown">🇬🇧 EN</button>
 <ul class="dropdown-menu dropdown-menu-end">
-
-<li><a class="dropdown-item" href="#" onclick="translateLanguage('en')">🇬🇧 English</a></li>
-<li><a class="dropdown-item" href="#" onclick="translateLanguage('fr')">🇫🇷 French</a></li>
-<li><a class="dropdown-item" href="#" onclick="translateLanguage('it')">🇮🇹 Italian</a></li>
-<li><a class="dropdown-item" href="#" onclick="translateLanguage('de')">🇩🇪 German</a></li>
-<li><a class="dropdown-item" href="#" onclick="translateLanguage('es')">🇪🇸 Spanish</a></li>
-<li><a class="dropdown-item" href="#" onclick="translateLanguage('sv')">🇸🇪 Swedish</a></li>
-
+<li><a class="dropdown-item" href="index-en.html">🇬🇧 English</a></li>
+<li><a class="dropdown-item" href="index-fr.html">🇫🇷 French</a></li>
+<li><a class="dropdown-item" href="index-it.html">🇮🇹 Italian</a></li>
+<li><a class="dropdown-item" href="index-de.html">🇩🇪 German</a></li>
+<li><a class="dropdown-item" href="index-es.html">🇪🇸 Spanish</a></li>
+<li><a class="dropdown-item" href="index-sv.html">🇸🇪 Swedish</a></li>
 </ul>
-
 </div>
 </header>
 
@@ -334,19 +669,8 @@ margin-bottom:2rem;
 </footer>
 
 <script>
-
 document.getElementById("year").textContent = new Date().getFullYear();
-
-function translateLanguage(lang){
-var select=document.querySelector(".goog-te-combo");
-if(select){
-select.value=lang;
-select.dispatchEvent(new Event("change"));
-}
-}
-
 const faders = document.querySelectorAll('.fade-in-on-scroll');
-
 const observer = new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
 if(entry.isIntersecting){
@@ -354,9 +678,7 @@ entry.target.classList.add('visible');
 }
 });
 },{threshold:0.2});
-
 faders.forEach(el=>observer.observe(el));
-
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
