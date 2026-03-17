@@ -1,675 +1,188 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The VisionBlue NGO</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <meta name="description" content="The VisionBlue NGO impulsa a jóvenes mujeres y comunidades vulnerables mediante educación, formación profesional y programas de desarrollo centrados en las personas.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VisionBlue ONG</title>
+<meta name="description" content="VisionBlue ONG empodera a jóvenes y comunidades vulnerables mediante educación, formación profesional y programas de desarrollo sostenible.">
 
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="assets/css/style.css">
+<style>
+/* KEEP YOUR EXISTING STYLES AS IS */
+</style>
 </head>
-
 <body>
-  <!-- BOTÓN HAMBURGUESA PARA MENÚ IZQUIERDO -->
-  <div class="menu-toggle" onclick="toggleMenu()">
-    <i class="fa-solid fa-bars"></i>
+
+<!-- Google Translate Hidden -->
+<div id="google_translate_element" style="display:none;"></div>
+
+<!-- Floating Donate Button -->
+<a href="#donate" class="floating-donate-btn">Donar</a>
+
+<!-- Top Bar -->
+<header class="top-bar">
+  <div class="brand-area">
+    <img src="assets/img/images/logo.webp" alt="Logo VisionBlue">
+    <span>VisionBlue ONG</span>
   </div>
-
-  <!-- BOTÓN FLOTANTE DE DONACIÓN -->
-  <a href="#donate" class="floating-donate-btn">Donar</a>
-
-  <!-- MENÚ LATERAL IZQUIERDO -->
-  <nav class="side-menu" id="sideMenu">
-    <ul class="nav-links d-flex align-items-center">
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle clean-menu-toggle">
-          Menú
-        </a>
-        <ul class="dropdown-menu">
-          <li><a href="#home"><i class="fas fa-home"></i> Inicio</a></li>
-          <li><a href="#mission"><i class="fas fa-bullseye"></i> Misión</a></li>
-          <li><a href="#projects"><i class="fas fa-hands-helping"></i> Proyectos</a></li>
-          <li><a href="#gallery"><i class="fas fa-images"></i> Galería</a></li>
-          <li><a href="#contact"><i class="fas fa-envelope"></i> Contacto</a></li>
-        </ul>
-      </li>
+  <div class="language-switcher dropdown">
+    <button class="btn btn-light dropdown-toggle fw-bold" type="button" data-bs-toggle="dropdown">
+      🇪🇸 ES
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end">
+      <li><a class="dropdown-item" href="javascript:void(0)" onclick="translateLanguage('en')">🇬🇧 Inglés</a></li>
+      <li><a class="dropdown-item" href="javascript:void(0)" onclick="translateLanguage('fr')">🇫🇷 Francés</a></li>
+      <li><a class="dropdown-item" href="javascript:void(0)" onclick="translateLanguage('it')">🇮🇹 Italiano</a></li>
+      <li><a class="dropdown-item" href="javascript:void(0)" onclick="translateLanguage('de')">🇩🇪 Alemán</a></li>
+      <li><a class="dropdown-item" href="javascript:void(0)" onclick="translateLanguage('es')">🇪🇸 Español</a></li>
+      <li><a class="dropdown-item" href="javascript:void(0)" onclick="translateLanguage('sv')">🇸🇪 Sueco</a></li>
     </ul>
-  </nav>
-
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-dark bg-primary fixed-top elegant-navbar">
-    <div class="container d-flex justify-content-between align-items-center">
-
-      <!-- IZQUIERDA: LOGO + NOMBRE -->
-      <a class="navbar-brand fw-bold d-flex align-items-center" href="#home">
-        <img src="assets/img/images/logo.png" alt="Logotipo de The VisionBlue" class="nav-logo-left">
-        <span class="ngo-title">The VisionBlue NGO</span>
-      </a>
-
-      <div class="nav-spacer"></div>
-    </div>
-
-    <!-- DERECHA: SELECCIÓN DE IDIOMA -->
-    <div class="d-flex align-items-center gap-2">
-      <div class="dropdown">
-        <button class="btn btn-light dropdown-toggle fw-bold" type="button" data-bs-toggle="dropdown">
-          🌐 Idioma
-        </button>
-        <ul class="dropdown-menu dropdown-menu-end">
-          <li><a class="dropdown-item" href="index-en.html">🇬🇧 Inglés</a></li>
-          <li><a class="dropdown-item" href="index-fr.html">🇫🇷 Francés</a></li>
-          <li><a class="dropdown-item" href="index-it.html">🇮🇹 Italiano</a></li>
-          <li><a class="dropdown-item" href="index-de.html">🇩🇪 Alemán</a></li>
-          <li><a class="dropdown-item" href="index-es.html">🇪🇸 Español</a></li>
-          <li><a class="dropdown-item" href="index-no.html">🇳🇴 Noruego</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <section id="home" class="hero-section">
-    <div class="hero-overlay"></div>
-
-    <div class="container text-center hero-content">
-      <div class="hero-logo-container">
-        <img src="assets/img/images/logo.png" alt="Logotipo de The VisionBlue" class="hero-logo">
-      </div>
-
-      <h1 class="hero-title">Fortaleciendo comunidades, construyendo futuros</h1>
-      <p class="hero-subtitle">
-        Apoyo a jóvenes mujeres y grupos vulnerables mediante educación y formación profesional
-      </p>
-
-      <!-- MISIÓN -->
-      <section id="mission" class="mission-section fade-in-on-scroll">
-        <div class="container">
-          <h2>Nuestra Misión</h2>
-          <p>
-            The VisionBlue NGO trabaja para transformar vidas proporcionando a jóvenes mujeres y comunidades vulnerables
-            las habilidades, el conocimiento y las oportunidades necesarias para un futuro sostenible.
-            Creemos que toda persona —independientemente de su origen o circunstancias— merece la oportunidad de crecer,
-            aprender y prosperar. A través de la educación, el acompañamiento y el desarrollo comunitario, rompemos ciclos
-            de pobreza y abrimos caminos hacia la dignidad, la resiliencia y la esperanza.
-          </p>
-        </div>
-      </section>
-
-      <!-- PROYECTOS -->
-      <section id="projects" class="projects-section fade-in-on-scroll">
-        <div class="container">
-          <h2>Nuestros Proyectos</h2>
-          <div class="projects-grid">
-
-            <div class="project-card">
-              <div class="project-icon"><i class="fas fa-store"></i></div>
-              <h3>Apoyo al emprendimiento</h3>
-              <p>Provisión de capital inicial y acompañamiento para mujeres emprendedoras con el fin de crear negocios sostenibles.</p>
-            </div>
-
-            <div class="project-card">
-              <div class="project-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-              <h3>Mentoría y acompañamiento</h3>
-              <p>Sesiones periódicas de mentoría, seguimiento y apoyo personalizado para nuestras beneficiarias.</p>
-            </div>
-
-            <div class="project-card">
-              <div class="project-icon"><i class="fas fa-graduation-cap"></i></div>
-              <h3>Formación profesional</h3>
-              <p>Desarrollo de habilidades prácticas para el empleo y la autonomía económica.</p>
-            </div>
-
-            <div class="project-card">
-              <div class="project-icon"><i class="fas fa-users"></i></div>
-              <h3>Fortalecimiento comunitario</h3>
-              <p>Construcción de comunidades resilientes mediante talleres, campañas de sensibilización y alianzas locales.</p>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      <!-- BOTONES HERO -->
-      <div class="hero-buttons">
-        <a href="#projects" class="hero-btn primary-btn">Más información</a>
-        <a href="#mission" class="hero-btn secondary-btn">Nuestra misión</a>
-      </div>
-
-      <!-- FLECHA DE DESPLAZAMIENTO -->
-      <div class="scroll-down">
-        <span></span>
-      </div>
-    </div>
-  </section>
-
-  <!-- SOBRE NOSOTROS -->
-  <section id="about" class="about-wide-section fade-in-on-scroll">
-    <div class="container">
-      <h2>Sobre The VisionBlue NGO</h2>
-      <p class="about-intro">
-        The VisionBlue NGO fortalece comunidades mediante educación, formación profesional y desarrollo centrado en las personas.
-      </p>
-
-      <div class="about-wide-grid">
-
-        <!-- ORÍGENES -->
-        <div class="about-wide-card">
-          <div class="about-wide-icon"><i class="fas fa-seedling"></i></div>
-          <div class="about-wide-text">
-            <h3>Orígenes y visión</h3>
-            <p>
-              The VisionBlue NGO nació con un propósito claro: apoyar a personas y comunidades que afrontan desafíos sociales y económicos.
-              Sus orígenes se encuentran en el compromiso de crear vías prácticas y sostenibles de empoderamiento, especialmente para jóvenes,
-              mujeres y grupos vulnerables.
-            </p>
-          </div>
-        </div>
-
-        <!-- FUNDAMENTOS -->
-        <div class="about-wide-card">
-          <div class="about-wide-icon"><i class="fas fa-university"></i></div>
-          <div class="about-wide-text">
-            <h3>Fundamentos académicos y profesionales</h3>
-            <p>
-              El trabajo de The VisionBlue NGO se apoya en la trayectoria académica y profesional de su fundador,
-              cuyo compromiso abarca la ética, el desarrollo comunitario y la responsabilidad social.
-              Esta base sustenta nuestro enfoque humano y basado en la evidencia.
-            </p>
-          </div>
-        </div>
-
-        <!-- CRISIS -->
-        <div class="about-wide-card">
-          <div class="about-wide-icon"><i class="fas fa-hands-helping"></i></div>
-          <div class="about-wide-text">
-            <h3>Respuesta ante crisis</h3>
-            <p>
-              The VisionBlue NGO surgió en un periodo de importantes tensiones sociales y económicas.
-              Nuestra respuesta se centra en la acción constructiva: apoyo, formación y oportunidades que fomentan la estabilidad,
-              la autodeterminación y la resiliencia a largo plazo.
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- LÍNEA DE TIEMPO -->
-  <section id="timeline" class="timeline-section fade-in-on-scroll">
-    <div class="container">
-      <h2>Nuestro camino</h2>
-
-      <div class="timeline">
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3>Junio 2018 – Primeras beneficiarias identificadas</h3>
-            <p>Selección inicial de jóvenes mujeres y personas vulnerables en Yaundé para apoyo y acompañamiento.</p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3>Febrero 2019 – Noviembre 2021 – Análisis e inicio del apoyo empresarial</h3>
-            <p>Introducción de micro-subvenciones y acompañamiento para fortalecer actividades generadoras de ingresos.</p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3>Enero 2022 – Programa de mentoría y seguimiento</h3>
-            <p>Visitas estructuradas de seguimiento y mentoría para garantizar continuidad y crecimiento.</p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3>2025 – Expansión a nuevas comunidades</h3>
-            <p>Ampliación de actividades para llegar a más beneficiarias y aumentar el impacto.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- GALERÍA -->
-  <section id="gallery" class="gallery-section fade-in-on-scroll">
-
-    <!-- DIVISOR SUPERIOR -->
-    <div class="wave-divider-top">
-      <svg viewBox="0 0 1440 120"><path fill="#ffffff" d="M0,0 C480,120 960,0 1440,120 L1440,0 L0,0 Z"></path></svg>
-    </div>
-
-    <div class="container">
-      <h2 class="gallery-title">Galería</h2>
-
-      <!-- MASONRY GRID -->
-      <div class="masonry-grid">
-
-        <!-- GRUPO 1 -->
-        <div class="masonry-item overlay-container">
-          <img src="assets/img/images/gallery2.jpg" class="gallery-img" alt="">
-          <div class="overlay-label">Mentoría y seguimiento — Yaundé</div>
-        </div>
-
-        <div class="masonry-item overlay-container">
-          <img src="assets/img/images/gallery3.jpg" class="gallery-img" alt="">
-          <div class="overlay-label">Mentoría y seguimiento — Yaundé</div>
-        </div>
-
-        <!-- GRUPO 2 -->
-        <div class="masonry-item overlay-container">
-          <img src="assets/img/images/beneficiaries1.jpeg" class="gallery-img" alt="">
-          <div class="overlay-label">Primeras beneficiarias — Hilda, Martha y Virginie</div>
-        </div>
-
-        <!-- GRUPO 3 -->
-        <div class="masonry-item overlay-container">
-          <img src="assets/img/images/HildaBusiness1.jpeg" class="gallery-img" alt="">
-          <div class="overlay-label">Hilda — Nuevo local comercial</div>
-        </div>
-
-        <div class="masonry-item overlay-container">
-          <img src="assets/img/images/HildaBusiness2.jpeg" class="gallery-img" alt="">
-          <div class="overlay-label">Hilda — Nuevo local comercial</div>
-        </div>
-
-        <div class="masonry-item overlay-container">
-          <img src="assets/img/images/HildaBusiness3.jpeg" class="gallery-img" alt="">
-          <div class="overlay-label">Hilda — Nuevo local comercial</div>
-        </div>
-
-        <!-- GRUPO 4 -->
-        <div class="masonry-item overlay-container">
-          <img src="assets/img/images/MarthaBusiness1.jpeg" class="gallery-img" alt="">
-          <div class="overlay-label">Martha — Nuevo local comercial</div>
-        </div>
-
-        <div class="masonry-item overlay-container">
-          <img src="assets/img/images/MarthaBusiness2.jpeg" class="gallery-img" alt="">
-          <div class="overlay-label">Martha — Nuevo local comercial</div>
-        </div>
-
-        <!-- GRUPO 5 -->
-        <div class="masonry-item overlay-container">
-          <img src="assets/img/images/VirginieBusiness1.jpeg" class="gallery-img" alt="">
-          <div class="overlay-label">Virginie — Nuevo local comercial</div>
-        </div>
-
-        <div class="masonry-item overlay-container">
-          <img src="assets/img/images/VirginieBusiness2.jpeg" class="gallery-img" alt="">
-          <div class="overlay-label">Virginie — Nuevo local comercial</div>
-        </div>
-
-        <div class="masonry-item overlay-container">
-          <img src="assets/img/images/VirginieBusiness3.jpeg" class="gallery-img" alt="">
-          <div class="overlay-label">Virginie — Nuevo local comercial</div>
-        </div>
-
-        <div class="masonry-item overlay-container">
-          <img src="assets/img/images/VirginieBusiness4.jpeg" class="gallery-img" alt="">
-          <div class="overlay-label">Virginie — Nuevo local comercial</div>
-        </div>
-
-        <!-- GRUPO 6 -->
-        <div class="masonry-item overlay-container">
-          <img src="assets/img/images/BeneficiariesGroupPicture1.jpeg" class="gallery-img" alt="">
-          <div class="overlay-label">Foto de grupo — Beneficiarias y equipo</div>
-        </div>
-
-        <!-- GRUPO 7 -->
-        <div class="masonry-item overlay-container">
-          <img src="assets/img/images/Hilda.jpeg" class="gallery-img" alt="">
-          <div class="overlay-label">Ceremonia de apoyo — Yaundé</div>
-        </div>
-
-        <div class="masonry-item overlay-container">
-          <img src="assets/img/images/Martha.jpeg" class="gallery-img" alt="">
-          <div class="overlay-label">Ceremonia de apoyo — Yaundé</div>
-        </div>
-
-        <div class="masonry-item overlay-container">
-          <img src="assets/img/images/Virginie.jpeg" class="gallery-img" alt="">
-          <div class="overlay-label">Ceremonia de apoyo — Yaundé</div>
-        </div>
-
-        <!-- GRUPO 8 -->
-        <div class="masonry-item overlay-container">
-          <img src="assets/img/images/YaoundéMeeting1.jpeg" class="gallery-img" alt="">
-          <div class="overlay-label">Reunión con el Sr. Mukong y el equipo — Yaundé</div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- DIVISOR INFERIOR -->
-    <div class="wave-divider-bottom">
-      <svg viewBox="0 0 1440 120"><path fill="#ffffff" d="M0,120 C480,0 960,120 1440,0 L1440,120 L0,120 Z"></path></svg>
-    </div>
-  </section>
-
-  <!-- LIGHTBOX -->
-  <div id="lightbox" class="lightbox">
-    <span class="lightbox-close">&times;</span>
-    <img class="lightbox-content" id="lightbox-img">
   </div>
+</header>
 
-  <!-- DONAR -->
-  <section id="donate" class="donate-section fade-in-on-scroll">
-    <div class="container">
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="hero-content">
+    <img src="assets/img/images/logo.webp" alt="Logo VisionBlue" class="hero-logo">
+    <h1 class="hero-title">Empoderando comunidades, construyendo futuros</h1>
+    <p class="hero-subtitle">Apoyando a jóvenes y comunidades vulnerables mediante educación, formación profesional y desarrollo sostenible.</p>
+    <div class="hero-buttons"><a href="#mission" class="hero-btn primary-btn">Nuestra Misión</a></div>
+  </div>
+</section>
 
-      <h2>Apoye nuestra misión</h2>
-      <p class="donate-intro">
-        Su generosidad hace posible la educación, el empoderamiento y el desarrollo sostenible de jóvenes, mujeres y comunidades vulnerables.
-      </p>
+<!-- Mission Section -->
+<section id="mission" class="mission-section fade-in-on-scroll">
+  <div class="container">
+    <h2>Nuestra Misión</h2>
+    <p>
+      VisionBlue ONG se compromete a transformar vidas equipando a jóvenes y comunidades vulnerables
+      con las habilidades, conocimientos y oportunidades necesarias para un futuro sostenible.
+      Creemos que cada persona —independientemente de su origen o circunstancias— merece la oportunidad de crecer, aprender y desarrollarse.
+      A través de la educación, mentoría e iniciativas de desarrollo comunitario, rompemos ciclos de pobreza
+      y creamos caminos hacia la dignidad, resiliencia y esperanza.
+    </p>
+  </div>
+</section>
 
-      <!-- POR QUÉ DONAR -->
-      <div class="why-donate fade-in-on-scroll">
-        <h3>¿Por qué donar?</h3>
-        <p>
-          Cada contribución fortalece nuestros programas, amplía nuestro alcance y ayuda a transformar vidas.
-          Su apoyo financia directamente la formación, la mentoría, el desarrollo comunitario y la asistencia de emergencia.
-        </p>
-      </div>
-
-      <!-- MÉTODOS DE DONACIÓN -->
-      <div class="donate-grid">
-
-                <!-- PAYPAL -->
-        <div class="donate-card">
-          <div class="donate-icon animated-icon"><i class="fab fa-paypal"></i></div>
-          <h3>PayPal</h3>
-          <p>Done de forma segura a través de PayPal.</p>
-          <img src="images/paypal-qr.png" alt="Código QR de PayPal" class="qr-code">
-          <a href="#" class="donate-btn">Donar con PayPal</a>
-        </div>
-
-        <!-- IBAN -->
-        <div class="donate-card">
-          <div class="donate-icon animated-icon"><i class="fas fa-university"></i></div>
-          <h3>Transferencia bancaria (IBAN)</h3>
-          <p>Utilice los siguientes datos para realizar una transferencia directa.</p>
-          <div class="iban-box">
-            <strong>IBAN:</strong><br>
-            <span>[AÑADIR IBAN AQUÍ]</span><br><br>
-            <strong>Titular de la cuenta:</strong><br>
-            <span>The VisionBlue NGO</span>
-          </div>
-        </div>
-
-        <!-- MTN MOMO -->
-        <div class="donate-card">
-          <div class="donate-image-icon animated-icon">
-            <img src="images/mtn-momo.png" alt="MTN MoMo">
-          </div>
-          <h3>MTN Mobile Money</h3>
-          <p>Donación móvil rápida y segura.</p>
-          <img src="images/mtn-qr.png" alt="Código QR de MTN MoMo" class="qr-code">
-          <div class="momo-box">
-            <strong>Número MTN MoMo:</strong><br>
-            <span>[NÚMERO MTN MOMO]</span>
-          </div>
-        </div>
-
-        <!-- ORANGE MONEY -->
-        <div class="donate-card">
-          <div class="donate-image-icon animated-icon">
-            <img src="images/orange-money.png" alt="Orange Money">
-          </div>
-          <h3>Orange Money</h3>
-          <p>Done fácilmente a través de Orange Money.</p>
-          <img src="images/orange-qr.png" alt="Código QR de Orange Money" class="qr-code">
-          <div class="orange-box">
-            <strong>Número Orange Money:</strong><br>
-            <span>[NÚMERO ORANGE MONEY]</span>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- DONACIÓN MENSUAL -->
-      <div class="monthly-giving fade-in-on-scroll">
-        <h3>Donación mensual</h3>
-        <p>Conviértase en donante recurrente y apoye nuestra misión cada mes.</p>
-        <button class="donate-btn">Iniciar donación mensual</button>
-      </div>
-
-      <!-- NIVELES DE PATROCINIO -->
-      <div class="sponsor-tiers fade-in-on-scroll">
-        <h3>Conviértase en patrocinador</h3>
-        <div class="tier-grid">
-
-          <div class="tier-card">
-            <h4>Bronce</h4>
-            <p>€10 / mes</p>
-          </div>
-
-          <div class="tier-card">
-            <h4>Plata</h4>
-            <p>€25 / mes</p>
-          </div>
-
-          <div class="tier-card">
-            <h4>Oro</h4>
-            <p>€50 / mes</p>
-          </div>
-
-          <div class="tier-card">
-            <h4>Platino</h4>
-            <p>€100 / mes</p>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- PROGRESO DE DONACIONES -->
-      <div class="donation-progress fade-in-on-scroll">
-        <h3>Progreso de donaciones</h3>
-        <div class="progress-bar">
-          <div class="progress-fill" style="width: 45%;"></div>
-        </div>
-        <p class="progress-text">45 % de nuestro objetivo para 2026 alcanzado</p>
-      </div>
-
-      <!-- CARRUSEL DE DONANTES RECIENTES -->
-      <div class="donor-carousel fade-in-on-scroll">
-        <h3>Donantes más recientes</h3>
-        <div class="carousel-track">
-          <span>⭐ Marie de Yaundé</span>
-          <span>⭐ Luca de Roma</span>
-          <span>⭐ Amina de Duala</span>
-          <span>⭐ Jonas de Berlín</span>
-          <span>⭐ Clara de Milán</span>
-        </div>
-      </div>
-
+<!-- Projects Section -->
+<section id="projects" class="projects-section fade-in-on-scroll">
+  <div class="container">
+    <h2>Nuestros Proyectos</h2>
+    <div class="projects-grid">
+      <div class="project-card"><div class="project-icon"><i class="fas fa-store"></i></div><h3>Apoyo a Emprendimientos</h3><p>Provisión de capital semilla y asesoría para mujeres emprendedoras en la construcción de modelos de negocio sostenibles.</p></div>
+      <div class="project-card"><div class="project-icon"><i class="fas fa-chalkboard-teacher"></i></div><h3>Mentoría y Orientación</h3><p>Sesiones de mentoría regulares, seguimiento y apoyo personalizado para nuestras beneficiarias.</p></div>
+      <div class="project-card"><div class="project-icon"><i class="fas fa-graduation-cap"></i></div><h3>Formación Profesional</h3><p>Desarrollo de habilidades prácticas para el empleo y la autosuficiencia económica.</p></div>
+      <div class="project-card"><div class="project-icon"><i class="fas fa-users"></i></div><h3>Fortalecimiento Comunitario</h3><p>Refuerzo de comunidades resilientes mediante talleres, campañas de concienciación y asociaciones locales.</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CONTACTO -->
-  <section id="contact" class="contact-section fade-in-on-scroll">
-    <div class="container">
-
-      <h2>Contacto</h2>
-      <p class="contact-intro">
-        Estamos aquí para usted: para apoyo, colaboración y diálogo. Contacte con The VisionBlue NGO a través de cualquiera de los siguientes canales.
-      </p>
-
-      <div class="contact-grid">
-
-        <!-- EMAIL -->
-        <div class="contact-card">
-          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-          <h3>Correo electrónico</h3>
-          <p>Puede enviarnos un mensaje en cualquier momento.</p>
-          <a href="mailto:thevisionblue18@gmail.com" class="contact-link">thevisionblue18@gmail.com</a>
-        </div>
-
-        <!-- TELÉFONO CAMERÚN -->
-        <div class="contact-card">
-          <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
-          <h3>Teléfono (Camerún)</h3>
-          <p>Para consultas y apoyo local.</p>
-          <a href="tel:+237676376238" class="contact-link">+237 676 376 238</a>
-        </div>
-
-        <!-- TELÉFONO ALEMANIA -->
-        <div class="contact-card">
-          <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
-          <h3>Teléfono (Alemania)</h3>
-          <p>Para socios y contactos europeos.</p>
-          <a href="tel:+4915214617930" class="contact-link">+49 1521 4617 930</a>
-        </div>
-
-        <!-- TELÉFONO ITALIA -->
-        <div class="contact-card">
-          <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
-          <h3>Teléfono (Italia)</h3>
-          <p>Para consultas y colaboraciones desde Italia.</p>
-          <a href="tel:+393928456152" class="contact-link">+39 392 845 6152</a>
-        </div>
-
-      </div>
+<!-- About Section -->
+<section id="about" class="about-wide-section fade-in-on-scroll">
+  <div class="container">
+    <h2>Acerca de VisionBlue ONG</h2>
+    <p class="about-intro">VisionBlue ONG fortalece comunidades mediante educación, formación profesional y desarrollo centrado en las personas.</p>
+    <div class="about-wide-grid">
+      <div class="about-wide-card"><div class="about-wide-icon"><i class="fas fa-seedling"></i></div><div class="about-wide-text"><h3>Orígenes y Visión</h3><p>VisionBlue ONG se fundó con una misión clara: apoyar a jóvenes entre 15 y 25 años y comunidades con desafíos sociales y económicos. Su origen radica en el compromiso de crear caminos prácticos y sostenibles hacia el empoderamiento, especialmente para mujeres jóvenes y grupos vulnerables.</p></div></div>
+      <div class="about-wide-card"><div class="about-wide-icon"><i class="fas fa-university"></i></div><div class="about-wide-text"><h3>Fundamentos Académicos y Profesionales</h3><p>El trabajo de VisionBlue ONG se basa en la formación académica y profesional de su fundadora, centrada en ética, desarrollo comunitario y responsabilidad social. Esta base guía nuestro enfoque basado en evidencia y centrado en las personas.</p></div></div>
+      <div class="about-wide-card"><div class="about-wide-icon"><i class="fas fa-hands-helping"></i></div><div class="about-wide-text"><h3>Respuesta a Crisis</h3><p>VisionBlue ONG surgió durante un período de gran tensión social y económica en Camerún. Nuestra respuesta se centra en acciones constructivas: apoyo, formación y oportunidades que fomentan estabilidad, autodeterminación y resiliencia a largo plazo.</p></div></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- PIE DE PÁGINA -->
-  <footer class="text-center text-white py-3 bg-primary">
-    <small>&copy; <span id="year"></span> The VisionBlue NGO</small>
-  </footer>
+<!-- Team Section -->
+<section id="team" class="fade-in-on-scroll">
+<h2>Equipo Directivo</h2>
+<div class="team-grid">
+<div class="team-member"><img src="" alt="Presidente"><h3>Presidente</h3></div>
+<div class="team-member"><img src="" alt="CEO"><h3>CEO</h3></div>
+<div class="team-member"><img src="" alt="Vicepresidente"><h3>Vicepresidente</h3></div>
+<div class="team-member"><img src="" alt="Secretario General"><h3>Secretario General</h3></div>
+<div class="team-member"><img src="" alt="Tesorero"><h3>Tesorero</h3></div>
+<div class="team-member"><img src="" alt="Secretario de Finanzas"><h3>Secretario de Finanzas</h3></div>
+<div class="team-member"><img src="" alt="Secretario de Publicidad"><h3>Secretario de Publicidad</h3></div>
+</div>
+</section>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+<!-- Timeline Section -->
+<section id="timeline" class="fade-in-on-scroll">
+<h2>Nuestro Recorrido</h2>
+<div class="timeline">
+<div class="timeline-item"><h3>Feb 2019 – Nov 2021</h3><p>Análisis e Inicio del Apoyo Empresarial</p></div>
+<div class="timeline-item"><h3>Jan 2022</h3><p>Programa de Mentoría y Seguimiento</p></div>
+<div class="timeline-item"><h3>Jan 2023</h3><p>Coaching continuo, programa de seguimiento, campañas escolares y talleres.</p></div>
+<div class="timeline-item"><h3>2024</h3><p>Programas de regreso a clases, paquetes, picnics y actividades recreativas.</p></div>
+<div class="timeline-item"><h3>2025</h3><p>Expansión a nuevas comunidades para profundizar el impacto.</p></div>
+</div>
+</section>
 
-    const readMoreBtn = document.getElementById("readMoreBtn");
-    const moreHistory = document.getElementById("moreHistory");
+<!-- Gallery Section -->
+<section id="gallery" class="fade-in-on-scroll">
+<h2>Galería</h2>
+<div class="gallery-grid">
+<img src="assets/img/images/gallery2.webp" class="gallery-img" alt="Galería">
+<img src="assets/img/images/gallery3.webp" class="gallery-img" alt="Galería">
+<img src="assets/img/images/beneficiaries1.webp" class="gallery-img" alt="Beneficiarios">
+<img src="assets/img/images/HildaBusiness1.webp" class="gallery-img" alt="Negocio de Hilda">
+<img src="assets/img/images/HildaBusiness2.webp" class="gallery-img" alt="Negocio de Hilda">
+<img src="assets/img/images/MarthaBusiness1.webp" class="gallery-img" alt="Negocio de Martha">
+<img src="assets/img/images/VirginieBusiness1.webp" class="gallery-img" alt="Negocio de Virginie">
+<img src="assets/img/images/BeneficiariesGroupPicture1.webp" class="gallery-img" alt="Foto grupal de beneficiarios">
+<img src="assets/img/images/Hilda.webp" class="gallery-img" alt="Hilda">
+</div>
+</section>
 
-    if (readMoreBtn && moreHistory) {
-      readMoreBtn.addEventListener("click", () => {
-        moreHistory.classList.toggle("show");
-        readMoreBtn.textContent =
-          moreHistory.classList.contains("show") ? "Mostrar menos" : "Mostrar más";
-      });
-    }
-  </script>
+<!-- Donate Section -->
+<section id="donate" class="donate-section fade-in-on-scroll">
+<h2>Apoye Nuestra Misión</h2>
+<div class="donate-grid">
+<div class="donate-card"><h3>Mobile Money</h3><a href="tel:+237676376238">+237 676 376 238</a></div>
+<div class="donate-card"><h3>Transferencia Bancaria</h3><a href="#">Contáctenos para detalles de IBAN</a></div>
+<div class="donate-card"><h3>PayPal</h3><a href="https://www.paypal.me/thevisionblue" target="_blank">Donar vía PayPal</a></div>
+</div>
+</section>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Contact Section -->
+<section id="contact" class="fade-in-on-scroll">
+<h2>Contacto</h2>
+<div class="contact-grid">
+<div class="contact-card"><i class="fas fa-envelope contact-icon"></i><h3>Email</h3><a href="mailto:thevisionblue18@gmail.com">thevisionblue18@gmail.com</a></div>
+<div class="contact-card"><i class="fas fa-phone contact-icon"></i><h3>Camerún</h3><a href="tel:+237676376238">+237 676 376 238</a></div>
+<div class="contact-card"><i class="fas fa-phone contact-icon"></i><h3>Alemania</h3><a href="tel:+4915561550887">+49 178 134-2019</a></div>
+<div class="contact-card"><i class="fas fa-phone contact-icon"></i><h3>Italia</h3><a href="tel:+393928456152">+39 392 845 6152</a></div>
+</div>
+</section>
 
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById("sideMenu");
-      menu.classList.toggle("open");
-    }
-  </script>
+<!-- Footer -->
+<footer class="footer">
+<p>© <span id="year"></span> VisionBlue ONG</p>
+</footer>
 
-  <script>
-    window.addEventListener("scroll", function() {
-      const navbar = document.querySelector(".elegant-navbar");
-      if (window.scrollY > 10) {
-        navbar.classList.add("scrolled");
-      } else {
-        navbar.classList.remove("scrolled");
-      }
-    });
-  </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+const faders = document.querySelectorAll('.fade-in-on-scroll');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); } });
+},{threshold:0.2});
+faders.forEach(el => observer.observe(el));
 
-  <script>
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener("click", function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute("href")).scrollIntoView({
-          behavior: "smooth"
-        });
-      });
-    });
-  </script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'es',
+    includedLanguages: 'en,fr,it,de,es,sv',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element');
+}
 
-  <script>
-    // El menú desplegable permanece abierto hasta que se haga clic fuera
-    document.addEventListener('click', function(event) {
-      const dropdown = document.querySelector('.dropdown');
-      const menu = document.querySelector('.dropdown-menu');
-
-      if (dropdown && dropdown.contains(event.target)) {
-        menu.classList.toggle('show');
-      } else if (menu) {
-        menu.classList.remove('show');
-      }
-    });
-  </script>
-
-  <script>
-    const faders = document.querySelectorAll('.fade-in-on-scroll');
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.2 });
-
-    faders.forEach(el => observer.observe(el));
-  </script>
-
-  <script>
-    const sections = document.querySelectorAll('.about-block');
-    const navLinks = document.querySelectorAll('.about-sidebar a');
-
-    window.addEventListener('scroll', () => {
-      let current = "";
-
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 150;
-        if (pageYOffset >= sectionTop) {
-          current = section.getAttribute("id");
-        }
-      });
-
-      navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href").includes(current)) {
-          link.classList.add("active");
-        }
-      });
-    });
-  </script>
-
-  <script>
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const closeBtn = document.querySelector(".lightbox-close");
-
-    if (lightbox && lightboxImg && closeBtn) {
-      document.querySelectorAll(".gallery-img").forEach(img => {
-        img.addEventListener("click", () => {
-          lightbox.style.display = "block";
-          lightboxImg.src = img.src;
-        });
-      });
-
-      closeBtn.addEventListener("click", () => {
-        lightbox.style.display = "none";
-      });
-
-      lightbox.addEventListener("click", (e) => {
-        if (e.target === lightbox) {
-          lightbox.style.display = "none";
-        }
-      });
-    }
-  </script>
+function translateLanguage(lang){
+  var select = document.querySelector(".goog-te-combo");
+  if(select){ select.value = lang; select.dispatchEvent(new Event("change")); }
+}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
