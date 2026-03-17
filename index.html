@@ -482,27 +482,38 @@ transform:translateY(0);
 
 <body>
 
+<!-- Hidden translator -->
+<div id="google_translate_element" style="display:none;"></div>
+
 <a href="#donate" class="floating-donate-btn">Donate</a>
 
-<!-- Top Bar -->
 <header class="top-bar">
+
 <div class="brand-area">
 <img src="assets/img/images/logo.webp" alt="VisionBlue Logo">
 <span>The VisionBlue NGO</span>
 </div>
 
 <div class="language-switcher dropdown">
-<button class="btn btn-light dropdown-toggle fw-bold" type="button" data-bs-toggle="dropdown">🇬🇧 EN</button>
+
+<button class="btn btn-light dropdown-toggle fw-bold" type="button" data-bs-toggle="dropdown">
+🇬🇧 EN
+</button>
+
 <ul class="dropdown-menu dropdown-menu-end">
-<li><a class="dropdown-item" href="index-en.html">🇬🇧 English</a></li>
-<li><a class="dropdown-item" href="index-fr.html">🇫🇷 French</a></li>
-<li><a class="dropdown-item" href="index-it.html">🇮🇹 Italian</a></li>
-<li><a class="dropdown-item" href="index-de.html">🇩🇪 German</a></li>
-<li><a class="dropdown-item" href="index-es.html">🇪🇸 Spanish</a></li>
-<li><a class="dropdown-item" href="index-sv.html">🇸🇪 Swedish</a></li>
+
+<li><a class="dropdown-item" href="#" onclick="translateLanguage('en')">🇬🇧 English</a></li>
+<li><a class="dropdown-item" href="#" onclick="translateLanguage('fr')">🇫🇷 French</a></li>
+<li><a class="dropdown-item" href="#" onclick="translateLanguage('it')">🇮🇹 Italian</a></li>
+<li><a class="dropdown-item" href="#" onclick="translateLanguage('de')">🇩🇪 German</a></li>
+<li><a class="dropdown-item" href="#" onclick="translateLanguage('es')">🇪🇸 Spanish</a></li>
+<li><a class="dropdown-item" href="#" onclick="translateLanguage('sv')">🇸🇪 Swedish</a></li>
+
 </ul>
+
 </div>
 </header>
+
 
 <!-- Hero Section -->
 <section class="hero-section">
