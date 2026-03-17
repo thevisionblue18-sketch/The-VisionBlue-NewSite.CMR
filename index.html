@@ -13,7 +13,7 @@
 <script>
 function googleTranslateElementInit() {
 new google.translate.TranslateElement(
-{pageLanguage: 'en'},
+{pageLanguage: 'en', autoDisplay:false},
 'google_translate_element'
 );
 }
@@ -30,6 +30,14 @@ font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 scroll-behavior:smooth;
 background:#0b0f1a;
 color:#eaeaea;
+}
+
+/* HIDE GOOGLE TOOLBAR */
+.goog-te-banner-frame.skiptranslate {
+display:none !important;
+}
+body {
+top:0 !important;
 }
 
 h2 {
@@ -72,16 +80,29 @@ color:#d4af37;
 border-radius:5px;
 }
 
-/* Google translate style fix */
+/* FLOATING DONATE BUTTON RESTORED */
 
-#google_translate_element select{
-background:#fff;
-border-radius:5px;
-padding:3px;
-font-size:14px;
+.floating-donate-btn {
+position:fixed;
+bottom:25px;
+right:25px;
+background:#d4af37;
+color:#000;
+padding:0.75rem 1.5rem;
+border-radius:50px;
+font-weight:bold;
+z-index:999;
+box-shadow:0 5px 15px rgba(0,0,0,0.4);
+transition: transform 0.3s, background 0.3s;
+text-decoration:none;
 }
 
-/* Hero */
+.floating-donate-btn:hover{
+transform:translateY(-3px);
+background:#f1c94a;
+}
+
+/* HERO */
 
 .hero-section {
 min-height:75vh;
@@ -109,125 +130,6 @@ font-size:1.1rem;
 margin-bottom:2rem;
 }
 
-.hero-buttons .hero-btn {
-margin:0 0.5rem;
-padding:0.6rem 1.2rem;
-border-radius:50px;
-font-weight:bold;
-transition:0.3s;
-}
-
-.hero-btn.primary-btn {
-background:#d4af37;
-color:#000;
-border:none;
-}
-
-.hero-btn.primary-btn:hover {
-background:#f1c94a;
-}
-
-.hero-btn.secondary-btn {
-background:transparent;
-color:#fff;
-border:2px solid #d4af37;
-}
-
-.hero-btn.secondary-btn:hover {
-background:#d4af37;
-color:#000;
-}
-
-/* Mission */
-
-.mission-section {
-background:linear-gradient(to right,#001f4d,#000814);
-padding:3rem 1rem;
-color:#fff;
-}
-
-.mission-grid {
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:2rem;
-justify-items:center;
-}
-
-.mission-card {
-background:rgba(255,255,255,0.05);
-border:1px solid #d4af37;
-border-radius:20px;
-padding:2rem;
-box-shadow:0 8px 20px rgba(0,0,0,0.4);
-text-align:center;
-transition: transform 0.3s, box-shadow 0.3s;
-width:100%;
-max-width:320px;
-}
-
-.mission-card:hover {
-transform: translateY(-5px);
-box-shadow:0 12px 30px rgba(0,0,0,0.6);
-}
-
-.mission-card h3 {
-margin-bottom:1rem;
-font-size:1.3rem;
-color:#d4af37;
-}
-
-/* Projects */
-
-.projects-section {
-padding:2rem 1rem;
-background:#0f1626;
-}
-
-.projects-grid {
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:1.5rem;
-justify-items:center;
-}
-
-.project-card {
-background:#ffffff;
-border-radius:15px;
-padding:1rem 1.2rem;
-text-align:center;
-box-shadow:0 4px 15px rgba(0,0,0,0.25);
-transition: transform 0.3s, box-shadow 0.3s;
-aspect-ratio:1/1;
-display:flex;
-flex-direction:column;
-justify-content:center;
-width:100%;
-max-width:220px;
-}
-
-.project-card:hover {
-transform: translateY(-4px);
-box-shadow:0 8px 25px rgba(0,0,0,0.4);
-}
-
-.project-card h3 {
-color:#001f4d;
-margin-bottom:0.5rem;
-font-size:1rem;
-}
-
-.project-card p {
-font-size:0.85rem;
-line-height:1.4;
-color:#000;
-}
-
-.project-icon {
-font-size:2rem;
-color:#d4af37;
-margin-bottom:0.5rem;
-}
-
 /* (ALL YOUR OTHER CSS REMAINS EXACTLY THE SAME) */
 
 </style>
@@ -235,9 +137,13 @@ margin-bottom:0.5rem;
 
 <body>
 
+<!-- Hidden translator -->
+<div id="google_translate_element" style="display:none;"></div>
+
 <a href="#donate" class="floating-donate-btn">Donate</a>
 
 <header class="top-bar">
+
 <div class="brand-area">
 <img src="assets/img/images/logo.webp" alt="VisionBlue Logo">
 <span>The VisionBlue NGO</span>
@@ -246,23 +152,17 @@ margin-bottom:0.5rem;
 <div class="language-switcher dropdown">
 
 <button class="btn btn-light dropdown-toggle fw-bold" type="button" data-bs-toggle="dropdown">
-🌍 Translate
+🇬🇧 EN
 </button>
 
 <ul class="dropdown-menu dropdown-menu-end">
 
-<li style="padding:10px;">
-<div id="google_translate_element"></div>
-</li>
-
-<li><hr class="dropdown-divider"></li>
-
-<li><a class="dropdown-item" href="index-en.html">🇬🇧 English</a></li>
-<li><a class="dropdown-item" href="index-fr.html">🇫🇷 French</a></li>
-<li><a class="dropdown-item" href="index-it.html">🇮🇹 Italian</a></li>
-<li><a class="dropdown-item" href="index-de.html">🇩🇪 German</a></li>
-<li><a class="dropdown-item" href="index-es.html">🇪🇸 Spanish</a></li>
-<li><a class="dropdown-item" href="index-sv.html">🇸🇪 Swedish</a></li>
+<li><a class="dropdown-item" href="#" onclick="translateLanguage('en')">🇬🇧 English</a></li>
+<li><a class="dropdown-item" href="#" onclick="translateLanguage('fr')">🇫🇷 French</a></li>
+<li><a class="dropdown-item" href="#" onclick="translateLanguage('it')">🇮🇹 Italian</a></li>
+<li><a class="dropdown-item" href="#" onclick="translateLanguage('de')">🇩🇪 German</a></li>
+<li><a class="dropdown-item" href="#" onclick="translateLanguage('es')">🇪🇸 Spanish</a></li>
+<li><a class="dropdown-item" href="#" onclick="translateLanguage('sv')">🇸🇪 Swedish</a></li>
 
 </ul>
 
@@ -434,8 +334,19 @@ margin-bottom:0.5rem;
 </footer>
 
 <script>
+
 document.getElementById("year").textContent = new Date().getFullYear();
+
+function translateLanguage(lang){
+var select=document.querySelector(".goog-te-combo");
+if(select){
+select.value=lang;
+select.dispatchEvent(new Event("change"));
+}
+}
+
 const faders = document.querySelectorAll('.fade-in-on-scroll');
+
 const observer = new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
 if(entry.isIntersecting){
@@ -443,7 +354,9 @@ entry.target.classList.add('visible');
 }
 });
 },{threshold:0.2});
+
 faders.forEach(el=>observer.observe(el));
+
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
