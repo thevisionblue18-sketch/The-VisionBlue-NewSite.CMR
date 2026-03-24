@@ -56,51 +56,62 @@ h2 { text-align:center; color:#d4af37; margin:2rem 0; }
   justify-items:center;
 }
 
-/* ===== IMPROVED TEAM SECTION ===== */
+/* ===== NEW TEAM SECTION ===== */
 
+.team-section {
+  padding: 80px 20px;
+  text-align: center;
+  background: linear-gradient(to bottom, #020c1b, #031d3a);
+}
+
+.team-section h2 {
+  font-size: 2.5rem;
+  color: #d4af37;
+  margin-bottom: 50px;
+}
+
+/* GRID */
 .team-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:2rem;
-  margin:0 2rem 4rem 2rem;
-  justify-items:center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
 }
 
-.team-member {
-  background:#101728;
-  width:100%;
-  max-width:240px;
-  border-radius:18px;
-  padding:1.5rem 1rem;
-  text-align:center;
-  border:1px solid #d4af37;
-  box-shadow:0 6px 18px rgba(0,0,0,0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* CARD */
+.team-card {
+  background: #0a1931;
+  border-radius: 20px;
+  padding: 25px 20px 30px;
+  transition: 0.4s;
+  border: 1px solid rgba(212,175,55,0.4);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
 }
 
-.team-member:hover {
-  transform: translateY(-6px);
-  box-shadow:0 10px 25px rgba(0,0,0,0.6);
+/* HOVER EFFECT */
+.team-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(212,175,55,0.3);
 }
 
-.team-member img {
-  width: 220px;
-  height: 220px;
+/* IMAGE */
+.team-card img {
+  width: 180px;
+  height: 180px;
   object-fit: cover;
   border-radius: 50%;
-  margin-bottom: 1rem;
-  border: 5px solid #d4af37;
+  margin-bottom: 20px;
+  border: 4px solid #d4af37;
 }
 
-.team-member h3 {
-  font-size:1.05rem;
-  color:#d4af37;
-  margin:0;
+/* TEXT */
+.team-card h3 {
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin: 0;
 }
-.team-member {
-  max-width: 280px;
-  padding: 2rem 1.2rem;
-}
+
 /* Timeline */
 .timeline { display:flex; flex-direction:column; align-items:center; margin:2rem 1rem; gap:1rem; }
 .timeline-item { background:#101728; padding:1rem 1.5rem; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.3); text-align:center; width:100%; max-width:500px; border-left:4px solid #d4af37; }
@@ -204,44 +215,45 @@ body { top:0px !important; }
     </div>
   </div>
 </section>
-<!-- Team Section -->
-<section id="team" class="fade-in-on-scroll">
-<h2>Leadership Team</h2>
 
-<div class="team-grid">
+<section class="team-section">
+  <h2>Leadership Team</h2>
 
-<div class="team-member">
-  <img src="assets/img/images/CEO.webp" alt="CEO">
-  <h3>Chief Executive Officer</h3>
-</div>
+  <div class="team-grid">
 
-<div class="team-member">
-  <img src="assets/img/images/VicePresident.webp" alt="Vice President">
-  <h3>Vice President</h3>
-</div>
+    <div class="team-card">
+      <img src="assets/img/images/CEO.webp" alt="CEO">
+      <h3>Chief Executive Officer</h3>
+    </div>
 
-<div class="team-member">
-  <img src="assets/img/images/GeneralSecretary.webp" alt="General Secretary">
-  <h3>General Secretary</h3>
-</div>
+    <div class="team-card">
+      <img src="assets/img/images/VicePresident.webp" alt="Vice President">
+      <h3>Vice President</h3>
+    </div>
 
-<div class="team-member">
-  <img src="assets/img/images/Treasurer.webp" alt="Treasurer">
-  <h3>Treasurer</h3>
-</div>
+    <div class="team-card">
+      <img src="assets/img/images/GeneralSecretary.webp" alt="General Secretary">
+      <h3>General Secretary</h3>
+    </div>
 
-<div class="team-member">
-  <img src="assets/img/images/FinancialSecretary.webp" alt="Financial Secretary">
-  <h3>Financial Secretary</h3>
-</div>
+    <div class="team-card">
+      <img src="assets/img/images/Treasurer.webp" alt="Treasurer">
+      <h3>Treasurer</h3>
+    </div>
 
-<div class="team-member">
-  <img src="assets/img/images/PublicitySectary.webp" alt="Publicity Secretary">
-  <h3>Publicity Secretary</h3>
-</div>
+    <div class="team-card">
+      <img src="assets/img/images/FinancialSecretary.webp" alt="Financial Secretary">
+      <h3>Financial Secretary</h3>
+    </div>
 
-</div>
+    <div class="team-card">
+      <img src="assets/img/images/PublicitySectary.webp" alt="Publicity Secretary">
+      <h3>Publicity Secretary</h3>
+    </div>
+
+  </div>
 </section>
+
 <!-- Timeline Section -->
 <section id="timeline" class="fade-in-on-scroll">
 <h2>Our Journey</h2>
