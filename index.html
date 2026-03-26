@@ -56,63 +56,21 @@ h2 { text-align:center; color:#d4af37; margin:2rem 0; }
   justify-items:center;
 }
 
-/* NEW TEAM DESIGN */
-.team-grid-new {
+.team-grid-simple {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
   max-width: 1000px;
-  margin: 2rem auto 3rem auto;
+  margin: 2rem auto;
   padding: 0 1rem;
 }
 
-.team-card-new {
-  position: relative;
-  border-radius: 15px;
-  overflow: hidden;
-  cursor: pointer;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-}
-
-.team-card-new img {
+.team-grid-simple img {
   width: 100%;
-  height: 100%;
   aspect-ratio: 1/1;
   object-fit: cover;
+  border-radius: 10px;
   display: block;
-  transition: transform 0.4s ease;
-}
-
-/* Overlay */
-.team-overlay {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  padding: 15px;
-  background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
-  color: #fff;
-  transform: translateY(100%);
-  transition: transform 0.4s ease;
-}
-
-.team-overlay h3 {
-  margin: 0;
-  font-size: 1rem;
-  color: #d4af37;
-}
-
-.team-overlay p {
-  margin: 3px 0 0;
-  font-size: 0.85rem;
-}
-
-/* Hover effect */
-.team-card-new:hover img {
-  transform: scale(1.1);
-}
-
-.team-card-new:hover .team-overlay {
-  transform: translateY(0);
 }
 
 /* Timeline */
