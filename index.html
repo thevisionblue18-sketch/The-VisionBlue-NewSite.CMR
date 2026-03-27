@@ -162,8 +162,79 @@ body { top:0px !important; }
 </head>
 <body>
 
-<!-- Google Translate -->
-<div id="google_translate_element"></div>
+<!-- Top Bar -->
+<header class="top-bar">
+  <div class="brand-area">
+    <img src="assets/img/images/logo.webp" alt="VisionBlue Logo">
+    <span>The VisionBlue NGO</span>
+  </div>
+
+  <!-- Language Selector with Flags -->
+  <div class="language-flags">
+    <button class="lang-btn" data-lang="en" title="English">
+      <img src="https://flagcdn.com/16x12/gb.png" alt="English">
+    </button>
+    <button class="lang-btn" data-lang="fr" title="Français">
+      <img src="https://flagcdn.com/16x12/fr.png" alt="Français">
+    </button>
+    <button class="lang-btn" data-lang="it" title="Italiano">
+      <img src="https://flagcdn.com/16x12/it.png" alt="Italiano">
+    </button>
+    <button class="lang-btn" data-lang="de" title="Deutsch">
+      <img src="https://flagcdn.com/16x12/de.png" alt="Deutsch">
+    </button>
+    <button class="lang-btn" data-lang="es" title="Español">
+      <img src="https://flagcdn.com/16x12/es.png" alt="Español">
+    </button>
+    <button class="lang-btn" data-lang="sv" title="Svenska">
+      <img src="https://flagcdn.com/16x12/se.png" alt="Svenska">
+    </button>
+  </div>
+</header>
+
+<style>
+.language-flags {
+  display: flex;
+  gap: 0.5rem;
+}
+.lang-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.lang-btn img {
+  width: 28px;
+  height: 20px;
+  border: 1px solid #d4af37;
+  border-radius: 3px;
+  transition: transform 0.2s, border-color 0.2s;
+}
+.lang-btn img:hover {
+  transform: scale(1.2);
+  border-color: #f1c94a;
+}
+
+/* Mobile: wrap into dropdown if needed */
+@media (max-width: 480px) {
+  .language-flags {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}
+</style>
+
+<script>
+const langButtons = document.querySelectorAll('.lang-btn');
+langButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const lang = btn.dataset.lang;
+    if(lang !== 'en'){
+      alert(`Selected language: ${lang}. Implement your language switch logic here.`);
+    }
+  });
+});
+</script>
 
 <!-- Floating Donate Button -->
 <a href="#donate" class="floating-donate-btn">Donate</a>
