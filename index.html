@@ -68,37 +68,62 @@ h2 { text-align:center; color:#d4af37; margin:2rem 0; }
   transition: transform 0.4s ease;
 }
 
-.team-overlay h3 {
-  margin: 0;
-  font-size: 0.9rem;
+/* CLEAN TEAM GRID */
+.team-grid-new {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 per row */
+  gap: 20px;
+  max-width: 900px;
+  margin: 2rem auto 3rem auto;
+  padding: 0 1rem;
+}
+
+/* TEAM CARD */
+.team-card-new {
+  text-align: center;
+}
+
+/* IMAGE STYLE */
+.team-card-new img {
+  width: 100%;
+  max-width: 180px; /* reduced size */
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 3px solid #d4af37;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  display: block;
+  margin: 0 auto 10px auto;
+}
+
+/* NAME */
+.team-card-new h3 {
+  margin: 5px 0 2px;
+  font-size: 0.95rem;
   color: #d4af37;
 }
 
-.team-overlay p {
-  margin: 2px 0 0;
-  font-size: 0.75rem;
+/* ROLE */
+.team-card-new p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #ccc;
 }
 
-/* Hover effect (desktop only) */
-.team-card-new:hover .team-overlay {
-  transform: translateY(0);
-}
-
-/* 📱 MOBILE FIX — ALWAYS SHOW LABELS */
+/* 📱 TABLET */
 @media (max-width: 768px) {
-  .team-overlay {
-    transform: translateY(0); /* always visible */
-    background: rgba(0,0,0,0.7); /* cleaner look */
+  .team-grid-new {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* 📱 MOBILE */
 @media (max-width: 480px) {
-  .team-overlay h3 {
-    font-size: 0.85rem;
-  }
-  .team-overlay p {
-    font-size: 0.7rem;
+  .team-grid-new {
+    grid-template-columns: 1fr;
   }
 }
+
 /* Timeline */
 .timeline { display:flex; flex-direction:column; align-items:center; margin:2rem 1rem; gap:1rem; }
 .timeline-item { background:#101728; padding:1rem 1.5rem; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.3); text-align:center; width:100%; max-width:500px; border-left:4px solid #d4af37; }
@@ -210,50 +235,38 @@ body { top:0px !important; }
 
     <div class="team-card-new">
       <img src="assets/img/images/CEO.webp" alt="CEO" loading="lazy" width="300" height="300">
-      <div class="team-overlay">
-        <h3>Chief Executive Officer</h3>
-        <p>Founder & Vision Lead</p>
-      </div>
+      <h3>Chief Executive Officer</h3>
+      <p>Founder & Vision Lead</p>
     </div>
 
     <div class="team-card-new">
       <img src="assets/img/images/VicePresident.webp" alt="Vice President" loading="lazy" width="300" height="300">
-      <div class="team-overlay">
-        <h3>Vice President</h3>
-        <p>Operations & Strategy</p>
-      </div>
+      <h3>Vice President</h3>
+      <p>Operations & Strategy</p>
     </div>
 
     <div class="team-card-new">
       <img src="assets/img/images/GeneralSecretary.webp" alt="General Secretary" loading="lazy" width="300" height="300">
-      <div class="team-overlay">
-        <h3>General Secretary</h3>
-        <p>Administration & Coordination</p>
-      </div>
+      <h3>General Secretary</h3>
+      <p>Administration & Coordination</p>
     </div>
 
     <div class="team-card-new">
       <img src="assets/img/images/Treasurer.webp" alt="Treasurer" loading="lazy" width="300" height="300">
-      <div class="team-overlay">
-        <h3>Treasurer</h3>
-        <p>Financial Oversight</p>
-      </div>
+      <h3>Treasurer</h3>
+      <p>Financial Oversight</p>
     </div>
 
     <div class="team-card-new">
       <img src="assets/img/images/FinancialSecretary.webp" alt="Financial Secretary" loading="lazy" width="300" height="300">
-      <div class="team-overlay">
-        <h3>Financial Secretary</h3>
-        <p>Accounts & Reporting</p>
-      </div>
+      <h3>Financial Secretary</h3>
+      <p>Accounts & Reporting</p>
     </div>
 
     <div class="team-card-new">
       <img src="assets/img/images/PublicitySecretary.webp" alt="Publicity Secretary" loading="lazy" width="300" height="300">
-      <div class="team-overlay">
-        <h3>Publicity Secretary</h3>
-        <p>Communications & Media</p>
-      </div>
+      <h3>Publicity Secretary</h3>
+      <p>Communications & Media</p>
     </div>
 
   </div>
