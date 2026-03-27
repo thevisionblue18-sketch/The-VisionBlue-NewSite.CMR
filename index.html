@@ -179,6 +179,7 @@ body { top:0px !important; }
 </header>
 
 <style>
+/* Language Dropdown */
 .language-dropdown {
   position: relative;
   display: flex;
@@ -244,11 +245,14 @@ body { top:0px !important; }
   background: #1a1f36;
 }
 
-/* Show dropdown on click */
+/* Show dropdown when open */
 .language-dropdown.open .lang-menu {
   display: flex;
   flex-direction: column;
 }
+
+/* Ensure top-right alignment */
+.top-bar { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background: #000814; color: #fff; position: sticky; top: 0; z-index: 1000; }
 </style>
 
 <script>
@@ -268,21 +272,22 @@ document.addEventListener('click', e => {
   }
 });
 
-// Optional: handle language switch
+// Handle language selection
 langBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     const lang = btn.dataset.lang;
-    // Change top button to selected flag
-    const img = btn.querySelector('img').src;
+    const imgSrc = btn.querySelector('img').src;
     const code = btn.textContent.trim();
-    toggle.querySelector('img').src = img;
+
+    // Update top-right button to selected language
+    toggle.querySelector('img').src = imgSrc;
     toggle.querySelector('span').textContent = code;
 
-    // Close menu
+    // Keep dropdown showing all languages, including English
     dropdown.classList.remove('open');
 
-    // Implement language switching logic here
-    alert(`Selected language: ${lang}. Add your translation logic here.`);
+    // Implement your translation logic here
+    alert(`Selected language: ${lang}. Add your language switch logic here.`);
   });
 });
 </script>
