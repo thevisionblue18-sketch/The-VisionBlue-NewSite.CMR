@@ -114,7 +114,9 @@ h2 { text-align:center; color:#d4af37; margin:2rem 0; }
 .team-card-new:hover .team-overlay {
   transform: translateY(0);
 }
-
+.team-grid-new {
+  grid-template-columns: repeat(3, 1fr);
+}
 /* Timeline */
 .timeline { display:flex; flex-direction:column; align-items:center; margin:2rem 1rem; gap:1rem; }
 .timeline-item { background:#101728; padding:1rem 1.5rem; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.3); text-align:center; width:100%; max-width:500px; border-left:4px solid #d4af37; }
@@ -219,17 +221,58 @@ body { top:0px !important; }
   </div>
 </section>
 
-<section class="team-section">
+<section class="team-section fade-in-on-scroll">
   <h2>Leadership Team</h2>
 
-  <div class="team-grid-simple">
+  <div class="team-grid-new">
 
-    <img src="/The-VisionBlue-NewSite.CMR/assets/img/images/CEO.webp">
-    <img src="/The-VisionBlue-NewSite.CMR/assets/img/images/VicePresident.webp">
-    <img src="/The-VisionBlue-NewSite.CMR/assets/img/images/GeneralSecretary.webp">
-    <img src="/The-VisionBlue-NewSite.CMR/assets/img/images/Treasurer.webp">
-    <img src="/The-VisionBlue-NewSite.CMR/assets/img/images/FinancialSecretary.webp">
-    <img src="/The-VisionBlue-NewSite.CMR/assets/img/images/PublicitySecretary.webp">
+    <div class="team-card-new">
+      <img src="/The-VisionBlue-NewSite.CMR/assets/img/images/CEO.webp" alt="CEO">
+      <div class="team-overlay">
+        <h3>Chief Executive Officer</h3>
+        <p>Founder & Vision Lead</p>
+      </div>
+    </div>
+
+    <div class="team-card-new">
+      <img src="/The-VisionBlue-NewSite.CMR/assets/img/images/VicePresident.webp" alt="Vice President">
+      <div class="team-overlay">
+        <h3>Vice President</h3>
+        <p>Operations & Strategy</p>
+      </div>
+    </div>
+
+    <div class="team-card-new">
+      <img src="/The-VisionBlue-NewSite.CMR/assets/img/images/GeneralSecretary.webp" alt="General Secretary">
+      <div class="team-overlay">
+        <h3>General Secretary</h3>
+        <p>Administration & Coordination</p>
+      </div>
+    </div>
+
+    <div class="team-card-new">
+      <img src="/The-VisionBlue-NewSite.CMR/assets/img/images/Treasurer.webp" alt="Treasurer">
+      <div class="team-overlay">
+        <h3>Treasurer</h3>
+        <p>Financial Oversight</p>
+      </div>
+    </div>
+
+    <div class="team-card-new">
+      <img src="/The-VisionBlue-NewSite.CMR/assets/img/images/FinancialSecretary.webp" alt="Financial Secretary">
+      <div class="team-overlay">
+        <h3>Financial Secretary</h3>
+        <p>Accounts & Reporting</p>
+      </div>
+    </div>
+
+    <div class="team-card-new">
+      <img src="/The-VisionBlue-NewSite.CMR/assets/img/images/PublicitySecretary.webp" alt="Publicity Secretary">
+      <div class="team-overlay">
+        <h3>Publicity Secretary</h3>
+        <p>Communications & Media</p>
+      </div>
+    </div>
 
   </div>
 </section>
