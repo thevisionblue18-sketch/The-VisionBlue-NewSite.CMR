@@ -56,24 +56,24 @@ h2 { text-align:center; color:#d4af37; margin:2rem 0; }
   justify-items:center;
 }
 
-/* NEW TEAM DESIGN */
 .team-grid-new {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
-  max-width: 1000px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* smaller cards */
+  gap: 15px;
+  max-width: 800px; /* reduced overall width */
   margin: 2rem auto 3rem auto;
   padding: 0 1rem;
 }
 
 .team-card-new {
   position: relative;
-  border-radius: 15px;
+  border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
 }
 
+/* Optimized image sizing */
 .team-card-new img {
   width: 100%;
   height: 100%;
@@ -83,39 +83,57 @@ h2 { text-align:center; color:#d4af37; margin:2rem 0; }
   transition: transform 0.4s ease;
 }
 
-/* Overlay */
-.team-overlay {
-  position: absolute;
-  bottom: 0;
+/* 📱 Mobile optimization */
+@media (max-width: 768px) {
+  .team-grid-new {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row */
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-grid-new {
+    grid-template-columns: 1fr; /* 1 per row */
+  }
+}.team-grid-new {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* smaller cards */
+  gap: 15px;
+  max-width: 800px; /* reduced overall width */
+  margin: 2rem auto 3rem auto;
+  padding: 0 1rem;
+}
+
+.team-card-new {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+}
+
+/* Optimized image sizing */
+.team-card-new img {
   width: 100%;
-  padding: 15px;
-  background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
-  color: #fff;
-  transform: translateY(100%);
+  height: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  display: block;
   transition: transform 0.4s ease;
 }
 
-.team-overlay h3 {
-  margin: 0;
-  font-size: 1rem;
-  color: #d4af37;
+/* 📱 Mobile optimization */
+@media (max-width: 768px) {
+  .team-grid-new {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row */
+    max-width: 500px;
+  }
 }
 
-.team-overlay p {
-  margin: 3px 0 0;
-  font-size: 0.85rem;
-}
-
-/* Hover effect */
-.team-card-new:hover img {
-  transform: scale(1.1);
-}
-
-.team-card-new:hover .team-overlay {
-  transform: translateY(0);
-}
-.team-grid-new {
-  grid-template-columns: repeat(3, 1fr);
+@media (max-width: 480px) {
+  .team-grid-new {
+    grid-template-columns: 1fr; /* 1 per row */
+  }
 }
 /* Timeline */
 .timeline { display:flex; flex-direction:column; align-items:center; margin:2rem 1rem; gap:1rem; }
@@ -227,7 +245,7 @@ body { top:0px !important; }
   <div class="team-grid-new">
 
     <div class="team-card-new">
-      <img src="/The-VisionBlue-NewSite.CMR/assets/img/images/CEO.webp" alt="CEO">
+      <img src="assets/img/images/CEO.webp" alt="CEO" loading="lazy" width="300" height="300">
       <div class="team-overlay">
         <h3>Chief Executive Officer</h3>
         <p>Founder & Vision Lead</p>
@@ -235,7 +253,7 @@ body { top:0px !important; }
     </div>
 
     <div class="team-card-new">
-      <img src="/The-VisionBlue-NewSite.CMR/assets/img/images/VicePresident.webp" alt="Vice President">
+      <img src="assets/img/images/VicePresident.webp" alt="Vice President" loading="lazy" width="300" height="300">
       <div class="team-overlay">
         <h3>Vice President</h3>
         <p>Operations & Strategy</p>
@@ -243,7 +261,7 @@ body { top:0px !important; }
     </div>
 
     <div class="team-card-new">
-      <img src="/The-VisionBlue-NewSite.CMR/assets/img/images/GeneralSecretary.webp" alt="General Secretary">
+      <img src="assets/img/images/GeneralSecretary.webp" alt="General Secretary" loading="lazy" width="300" height="300">
       <div class="team-overlay">
         <h3>General Secretary</h3>
         <p>Administration & Coordination</p>
@@ -251,7 +269,7 @@ body { top:0px !important; }
     </div>
 
     <div class="team-card-new">
-      <img src="/The-VisionBlue-NewSite.CMR/assets/img/images/Treasurer.webp" alt="Treasurer">
+      <img src="assets/img/images/Treasurer.webp" alt="Treasurer" loading="lazy" width="300" height="300">
       <div class="team-overlay">
         <h3>Treasurer</h3>
         <p>Financial Oversight</p>
@@ -259,7 +277,7 @@ body { top:0px !important; }
     </div>
 
     <div class="team-card-new">
-      <img src="/The-VisionBlue-NewSite.CMR/assets/img/images/FinancialSecretary.webp" alt="Financial Secretary">
+      <img src="assets/img/images/FinancialSecretary.webp" alt="Financial Secretary" loading="lazy" width="300" height="300">
       <div class="team-overlay">
         <h3>Financial Secretary</h3>
         <p>Accounts & Reporting</p>
@@ -267,7 +285,7 @@ body { top:0px !important; }
     </div>
 
     <div class="team-card-new">
-      <img src="/The-VisionBlue-NewSite.CMR/assets/img/images/PublicitySecretary.webp" alt="Publicity Secretary">
+      <img src="assets/img/images/PublicitySecretary.webp" alt="Publicity Secretary" loading="lazy" width="300" height="300">
       <div class="team-overlay">
         <h3>Publicity Secretary</h3>
         <p>Communications & Media</p>
