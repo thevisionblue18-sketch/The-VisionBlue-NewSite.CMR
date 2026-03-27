@@ -168,6 +168,7 @@ body { top:0px !important; }
       <img src="https://flagcdn.com/16x12/gb.png" alt="English"> <span>EN</span> <i class="fas fa-caret-down"></i>
     </button>
     <div class="lang-menu">
+      <button class="lang-btn" data-lang="en"><img src="https://flagcdn.com/16x12/gb.png" alt="English"> EN</button>
       <button class="lang-btn" data-lang="fr"><img src="https://flagcdn.com/16x12/fr.png" alt="Français"> FR</button>
       <button class="lang-btn" data-lang="it"><img src="https://flagcdn.com/16x12/it.png" alt="Italiano"> IT</button>
       <button class="lang-btn" data-lang="de"><img src="https://flagcdn.com/16x12/de.png" alt="Deutsch"> DE</button>
@@ -178,34 +179,86 @@ body { top:0px !important; }
 </header>
 
 <style>
-/* Top Bar adjustments for dropdown */
-.top-bar { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background: #000814; color: #fff; position: sticky; top: 0; z-index: 1000; }
-.language-dropdown { position: relative; display: flex; align-items: center; }
-.lang-toggle { background: transparent; border: none; cursor: pointer; display: flex; align-items: center; gap: 0.3rem; color: #fff; font-weight: bold; }
-.lang-toggle img { width: 28px; height: 20px; border: 1px solid #d4af37; border-radius: 3px; }
-.lang-toggle i { margin-left: 4px; }
-.lang-menu { display: none; position: absolute; right: 0; background: #000814; border: 1px solid #d4af37; border-radius: 5px; margin-top: 5px; min-width: 100px; z-index: 1000; flex-direction: column; }
-.lang-menu button { display: flex; align-items: center; gap: 0.3rem; padding: 0.3rem 0.5rem; background: transparent; border: none; cursor: pointer; color: #fff; width: 100%; }
-.lang-menu button img { width: 20px; height: 14px; border: 1px solid #d4af37; border-radius: 3px; }
-.lang-menu button:hover { background: #1a1f36; }
-.language-dropdown.open .lang-menu { display: flex; flex-direction: column; }
+.language-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.lang-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: #fff;
+  font-weight: bold;
+}
+
+.lang-toggle img {
+  width: 28px;
+  height: 20px;
+  border: 1px solid #d4af37;
+  border-radius: 3px;
+}
+
+.lang-toggle i {
+  margin-left: 4px;
+}
+
+.lang-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: #000814;
+  border: 1px solid #d4af37;
+  border-radius: 5px;
+  margin-top: 5px;
+  min-width: 120px;
+  z-index: 1000;
+  flex-direction: column;
+}
+
+.lang-menu button {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  width: 100%;
+}
+
+.lang-menu button img {
+  width: 20px;
+  height: 14px;
+  border: 1px solid #d4af37;
+  border-radius: 3px;
+}
+
+.lang-menu button:hover {
+  background: #1a1f36;
+}
+
+/* Show dropdown on click */
+.language-dropdown.open .lang-menu {
+  display: flex;
+  flex-direction: column;
+}
 </style>
 
 <script>
 const dropdown = document.querySelector('.language-dropdown');
 const toggle = dropdown.querySelector('.lang-toggle');
+const langBtns = dropdown.querySelectorAll('.lang-btn');
 
+// Toggle dropdown
 toggle.addEventListener('click', () => {
   dropdown.classList.toggle('open');
-});
-
-const langBtns = dropdown.querySelectorAll('.lang-btn');
-langBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const lang = btn.dataset.lang;
-    alert(`Selected language: ${lang}. Implement your language switch logic here.`);
-    dropdown.classList.remove('open');
-  });
 });
 
 // Close dropdown when clicking outside
@@ -214,16 +267,22 @@ document.addEventListener('click', e => {
     dropdown.classList.remove('open');
   }
 });
-</script>
 
-<script>
-const langButtons = document.querySelectorAll('.lang-btn');
-langButtons.forEach(btn => {
+// Optional: handle language switch
+langBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     const lang = btn.dataset.lang;
-    if(lang !== 'en'){
-      alert(`Selected language: ${lang}. Implement your language switch logic here.`);
-    }
+    // Change top button to selected flag
+    const img = btn.querySelector('img').src;
+    const code = btn.textContent.trim();
+    toggle.querySelector('img').src = img;
+    toggle.querySelector('span').textContent = code;
+
+    // Close menu
+    dropdown.classList.remove('open');
+
+    // Implement language switching logic here
+    alert(`Selected language: ${lang}. Add your translation logic here.`);
   });
 });
 </script>
