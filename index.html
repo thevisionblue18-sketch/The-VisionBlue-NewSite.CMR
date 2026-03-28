@@ -162,21 +162,23 @@ body { top:0px !important; }
 </head>
 <body>
 
-  <!-- Language Dropdown on Top Right -->
-  <div class="language-dropdown">
-    <button class="lang-toggle">
-      <img src="https://flagcdn.com/16x12/gb.png" alt="English"> <span>EN</span> <i class="fas fa-caret-down"></i>
-    </button>
-    <div class="lang-menu">
-      <button class="lang-btn" data-lang="en"><img src="https://flagcdn.com/16x12/gb.png" alt="English"> EN</button>
-      <button class="lang-btn" data-lang="fr"><img src="https://flagcdn.com/16x12/fr.png" alt="Français"> FR</button>
-      <button class="lang-btn" data-lang="it"><img src="https://flagcdn.com/16x12/it.png" alt="Italiano"> IT</button>
-      <button class="lang-btn" data-lang="de"><img src="https://flagcdn.com/16x12/de.png" alt="Deutsch"> DE</button>
-      <button class="lang-btn" data-lang="es"><img src="https://flagcdn.com/16x12/es.png" alt="Español"> ES</button>
-      <button class="lang-btn" data-lang="sv"><img src="https://flagcdn.com/16x12/se.png" alt="Svenska"> SV</button>
-    </div>
+  <div id="lang-menu" class="lang-menu">
+  <div onclick="setLanguage('en','gb')">
+    <img src="https://flagcdn.com/w40/gb.png"> English
   </div>
-</header>
+  <div onclick="setLanguage('it','it')">
+    <img src="https://flagcdn.com/w40/it.png"> Italiano
+  </div>
+  <div onclick="setLanguage('fr','fr')">
+    <img src="https://flagcdn.com/w40/fr.png"> Français
+  </div>
+  <div onclick="setLanguage('de','de')">
+    <img src="https://flagcdn.com/w40/de.png"> Deutsch
+  </div>
+  <div onclick="setLanguage('sv','se')">
+    <img src="https://flagcdn.com/w40/se.png"> Svenska
+  </div>
+</div>
 
 <style>
 /* Language Dropdown */
