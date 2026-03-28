@@ -162,95 +162,77 @@ body { top:0px !important; }
 </head>
 <body>
 
+  <div class="lang-switcher">
+  <button class="lang-btn" onclick="toggleLangMenu()">
+    <img id="current-flag" src="https://flagcdn.com/w40/gb.png">
+    ▼
+  </button>
+
   <div id="lang-menu" class="lang-menu">
-  <div onclick="setLanguage('en','gb')">
-    <img src="https://flagcdn.com/w40/gb.png"> English
-  </div>
-  <div onclick="setLanguage('it','it')">
-    <img src="https://flagcdn.com/w40/it.png"> Italiano
-  </div>
-  <div onclick="setLanguage('fr','fr')">
-    <img src="https://flagcdn.com/w40/fr.png"> Français
-  </div>
-  <div onclick="setLanguage('de','de')">
-    <img src="https://flagcdn.com/w40/de.png"> Deutsch
-  </div>
-  <div onclick="setLanguage('sv','se')">
-    <img src="https://flagcdn.com/w40/se.png"> Svenska
+    <a onclick="setLanguage('en','gb')"><img src="https://flagcdn.com/w40/gb.png"> English</a>
+    <a onclick="setLanguage('it','it')"><img src="https://flagcdn.com/w40/it.png"> Italiano</a>
+    <a onclick="setLanguage('fr','fr')"><img src="https://flagcdn.com/w40/fr.png"> Français</a>
+    <a onclick="setLanguage('de','de')"><img src="https://flagcdn.com/w40/de.png"> Deutsch</a>
+    <a onclick="setLanguage('sv','se')"><img src="https://flagcdn.com/w40/se.png"> Svenska</a>
   </div>
 </div>
 
-<style>
-/* Language Dropdown */
-.language-dropdown {
-  position: relative;
-  display: flex;
-  align-items: center;
+/* Force top-right */
+.lang-switcher {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
 }
 
-.lang-toggle {
-  background: transparent;
+/* Button */
+.lang-btn {
+  background: white;
   border: none;
   cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 6px;
   display: flex;
   align-items: center;
-  gap: 0.3rem;
-  color: #fff;
-  font-weight: bold;
+  gap: 6px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
 }
 
-.lang-toggle img {
-  width: 28px;
-  height: 20px;
-  border: 1px solid #d4af37;
-  border-radius: 3px;
+.lang-btn img {
+  width: 26px;
+  height: 18px;
 }
 
-.lang-toggle i {
-  margin-left: 4px;
-}
-
+/* Dropdown */
 .lang-menu {
   display: none;
   position: absolute;
   right: 0;
-  top: 100%;
-  background: #000814;
-  border: 1px solid #d4af37;
-  border-radius: 5px;
-  margin-top: 5px;
-  min-width: 120px;
-  z-index: 1000;
-  flex-direction: column;
+  top: 45px;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  min-width: 150px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
-.lang-menu button {
+.lang-menu a {
   display: flex;
   align-items: center;
-  gap: 0.3rem;
-  padding: 0.3rem 0.5rem;
-  background: transparent;
-  border: none;
+  gap: 10px;
+  padding: 10px;
   cursor: pointer;
-  color: #fff;
-  width: 100%;
+  text-decoration: none;
+  color: black;
 }
 
-.lang-menu button img {
-  width: 20px;
-  height: 14px;
-  border: 1px solid #d4af37;
-  border-radius: 3px;
+.lang-menu a:hover {
+  background: #f2f2f2;
 }
 
-.lang-menu button:hover {
-  background: #1a1f36;
-}
-
-/* Show dropdown when open */
-.language-dropdown.open .lang-menu {
-  display: flex;
-  flex-direction: column;
+.lang-menu img {
+  width: 22px;
+  height: 16px;
 }
 
 /* Ensure top-right alignment */
@@ -258,39 +240,26 @@ body { top:0px !important; }
 </style>
 
 <script>
-const dropdown = document.querySelector('.language-dropdown');
-const toggle = dropdown.querySelector('.lang-toggle');
-const langBtns = dropdown.querySelectorAll('.lang-btn');
+function toggleLangMenu() {
+  const menu = document.getElementById("lang-menu");
+  menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
 
-// Toggle dropdown
-toggle.addEventListener('click', () => {
-  dropdown.classList.toggle('open');
-});
+function setLanguage(lang, country) {
+  document.getElementById("current-flag").src =
+    `https://flagcdn.com/w40/${country}.png`;
 
-// Close dropdown when clicking outside
-document.addEventListener('click', e => {
-  if (!dropdown.contains(e.target)) {
-    dropdown.classList.remove('open');
+  document.getElementById("lang-menu").style.display = "none";
+
+  console.log("Selected:", lang);
+}
+
+/* Close when clicking outside */
+document.addEventListener("click", function(e) {
+  const switcher = document.querySelector(".lang-switcher");
+  if (!switcher.contains(e.target)) {
+    document.getElementById("lang-menu").style.display = "none";
   }
-});
-
-// Handle language selection
-langBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const lang = btn.dataset.lang;
-    const imgSrc = btn.querySelector('img').src;
-    const code = btn.textContent.trim();
-
-    // Update top-right button to selected language
-    toggle.querySelector('img').src = imgSrc;
-    toggle.querySelector('span').textContent = code;
-
-    // Keep dropdown showing all languages, including English
-    dropdown.classList.remove('open');
-
-    // Implement your translation logic here
-    alert(`Selected language: ${lang}. Add your language switch logic here.`);
-  });
 });
 </script>
 
