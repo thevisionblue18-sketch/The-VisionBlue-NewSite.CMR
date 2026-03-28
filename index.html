@@ -162,40 +162,27 @@ body { top:0px !important; }
 </head>
 <body>
 
-  <div class="lang-switcher">
-  <button class="lang-btn" onclick="toggleLangMenu()">
-    <img id="current-flag" src="https://flagcdn.com/w40/gb.png">
-    ▼
-  </button>
-
-  <div id="lang-menu" class="lang-menu">
-    <a onclick="setLanguage('en','gb')"><img src="https://flagcdn.com/w40/gb.png"> English</a>
-    <a onclick="setLanguage('it','it')"><img src="https://flagcdn.com/w40/it.png"> Italiano</a>
-    <a onclick="setLanguage('fr','fr')"><img src="https://flagcdn.com/w40/fr.png"> Français</a>
-    <a onclick="setLanguage('de','de')"><img src="https://flagcdn.com/w40/de.png"> Deutsch</a>
-    <a onclick="setLanguage('sv','se')"><img src="https://flagcdn.com/w40/se.png"> Svenska</a>
-  </div>
-</div>
-
-/* Force top-right */
+  <!-- LANGUAGE SWITCHER START -->
+<style>
 .lang-switcher {
   position: fixed;
   top: 20px;
   right: 20px;
-  z-index: 9999;
+  z-index: 99999;
+  font-family: Arial, sans-serif;
 }
 
 /* Button */
 .lang-btn {
-  background: white;
-  border: none;
-  cursor: pointer;
-  padding: 6px 8px;
-  border-radius: 6px;
   display: flex;
   align-items: center;
   gap: 6px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  padding: 6px 10px;
+  background: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .lang-btn img {
@@ -205,63 +192,89 @@ body { top:0px !important; }
 
 /* Dropdown */
 .lang-menu {
-  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 5px 0;
   position: absolute;
-  right: 0;
   top: 45px;
+  right: 0;
   background: white;
   border-radius: 8px;
-  overflow: hidden;
-  min-width: 150px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  display: none;
+  min-width: 170px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-.lang-menu a {
+/* Show dropdown */
+.lang-switcher.open .lang-menu {
+  display: block;
+}
+
+/* Items */
+.lang-menu li {
+  padding: 10px;
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px;
   cursor: pointer;
-  text-decoration: none;
-  color: black;
 }
 
-.lang-menu a:hover {
-  background: #f2f2f2;
+.lang-menu li:hover {
+  background: #f3f3f3;
 }
 
 .lang-menu img {
   width: 22px;
   height: 16px;
 }
-
-/* Ensure top-right alignment */
-.top-bar { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background: #000814; color: #fff; position: sticky; top: 0; z-index: 1000; }
 </style>
 
+<div class="lang-switcher">
+  <button class="lang-btn">
+    <img id="current-flag" src="https://flagcdn.com/w40/gb.png">
+    <span>▼</span>
+  </button>
+
+  <ul class="lang-menu">
+    <li data-lang="en" data-flag="gb"><img src="https://flagcdn.com/w40/gb.png"> English</li>
+    <li data-lang="it" data-flag="it"><img src="https://flagcdn.com/w40/it.png"> Italiano</li>
+    <li data-lang="fr" data-flag="fr"><img src="https://flagcdn.com/w40/fr.png"> Français</li>
+    <li data-lang="de" data-flag="de"><img src="https://flagcdn.com/w40/de.png"> Deutsch</li>
+    <li data-lang="es" data-flag="es"><img src="https://flagcdn.com/w40/es.png"> Español</li>
+    <li data-lang="sv" data-flag="se"><img src="https://flagcdn.com/w40/se.png"> Svenska</li>
+  </ul>
+</div>
+
 <script>
-function toggleLangMenu() {
-  const menu = document.getElementById("lang-menu");
-  menu.style.display = menu.style.display === "block" ? "none" : "block";
-}
+const switcher = document.querySelector(".lang-switcher");
+const button = document.querySelector(".lang-btn");
+const flag = document.getElementById("current-flag");
 
-function setLanguage(lang, country) {
-  document.getElementById("current-flag").src =
-    `https://flagcdn.com/w40/${country}.png`;
+/* Toggle dropdown */
+button.addEventListener("click", (e) => {
+  e.stopPropagation();
+  switcher.classList.toggle("open");
+});
 
-  document.getElementById("lang-menu").style.display = "none";
+/* Select language */
+document.querySelectorAll(".lang-menu li").forEach(item => {
+  item.addEventListener("click", () => {
+    const newFlag = item.getAttribute("data-flag");
 
-  console.log("Selected:", lang);
-}
+    flag.src = `https://flagcdn.com/w40/${newFlag}.png`;
+
+    switcher.classList.remove("open");
+
+    console.log("Selected language:", item.dataset.lang);
+  });
+});
 
 /* Close when clicking outside */
-document.addEventListener("click", function(e) {
-  const switcher = document.querySelector(".lang-switcher");
-  if (!switcher.contains(e.target)) {
-    document.getElementById("lang-menu").style.display = "none";
-  }
+document.addEventListener("click", () => {
+  switcher.classList.remove("open");
 });
 </script>
+<!-- LANGUAGE SWITCHER END -->
 
 <!-- Floating Donate Button -->
 <a href="#donate" class="floating-donate-btn">Donate</a>
