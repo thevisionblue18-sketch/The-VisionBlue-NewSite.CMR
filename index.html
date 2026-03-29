@@ -162,30 +162,79 @@ body { top:0px !important; }
 </head>
 <body>
 
-/* LANGUAGE SWITCHER */
+  <!-- LANGUAGE SWITCHER START -->
+<style>
 .lang-switcher {
-  position: fixed; top:20px; right:20px; z-index:99999; font-family: Arial,sans-serif;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 99999;
+  font-family: Arial, sans-serif;
 }
-.lang-btn { display:flex; align-items:center; gap:6px; padding:6px 10px; background:#fff; border:none; border-radius:6px; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.15); }
-.lang-btn img { width:26px; height:18px; }
-.lang-menu { list-style:none; margin:0; padding:5px 0; position:absolute; top:45px; right:0; background:white; border-radius:8px; display:none; min-width:170px; box-shadow:0 10px 25px rgba(0,0,0,0.2); }
-.lang-switcher.open .lang-menu { display:block; }
-.lang-menu li { padding:10px; display:flex; align-items:center; gap:10px; cursor:pointer; }
-.lang-menu li:hover { background:#f3f3f3; }
-.lang-menu img { width:22px; height:16px; }
 
-/* Language content blocks */
-.lang { display:none; }
-.lang.active { display:block; }
+/* Button */
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.lang-btn img {
+  width: 26px;
+  height: 18px;
+}
+
+/* Dropdown */
+.lang-menu {
+  list-style: none;
+  margin: 0;
+  padding: 5px 0;
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background: white;
+  border-radius: 8px;
+  display: none;
+  min-width: 170px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Show dropdown */
+.lang-switcher.open .lang-menu {
+  display: block;
+}
+
+/* Items */
+.lang-menu li {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.lang-menu li:hover {
+  background: #f3f3f3;
+}
+
+.lang-menu img {
+  width: 22px;
+  height: 16px;
+}
 </style>
-</head>
-<body>
 
-<!-- LANGUAGE SWITCHER -->
 <div class="lang-switcher">
   <button class="lang-btn">
-    <img id="current-flag" src="https://flagcdn.com/w40/gb.png"><span>▼</span>
+    <img id="current-flag" src="https://flagcdn.com/w40/gb.png">
+    <span>▼</span>
   </button>
+
   <ul class="lang-menu">
     <li data-lang="en" data-flag="gb"><img src="https://flagcdn.com/w40/gb.png"> English</li>
     <li data-lang="it" data-flag="it"><img src="https://flagcdn.com/w40/it.png"> Italiano</li>
@@ -196,6 +245,37 @@ body { top:0px !important; }
   </ul>
 </div>
 
+<script>
+const switcher = document.querySelector(".lang-switcher");
+const button = document.querySelector(".lang-btn");
+const flag = document.getElementById("current-flag");
+
+/* Toggle dropdown */
+button.addEventListener("click", (e) => {
+  e.stopPropagation();
+  switcher.classList.toggle("open");
+});
+
+/* Select language */
+document.querySelectorAll(".lang-menu li").forEach(item => {
+  item.addEventListener("click", () => {
+    const newFlag = item.getAttribute("data-flag");
+
+    flag.src = `https://flagcdn.com/w40/${newFlag}.png`;
+
+    switcher.classList.remove("open");
+
+    console.log("Selected language:", item.dataset.lang);
+  });
+});
+
+/* Close when clicking outside */
+document.addEventListener("click", () => {
+  switcher.classList.remove("open");
+});
+</script>
+<!-- LANGUAGE SWITCHER END -->
+
 <!-- Floating Donate Button -->
 <a href="#donate" class="floating-donate-btn">Donate</a>
 
@@ -205,14 +285,12 @@ body { top:0px !important; }
     <img src="assets/img/images/logo.webp" alt="VisionBlue Logo">
     <span>The VisionBlue NGO</span>
   </div>
+  <!-- Google Translate auto-language selector -->
+  <div id="google_translate_selector" style="color:#000;"></div>
 </header>
 
-<!-- === CONTENT FOR EACH LANGUAGE === -->
-
-<!-- ENGLISH -->
-<div class="lang active" data-lang="en">
-
-<section class="hero-section fade-in-on-scroll">
+<!-- Hero Section -->
+<section class="hero-section">
   <div class="hero-content">
     <img src="assets/img/images/logo.webp" alt="VisionBlue Logo" class="hero-logo">
     <h1 class="hero-title">Empowering Communities, Shaping Futures</h1>
@@ -221,13 +299,21 @@ body { top:0px !important; }
   </div>
 </section>
 
+<!-- Mission Section -->
 <section id="mission" class="mission-section fade-in-on-scroll">
   <div class="container">
     <h2>Our Mission</h2>
-    <p>The VisionBlue NGO is committed to transforming lives by equipping young women, and vulnerable communities with skills, knowledge, and opportunities they need for a sustainable future. Through education, mentoring, and community-driven initiatives, we break cycles of poverty and create pathways to dignity, resilience, and hope.</p>
+    <p>
+      The VisionBlue NGO is committed to transforming lives by equipping young women, and vulnerable communities
+      with the skills, knowledge, and opportunities they need for a sustainable future.
+      We believe that every person—regardless of background or circumstance—deserves the chance to rise, learn, and grow.
+      Through education, mentoring, and community-driven development initiatives, we break cycles of poverty and create
+      pathways to dignity, resilience, and hope.
+    </p>
   </div>
 </section>
 
+<!-- Projects Section -->
 <section id="projects" class="projects-section fade-in-on-scroll">
   <div class="container">
     <h2>Our Projects</h2>
@@ -346,1159 +432,23 @@ body { top:0px !important; }
 </div>
 </section>
 
-
-</div> <!-- end English -->
-
-<!-- ITALIAN -->
-
-<!-- Floating Donate Button -->
-<a href="#donate" class="floating-donate-btn">Dona</a>
-
-<!-- Barra superiore -->
-<header class="top-bar">
-  <div class="brand-area">
-    <img src="assets/img/images/logo.webp" alt="Logo VisionBlue">
-    <span>ONG VisionBlue</span>
-  </div>
-</header>
-  <!-- Google Translate auto-language selector -->
-  <div id="google_translate_selector" style="color:#000;"></div>
-</header>
-
-<!-- Hero Section -->
-<section class="hero-section">
-  <div class="hero-content">
-  <img src="assets/img/images/logo.webp" alt="Logo VisionBlue" class="hero-logo">
-  <h1 class="hero-title">Potenziare le comunità, costruire il futuro</h1>
-  <p class="hero-subtitle">Supporto alle giovani donne e alle comunità vulnerabili attraverso istruzione, formazione professionale e sviluppo sostenibile.</p>
-  <div class="hero-buttons"><a href="#mission" class="hero-btn primary-btn">La nostra missione</a></div>
-</div>
-</section>
-
-<!-- Mission Section -->
-<section id="mission" class="mission-section fade-in-on-scroll">
-  <div class="container">
-    <h2>La nostra missione</h2>
-<p>
-  L'ONG VisionBlue si impegna a trasformare vite fornendo alle giovani donne e alle comunità vulnerabili le competenze, le conoscenze e le opportunità necessarie per un futuro sostenibile.  
-  Crediamo che ogni persona – indipendentemente dal contesto o dalla situazione – meriti la possibilità di crescere, imparare e svilupparsi.  
-  Attraverso l'istruzione, il mentoring e iniziative di sviluppo comunitario, rompiamo i cicli di povertà e creiamo percorsi verso dignità, resilienza e speranza.
-</p>
-  </div>
-</section>
-
-<!-- Projects Section -->
-<section id="projects" class="projects-section fade-in-on-scroll">
-  <div class="container">
-    <h2>I nostri progetti</h2>
-<div class="projects-grid">
-  <div class="project-card">
-    <div class="project-icon"><i class="fas fa-store"></i></div>
-    <h3>Sostegno alla creazione d'impresa</h3>
-    <p>Fornitura di finanziamenti iniziali e coaching per imprenditrici al fine di sviluppare modelli di business sostenibili.</p>
-  </div>
-  <div class="project-card">
-    <div class="project-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-    <h3>Mentoring e supporto</h3>
-    <p>Sessioni di mentoring regolari, supporto continuativo e assistenza personalizzata per i nostri beneficiari.</p>
-  </div>
-  <div class="project-card">
-    <div class="project-icon"><i class="fas fa-graduation-cap"></i></div>
-    <h3>Formazione professionale</h3>
-    <p>Sviluppo di competenze pratiche per l'occupazione e l'autonomia economica.</p>
-  </div>
-  <div class="project-card">
-    <div class="project-icon"><i class="fas fa-users"></i></div>
-    <h3>Potenzialità comunitaria</h3>
-    <p>Rafforzamento delle comunità resilienti attraverso workshop, campagne di sensibilizzazione e partenariati locali.</p>
-  </div>
-</div>
-  </div>
-</section>
-
-<!-- About Section -->
-<section id="about" class="about-wide-section fade-in-on-scroll">
-  <div class="container">
-    <h2>Chi siamo - ONG VisionBlue</h2>
-<p class="about-intro">L'ONG VisionBlue rafforza le comunità attraverso istruzione, formazione professionale e progetti di sviluppo incentrati sulle persone.</p>
-<div class="about-wide-grid">
-  <div class="about-wide-card">
-    <div class="about-wide-icon"><i class="fas fa-seedling"></i></div>
-    <div class="about-wide-text">
-      <h3>Origini e Visione</h3>
-      <p>L'ONG VisionBlue è stata fondata con una missione chiara: supportare le giovani donne tra i 15 e i 25 anni e le comunità che affrontano sfide sociali ed economiche. Le sue origini risiedono nell’impegno a creare percorsi pratici e sostenibili di empowerment, in particolare per giovani donne e gruppi vulnerabili.</p>
-    </div>
-  </div>
-  <div class="about-wide-card">
-    <div class="about-wide-icon"><i class="fas fa-university"></i></div>
-    <div class="about-wide-text">
-      <h3>Fondamenti accademici e professionali</h3>
-      <p>Il lavoro dell'ONG VisionBlue si basa sul background accademico e professionale del fondatore, il cui impegno spazia dall’etica allo sviluppo comunitario e alla responsabilità sociale. Questa base guida il nostro approccio fondato sull’evidenza e centrato sull’essere umano.</p>
-    </div>
-  </div>
-  <div class="about-wide-card">
-    <div class="about-wide-icon"><i class="fas fa-hands-helping"></i></div>
-    <div class="about-wide-text">
-      <h3>Risposta alle crisi</h3>
-      <p>L'ONG VisionBlue è nata durante un periodo di forte pressione sociale ed economica in Camerun. La nostra risposta si concentra su azioni costruttive – tramite supporto, formazione e opportunità che promuovono stabilità, autodeterminazione e resilienza a lungo termine.</p>
-    </div>
-  </div>
-</div>
-  </div>
-</section>
-
-<section class="team-section fade-in-on-scroll">
-  <h2>Team di Leadership</h2>
-
-<div class="team-grid-new">
-
-  <div class="team-card-new">
-    <img src="assets/img/images/CEO.webp" alt="CEO" loading="lazy" width="300" height="300">
-    <h3>Amministratore Delegato</h3>
-    <p>Fondatore e Responsabile della Visione</p>
-  </div>
-
-  <div class="team-card-new">
-    <img src="assets/img/images/VicePresident.webp" alt="Vice Presidente" loading="lazy" width="300" height="300">
-    <h3>Vice Presidente</h3>
-    <p>Operazioni e Strategia</p>
-  </div>
-
-  <div class="team-card-new">
-    <img src="assets/img/images/GeneralSecretary.webp" alt="Segretario Generale" loading="lazy" width="300" height="300">
-    <h3>Segretario Generale</h3>
-    <p>Amministrazione e Coordinamento</p>
-  </div>
-
-  <div class="team-card-new">
-    <img src="assets/img/images/Treasurer.webp" alt="Tesoriere" loading="lazy" width="300" height="300">
-    <h3>Tesoriere</h3>
-    <p>Controllo Finanziario</p>
-  </div>
-
-  <div class="team-card-new">
-    <img src="assets/img/images/FinancialSecretary.webp" alt="Segretario Finanziario" loading="lazy" width="300" height="300">
-    <h3>Segretario Finanziario</h3>
-    <p>Contabilità e Rendicontazione</p>
-  </div>
-
-  <div class="team-card-new">
-    <img src="assets/img/images/PublicitySectary.webp" alt="Segretario alla Comunicazione" loading="lazy" width="300" height="300">
-    <h3>Segretario alla Comunicazione</h3>
-    <p>Comunicazione e Media</p>
-  </div>
-
-</div>
-
-  </div>
-</section>
-
-<!-- Timeline Section -->
-<section id="timeline" class="fade-in-on-scroll">
-<h2>Il nostro percorso</h2>
-<div class="timeline">
-  <div class="timeline-item">
-    <h3>Feb 2019 – Nov 2021</h3>
-    <p>Analisi e avvio del programma di supporto alle imprese</p>
-  </div>
-  <div class="timeline-item">
-    <h3>Gen 2022</h3>
-    <p>Programma di mentoring e follow-up</p>
-  </div>
-  <div class="timeline-item">
-    <h3>Gen 2023</h3>
-    <p>Coaching continuo, programma di follow-up, campagne scolastiche e workshop</p>
-  </div>
-  <div class="timeline-item">
-    <h3>2024</h3>
-    <p>Programmi di ritorno a scuola, pacchetti, picnic e attività ricreative</p>
-  </div>
-  <div class="timeline-item">
-    <h3>2025</h3>
-    <p>Espansione in nuove comunità per approfondire l'impatto</p>
-  </div>
-</div>
-</section>
-
-<!-- Gallery Section -->
-<section id="gallery" class="fade-in-on-scroll">
-<h2>Galleria</h2>
-<div class="gallery-grid">
-<img src="assets/img/images/gallery2.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/gallery3.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/beneficiaries1.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/HildaBusiness1.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/HildaBusiness2.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/MarthaBusiness1.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/VirginieBusiness1.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/BeneficiariesGroupPicture1.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/Hilda.webp" class="gallery-img" alt="Gallery">
-</div>
-</section>
-
-<!-- Donate Section -->
-<section id="donate" class="donate-section fade-in-on-scroll">
-<h2>Sostieni la nostra missione</h2>
-<div class="donate-grid">
-  <div class="donate-card">
-    <h3>Mobile Money</h3>
-    <a href="tel:+237676376238">+237 676 376 238</a>
-  </div>
-  <div class="donate-card">
-    <h3>Bonifico Bancario</h3>
-    <a href="#">Contattaci per i dettagli IBAN</a>
-  </div>
-  <div class="donate-card">
-    <h3>PayPal</h3>
-    <a href="https://www.paypal.me/thevisionblue" target="_blank">Dona tramite PayPal</a>
-  </div>
-</div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact" class="fade-in-on-scroll">
-<h2>Contatti</h2>
-<div class="contact-grid">
-  <div class="contact-card">
-    <i class="fas fa-envelope contact-icon"></i>
-    <h3>Email</h3>
-    <a href="mailto:thevisionblue18@gmail.com">thevisionblue18@gmail.com</a>
-  </div>
-  <div class="contact-card">
-    <i class="fas fa-phone contact-icon"></i>
-    <h3>Camerun</h3>
-    <a href="tel:+237676376238">+237 676 376 238</a>
-  </div>
-  <div class="contact-card">
-    <i class="fas fa-phone contact-icon"></i>
-    <h3>Germania</h3>
-    <a href="tel:+4915561550887">+49 178 134-2019</a>
-  </div>
-  <div class="contact-card">
-    <i class="fas fa-phone contact-icon"></i>
-    <h3>Italia</h3>
-    <a href="tel:+393928456152">+39 392 845 6152</a>
-  </div>
-</div>
 <!-- Footer -->
-<footer class="footer">
-<p>© <span id="year"></span>ONG VisionBlue</p>
-</footer>
-
-
-<!-- FRENCH -->
-
-<!-- Floating Donate Button -->
-<a href="#donate" class="floating-donate-btn">Faire un don</a>
-
-<!-- Barre supérieure -->
-<header class="top-bar">
-  <div class="brand-area">
-    <img src="assets/img/images/logo.webp" alt="Logo VisionBlue">
-    <span>L'ONG VisionBlue</span>
-  </div>
-  <!-- Sélecteur de langue automatique Google Translate -->
-  <div id="google_translate_selector" style="color:#000;"></div>
-</header>
-
-<!-- Hero Section -->
-<section class="hero-section">
-  <div class="hero-content">
-  <img src="assets/img/images/logo.webp" alt="Logo VisionBlue" class="hero-logo">
-  <h1 class="hero-title">Autonomiser les communautés, construire l'avenir</h1>
-  <p class="hero-subtitle">Soutenir les jeunes femmes et les communautés vulnérables grâce à l'éducation, à la formation professionnelle et au développement durable.</p>
-  <div class="hero-buttons"><a href="#mission" class="hero-btn primary-btn">Notre mission</a></div>
-</div>
-</section>
-
-<!-- Mission Section -->
-<section id="mission" class="mission-section fade-in-on-scroll">
-  <div class="container">
-    <h2>Notre mission</h2>
-<p>
-  L'ONG VisionBlue s'engage à transformer des vies en dotant les jeunes femmes et les communautés vulnérables des compétences, connaissances et opportunités nécessaires pour un avenir durable.  
-  Nous croyons que chaque personne – indépendamment de son origine ou de sa situation – mérite la chance de s'élever, d'apprendre et de se développer.  
-  Grâce à l'éducation, au mentorat et aux initiatives de développement communautaire, nous brisons les cycles de pauvreté et créons des chemins vers la dignité, la résilience et l'espoir.
-</p>
-</div>
-</section>
-
-<!-- Projects Section -->
-<section id="projects" class="projects-section fade-in-on-scroll">
-  <div class="container">
-    <h2>Nos projets</h2>
-<div class="projects-grid">
-  <div class="project-card">
-    <div class="project-icon"><i class="fas fa-store"></i></div>
-    <h3>Soutien à la création d'entreprises</h3>
-    <p>Fourniture de financement initial et d'accompagnement pour les femmes entrepreneures afin de développer des modèles économiques durables.</p>
-  </div>
-  <div class="project-card">
-    <div class="project-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-    <h3>Mentorat et accompagnement</h3>
-    <p>Sessions de mentorat régulières, suivi personnalisé et assistance adaptée pour nos bénéficiaires.</p>
-  </div>
-  <div class="project-card">
-    <div class="project-icon"><i class="fas fa-graduation-cap"></i></div>
-    <h3>Formation professionnelle</h3>
-    <p>Développement de compétences pratiques pour l'emploi et l'autonomie économique.</p>
-  </div>
-  <div class="project-card">
-    <div class="project-icon"><i class="fas fa-users"></i></div>
-    <h3>Renforcement communautaire</h3>
-    <p>Consolidation de communautés résilientes via des ateliers, campagnes de sensibilisation et partenariats locaux.</p>
-  </div>
-</div>
-  </div>
-</section>
-
-<!-- About Section -->
-<section id="about" class="about-wide-section fade-in-on-scroll">
-  <div class="container">
-    <h2>À propos de l'ONG VisionBlue</h2>
-<p class="about-intro">L'ONG VisionBlue renforce les communautés grâce à l'éducation, la formation professionnelle et le développement centré sur l'humain.</p>
-<div class="about-wide-grid">
-  <div class="about-wide-card">
-    <div class="about-wide-icon"><i class="fas fa-seedling"></i></div>
-    <div class="about-wide-text">
-      <h3>Origines et vision</h3>
-      <p>L'ONG VisionBlue a été fondée avec une mission claire : soutenir les jeunes femmes de 15 à 25 ans ainsi que les communautés confrontées à des défis sociaux et économiques. Ses origines reposent sur l'engagement de créer des voies pratiques et durables vers l'autonomisation, en particulier pour les jeunes femmes et les groupes vulnérables.</p>
-    </div>
-  </div>
-  <div class="about-wide-card">
-    <div class="about-wide-icon"><i class="fas fa-university"></i></div>
-    <div class="about-wide-text">
-      <h3>Fondements académiques et professionnels</h3>
-      <p>Le travail de l'ONG VisionBlue s'appuie sur la formation académique et professionnelle de son fondateur, dont l'engagement couvre l'éthique, le développement communautaire et la responsabilité sociale. Cette base façonne notre approche fondée sur des preuves et centrée sur l'humain.</p>
-    </div>
-  </div>
-  <div class="about-wide-card">
-    <div class="about-wide-icon"><i class="fas fa-hands-helping"></i></div>
-    <div class="about-wide-text">
-      <h3>Réponse aux crises</h3>
-      <p>L'ONG VisionBlue est née durant une période de forte tension sociale et économique au Cameroun. Notre réponse se concentre sur l'action constructive — à travers le soutien, la formation et les opportunités favorisant la stabilité, l'autodétermination et la résilience à long terme.</p>
-    </div>
-  </div>
-</div>
-  </div>
-</section>
-
-<section class="team-section fade-in-on-scroll">
-  <h2>Équipe de direction</h2>
-
-<div class="team-grid-new">
-
-  <div class="team-card-new">
-    <img src="assets/img/images/CEO.webp" alt="Directeur exécutif" loading="lazy" width="300" height="300">
-    <h3>Directeur exécutif</h3>
-    <p>Fondateur & Responsable de la vision</p>
-  </div>
-
-  <div class="team-card-new">
-    <img src="assets/img/images/VicePresident.webp" alt="Vice-président" loading="lazy" width="300" height="300">
-    <h3>Vice-président</h3>
-    <p>Opérations & Stratégie</p>
-  </div>
-
-  <div class="team-card-new">
-    <img src="assets/img/images/GeneralSecretary.webp" alt="Secrétaire général" loading="lazy" width="300" height="300">
-    <h3>Secrétaire général</h3>
-    <p>Administration & Coordination</p>
-  </div>
-
-  <div class="team-card-new">
-    <img src="assets/img/images/Treasurer.webp" alt="Trésorier" loading="lazy" width="300" height="300">
-    <h3>Trésorier</h3>
-    <p>Supervision financière</p>
-  </div>
-
-  <div class="team-card-new">
-    <img src="assets/img/images/FinancialSecretary.webp" alt="Secrétaire financier" loading="lazy" width="300" height="300">
-    <h3>Secrétaire financier</h3>
-    <p>Comptabilité & Rapports</p>
-  </div>
-
-  <div class="team-card-new">
-    <img src="assets/img/images/PublicitySectary.webp" alt="Secrétaire à la communication" loading="lazy" width="300" height="300">
-    <h3>Secrétaire à la communication</h3>
-    <p>Communications & Médias</p>
-  </div>
-
-</div>
-
-  </div>
-</section>
-
-<!-- Timeline Section -->
-<section id="timeline" class="fade-in-on-scroll">
-<h2>Notre parcours</h2>
-<div class="timeline">
-  <div class="timeline-item">
-    <h3>Fév 2019 – Nov 2021</h3>
-    <p>Analyse et lancement du programme de soutien aux entreprises</p>
-  </div>
-  <div class="timeline-item">
-    <h3>Jan 2022</h3>
-    <p>Programme de mentorat et de suivi</p>
-  </div>
-  <div class="timeline-item">
-    <h3>Jan 2023</h3>
-    <p>Coaching continu, programme de suivi, campagnes scolaires et ateliers</p>
-  </div>
-  <div class="timeline-item">
-    <h3>2024</h3>
-    <p>Programmes de rentrée scolaire, distributions de kits, pique-niques et activités récréatives</p>
-  </div>
-  <div class="timeline-item">
-    <h3>2025</h3>
-    <p>Extension à de nouvelles communautés pour renforcer notre impact</p>
-  </div>
-</div>
-</section>
-
-<!-- Gallery Section -->
-<section id="gallery" class="fade-in-on-scroll">
-<h2>Galerie</h2>
-<div class="gallery-grid">
-<img src="assets/img/images/gallery2.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/gallery3.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/beneficiaries1.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/HildaBusiness1.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/HildaBusiness2.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/MarthaBusiness1.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/VirginieBusiness1.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/BeneficiariesGroupPicture1.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/Hilda.webp" class="gallery-img" alt="Gallery">
-</div>
-</section>
-
-<!-- Donate Section -->
-<section id="donate" class="donate-section fade-in-on-scroll">
-<h2>Soutenez notre mission</h2>
-<div class="donate-grid">
-  <div class="donate-card">
-    <h3>Mobile Money</h3>
-    <a href="tel:+237676376238">+237 676 376 238</a>
-  </div>
-  <div class="donate-card">
-    <h3>Virement bancaire</h3>
-    <a href="#">Contactez-nous pour les coordonnées IBAN</a>
-  </div>
-  <div class="donate-card">
-    <h3>PayPal</h3>
-    <a href="https://www.paypal.me/thevisionblue" target="_blank">Faire un don via PayPal</a>
-  </div>
-</div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact" class="fade-in-on-scroll">
-<h2>Contact</h2>
-<div class="contact-grid">
-  <div class="contact-card">
-    <i class="fas fa-envelope contact-icon"></i>
-    <h3>Email</h3>
-    <a href="mailto:thevisionblue18@gmail.com">thevisionblue18@gmail.com</a>
-  </div>
-  <div class="contact-card">
-    <i class="fas fa-phone contact-icon"></i>
-    <h3>Cameroun</h3>
-    <a href="tel:+237676376238">+237 676 376 238</a>
-  </div>
-  <div class="contact-card">
-    <i class="fas fa-phone contact-icon"></i>
-    <h3>Allemagne</h3>
-    <a href="tel:+4915561550887">+49 178 134-2019</a>
-  </div>
-  <div class="contact-card">
-    <i class="fas fa-phone contact-icon"></i>
-    <h3>Italie</h3>
-    <a href="tel:+393928456152">+39 392 845 6152</a>
-  </div>
-</div>
-<!-- Footer -->
-<footer class="footer">
-<p>© <span id="year"></span>L'ONG VisionBlue</p>
-</footer>
-
-
-<!-- GERMAN -->
-
-<!-- Floating Donate Button -->
-<a href="#donate" class="floating-donate-btn">Spenden</a>
-
-<!-- Top Bar -->
-<header class="top-bar">
-  <div class="brand-area">
-    <img src="assets/img/images/logo.webp" alt="VisionBlue Logo">
-    <span>The VisionBlue NGO</span>
-  </div>
-  <!-- Google Translate auto-language selector -->
-  <div id="google_translate_selector" style="color:#000;"></div>
-</header>
-
-<!-- Hero Section -->
-<section class="hero-section">
-  <div class="hero-content">
-    <img src="assets/img/images/logo.webp" alt="VisionBlue Logo" class="hero-logo">
-    <h1 class="hero-title">Gemeinschaften stärken, Zukunft gestalten</h1>
-    <p class="hero-subtitle">Unterstützung junger Frauen und benachteiligter Gemeinschaften durch Bildung, berufliche Ausbildung und nachhaltige Entwicklung.</p>
-    <div class="hero-buttons"><a href="#mission" class="hero-btn primary-btn">Unsere Mission</a></div>
-  </div>
-</section>
-
-<!-- Mission Section -->
-<section id="mission" class="mission-section fade-in-on-scroll">
-  <div class="container">
-    <h2>Unsere Mission</h2>
-    <p>
-      Die VisionBlue NGO setzt sich dafür ein, Leben nachhaltig zu verändern, indem sie junge Frauen und benachteiligte Gemeinschaften mit den Fähigkeiten, Kenntnissen und Chancen ausstattet, die sie für eine nachhaltige Zukunft benötigen.
-      Wir sind überzeugt, dass jeder Mensch – unabhängig von Herkunft oder Lebensumständen – die Möglichkeit verdient, sich zu entfalten, zu lernen und zu wachsen.
-      Durch Bildung, Mentoring und gemeinschaftsorientierte Entwicklungsinitiativen durchbrechen wir Armutskreisläufe und schaffen Wege zu Würde, Resilienz und Hoffnung.
-    </p>
-  </div>
-</section>
-
-<!-- Projects Section -->
-<section id="projects" class="projects-section fade-in-on-scroll">
-  <div class="container">
-    <h2>Unsere Projekte</h2>
-<div class="projects-grid">
-  <div class="project-card"><div class="project-icon"><i class="fas fa-store"></i></div><h3>Unterstützung bei Unternehmensgründungen</h3><p>Bereitstellung von Startkapital sowie Coaching für Unternehmerinnen zur Entwicklung nachhaltiger Geschäftsmodelle.</p></div>
-  <div class="project-card"><div class="project-icon"><i class="fas fa-chalkboard-teacher"></i></div><h3>Mentoring & Beratung</h3><p>Regelmäßige Mentoring-Sitzungen, kontinuierliche Begleitung und individuell zugeschnittene Unterstützung für unsere Begünstigten.</p></div>
-  <div class="project-card"><div class="project-icon"><i class="fas fa-graduation-cap"></i></div><h3>Berufliche Qualifizierung</h3><p>Vermittlung praxisorientierter Kompetenzen zur Förderung von Beschäftigungsfähigkeit und wirtschaftlicher Eigenständigkeit.</p></div>
-  <div class="project-card"><div class="project-icon"><i class="fas fa-users"></i></div><h3>Stärkung von Gemeinschaften</h3><p>Förderung resilienter Gemeinschaften durch Workshops, Sensibilisierungskampagnen und lokale Partnerschaften.</p></div>
-</div>
-</div>
-</section>
-
-<!-- About Section -->
-<section id="about" class="about-wide-section fade-in-on-scroll">
-  <div class="container">
-    <h2>Über die VisionBlue NGO</h2>
-<p class="about-intro">Die VisionBlue NGO stärkt Gemeinschaften durch Bildung, berufliche Qualifizierung und menschenzentrierte Entwicklungsarbeit.</p>
-<div class="about-wide-grid">
-  <div class="about-wide-card">
-    <div class="about-wide-icon"><i class="fas fa-seedling"></i></div>
-    <div class="about-wide-text">
-      <h3>Ursprung & Vision</h3>
-      <p>Die VisionBlue NGO wurde mit einer klaren Mission gegründet: junge Frauen im Alter von 15 bis 25 Jahren sowie Gemeinschaften, die vor sozialen und wirtschaftlichen Herausforderungen stehen, zu unterstützen. Ihr Ursprung liegt im Engagement, praktische und nachhaltige Wege zur Selbstermächtigung zu schaffen – insbesondere für junge Frauen und gefährdete Gruppen.</p>
-    </div>
-  </div>
-  <div class="about-wide-card">
-    <div class="about-wide-icon"><i class="fas fa-university"></i></div>
-    <div class="about-wide-text">
-      <h3>Akademische & berufliche Grundlagen</h3>
-      <p>Die Arbeit der VisionBlue NGO basiert auf dem akademischen und beruflichen Hintergrund ihres Gründers, dessen Engagement sich auf Ethik, Gemeindeentwicklung und soziale Verantwortung erstreckt. Dieses Fundament prägt unseren evidenzbasierten und menschenzentrierten Ansatz.</p>
-    </div>
-  </div>
-  <div class="about-wide-card">
-    <div class="about-wide-icon"><i class="fas fa-hands-helping"></i></div>
-    <div class="about-wide-text">
-      <h3>Reaktion auf Krisen</h3>
-      <p>Die VisionBlue NGO entstand in einer Zeit erheblicher sozialer und wirtschaftlicher Belastungen in Kamerun. Unsere Antwort konzentriert sich auf konstruktives Handeln – durch Unterstützung, Qualifizierung und Chancen, die Stabilität, Selbstbestimmung und langfristige Resilienz fördern.</p>
-    </div>
-  </div> 
-</div>
-</section>
-
-<section class="team-section fade-in-on-scroll">
-  <h2>Führungsteam</h2>
-
-<div class="team-grid-new">
-
-  <div class="team-card-new">
-    <img src="assets/img/images/CEO.webp" alt="CEO" loading="lazy" width="300" height="300">
-    <h3>Geschäftsführender Vorstand (CEO)</h3>
-    <p>Gründer & Visionsträger</p>
-  </div>
-
-  <div class="team-card-new">
-    <img src="assets/img/images/VicePresident.webp" alt="Vizepräsident" loading="lazy" width="300" height="300">
-    <h3>Vizepräsident</h3>
-    <p>Betrieb & Strategie</p>
-  </div>
-
-  <div class="team-card-new">
-    <img src="assets/img/images/GeneralSecretary.webp" alt="Generalsekretär" loading="lazy" width="300" height="300">
-    <h3>Generalsekretär</h3>
-    <p>Verwaltung & Koordination</p>
-  </div>
-
-  <div class="team-card-new">
-    <img src="assets/img/images/Treasurer.webp" alt="Schatzmeister" loading="lazy" width="300" height="300">
-    <h3>Schatzmeister</h3>
-    <p>Finanzaufsicht</p>
-  </div>
-
-  <div class="team-card-new">
-    <img src="assets/img/images/FinancialSecretary.webp" alt="Finanzsekretär" loading="lazy" width="300" height="300">
-    <h3>Finanzsekretär</h3>
-    <p>Buchhaltung & Berichterstattung</p>
-  </div>
-
-  <div class="team-card-new">
-    <img src="assets/img/images/PublicitySectary.webp" alt="PR-Sekretär" loading="lazy" width="300" height="300">
-    <h3>PR-Sekretär</h3>
-    <p>Kommunikation & Medien</p>
-  </div>
-</div>
-
-  </div>
-</section>
-
-<!-- Timeline Section -->
-<section id="timeline" class="fade-in-on-scroll">
-<h2>Unser Weg</h2>
-<div class="timeline">
-<div class="timeline-item"><h3>Feb 2019 – Nov 2021</h3><p>Analyse und Start der Unternehmensförderung.</p></div>
-<div class="timeline-item"><h3>Jan 2022</h3><p>Mentoring- und Begleitprogramm.</p></div>
-<div class="timeline-item"><h3>Jan 2023</h3><p>Kontinuierliches Coaching, Schulprogramme und Workshops.</p></div>
-<div class="timeline-item"><h3>2024</h3><p>Schulprogramme, Pakete, Freizeitprogramme und Aktivitäten.</p></div>
-<div class="timeline-item"><h3>2025</h3><p>Expansion in neue Gemeinschaften.</p></div>
-</div>
-</section>
-
-<!-- Gallery Section -->
-<section id="gallery" class="fade-in-on-scroll">
-<h2>Galerie</h2>
-<div class="gallery-grid">
-<img src="assets/img/images/gallery2.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/gallery3.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/beneficiaries1.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/HildaBusiness1.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/HildaBusiness2.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/MarthaBusiness1.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/VirginieBusiness1.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/BeneficiariesGroupPicture1.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/Hilda.webp" class="gallery-img" alt="Gallery">
-</div>
-</section>
-
-<!-- Donate Section -->
-<section id="donate" class="donate-section fade-in-on-scroll">
-<h2>Unterstützen Sie unsere Mission</h2>
-<div class="donate-grid">
-  <div class="donate-card">
-    <h3>Mobile Money</h3>
-    <a href="tel:+237676376238">+237 676 376 238</a>
-  </div>
-  <div class="donate-card">
-    <h3>Banküberweisung</h3>
-    <a href="#">Kontaktieren Sie uns für die IBAN-Daten</a>
-  </div>
-  <div class="donate-card">
-    <h3>PayPal</h3>
-    <a href="https://www.paypal.me/thevisionblue" target="_blank">Spenden über PayPal</a>
-  </div>
-</div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact" class="fade-in-on-scroll">
-<h2>Kontakt</h2>
-<div class="contact-grid">
-  <div class="contact-card">
-    <i class="fas fa-envelope contact-icon"></i>
-    <h3>E-Mail</h3>
-    <a href="mailto:thevisionblue18@gmail.com">thevisionblue18@gmail.com</a>
-  </div>
-  <div class="contact-card">
-    <i class="fas fa-phone contact-icon"></i>
-    <h3>Kamerun</h3>
-    <a href="tel:+237676376238">+237 676 376 238</a>
-  </div>
-  <div class="contact-card">
-    <i class="fas fa-phone contact-icon"></i>
-    <h3>Deutschland</h3>
-    <a href="tel:+4915561550887">+49 178 134-2019</a>
-  </div>
-  <div class="contact-card">
-    <i class="fas fa-phone contact-icon"></i>
-    <h3>Italien</h3>
-    <a href="tel:+393928456152">+39 392 845 6152</a>
-  </div>
-</div>
-<!-- Footer -->
-<footer class="footer">
-<p>© <span id="year"></span> The VisionBlue NGO</p>
-</footer>
-
-<!-- SPANISH -->
-
-<!-- Floating Donate Button -->
-<a href="#donate" class="floating-donate-btn">Donate</a>
-
-<!-- Top Bar -->
-<header class="top-bar">
-  <div class="brand-area">
-    <img src="assets/img/images/logo.webp" alt="VisionBlue Logo">
-    <span>La ONG VisionBlue</span>
-  </div>
-  <!-- Google Translate auto-language selector -->
-  <div id="google_translate_selector" style="color:#000;"></div>
-</header>
-
-<!-- Hero Section -->
-<section class="hero-section">
-  <div class="hero-content">
-  <img src="assets/img/images/logo.webp" alt="Logo de VisionBlue" class="hero-logo">
-  <h1 class="hero-title">Empoderando comunidades, construyendo futuros</h1>
-  <p class="hero-subtitle">Apoyando a mujeres jóvenes y comunidades vulnerables mediante la educación, la formación profesional y el desarrollo sostenible.</p>
-  <div class="hero-buttons"><a href="#mission" class="hero-btn primary-btn">Nuestra misión</a></div>
-</div>
-</section>
-
-<!-- Mission Section -->
-<section id="mission" class="mission-section fade-in-on-scroll">
-  <div class="container">
-    <h2>Nuestra misión</h2>
-<p>
-  La ONG VisionBlue se compromete a transformar vidas proporcionando a mujeres jóvenes y comunidades vulnerables las habilidades, conocimientos y oportunidades que necesitan para un futuro sostenible.  
-  Creemos que toda persona, independientemente de su origen o circunstancia, merece la oportunidad de crecer, aprender y desarrollarse.  
-  A través de la educación, el mentorazgo y las iniciativas de desarrollo comunitario, rompemos los ciclos de pobreza y creamos caminos hacia la dignidad, la resiliencia y la esperanza.
-</p>
-</div>
-</section>
-
-<!-- Projects Section -->
-<section id="projects" class="projects-section fade-in-on-scroll">
-  <div class="container">
-    <h2>Nuestros proyectos</h2>
-<div class="projects-grid">
-  <div class="project-card">
-    <div class="project-icon"><i class="fas fa-store"></i></div>
-    <h3>Apoyo a la creación de empresas</h3>
-    <p>Provisión de capital inicial y asesoramiento para mujeres emprendedoras con el fin de desarrollar modelos de negocio sostenibles.</p>
-  </div>
-  <div class="project-card">
-    <div class="project-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-    <h3>Mentoría y orientación</h3>
-    <p>Sesiones regulares de mentoría, seguimiento continuo y asistencia personalizada para nuestros beneficiarios.</p>
-  </div>
-  <div class="project-card">
-    <div class="project-icon"><i class="fas fa-graduation-cap"></i></div>
-    <h3>Formación profesional</h3>
-    <p>Desarrollo de habilidades prácticas para el empleo y la autosuficiencia económica.</p>
-  </div>
-  <div class="project-card">
-    <div class="project-icon"><i class="fas fa-users"></i></div>
-    <h3>Empoderamiento comunitario</h3>
-    <p>Fortalecimiento de comunidades resilientes mediante talleres, campañas de sensibilización y asociaciones locales.</p>
-  </div>
-</div>
-</div>
-</section>
-
-<!-- About Section -->
-<section id="about" class="about-wide-section fade-in-on-scroll">
-  <div class="container">
-    <h2>Acerca de la ONG VisionBlue</h2>
-<p class="about-intro">La ONG VisionBlue fortalece las comunidades a través de la educación, la formación profesional y el trabajo de desarrollo centrado en las personas.</p>
-<div class="about-wide-grid">
-  <div class="about-wide-card">
-    <div class="about-wide-icon"><i class="fas fa-seedling"></i></div>
-    <div class="about-wide-text">
-      <h3>Orígenes y visión</h3>
-      <p>La ONG VisionBlue se fundó con una misión clara: apoyar a mujeres jóvenes entre 15 y 25 años y a comunidades que enfrentan desafíos sociales y económicos. Sus orígenes se basan en el compromiso de crear vías prácticas y sostenibles hacia el empoderamiento, especialmente para mujeres jóvenes y grupos vulnerables.</p>
-    </div>
-  </div>
-  <div class="about-wide-card">
-    <div class="about-wide-icon"><i class="fas fa-university"></i></div>
-    <div class="about-wide-text">
-      <h3>Fundamentos académicos y profesionales</h3>
-      <p>El trabajo de la ONG VisionBlue se sustenta en la formación académica y profesional de su fundador, cuyo compromiso abarca la ética, el desarrollo comunitario y la responsabilidad social. Esta base conforma nuestro enfoque basado en evidencia y centrado en las personas.</p>
-    </div>
-  </div>
-  <div class="about-wide-card">
-    <div class="about-wide-icon"><i class="fas fa-hands-helping"></i></div>
-    <div class="about-wide-text">
-      <h3>Respuesta a crisis</h3>
-      <p>La ONG VisionBlue surgió durante un período de considerable tensión social y económica en Camerún. Nuestra respuesta se centra en la acción constructiva mediante apoyo, capacitación y oportunidades que fomentan la estabilidad, la autodeterminación y la resiliencia a largo plazo.</p>
-    </div>
-  </div>
-</div>
-  </div>
-</section>
-
-<section class="team-section fade-in-on-scroll">
-  <h2>Equipo Directivo</h2>
-
-<div class="team-grid-new">
-
-  <div class="team-card-new">
-    <img src="assets/img/images/CEO.webp" alt="CEO" loading="lazy" width="300" height="300">
-    <h3>Director Ejecutivo</h3>
-    <p>Fundador y Líder de Visión</p>
-  </div>
-
-  <div class="team-card-new">
-    <img src="assets/img/images/VicePresident.webp" alt="Vicepresidente" loading="lazy" width="300" height="300">
-    <h3>Vicepresidente</h3>
-    <p>Operaciones y Estrategia</p>
-  </div>
-
-  <div class="team-card-new">
-    <img src="assets/img/images/GeneralSecretary.webp" alt="Secretario General" loading="lazy" width="300" height="300">
-    <h3>Secretario General</h3>
-    <p>Administración y Coordinación</p>
-  </div>
-
-  <div class="team-card-new">
-    <img src="assets/img/images/Treasurer.webp" alt="Tesorero" loading="lazy" width="300" height="300">
-    <h3>Tesorero</h3>
-    <p>Supervisión Financiera</p>
-  </div>
-
-  <div class="team-card-new">
-    <img src="assets/img/images/FinancialSecretary.webp" alt="Secretario Financiero" loading="lazy" width="300" height="300">
-    <h3>Secretario Financiero</h3>
-    <p>Contabilidad y Reportes</p>
-  </div>
-
-  <div class="team-card-new">
-    <img src="assets/img/images/PublicitySectary.webp" alt="Secretario de Publicidad" loading="lazy" width="300" height="300">
-    <h3>Secretario de Publicidad</h3>
-    <p>Comunicación y Medios</p>
-  </div>
-
-</div>
-</section>
-
-<!-- Timeline Section -->
-<section id="timeline" class="fade-in-on-scroll">
-<h2>Nuestro recorrido</h2>
-<div class="timeline">
-  <div class="timeline-item">
-    <h3>Feb 2019 – Nov 2021</h3>
-    <p>Análisis y lanzamiento del programa de apoyo empresarial</p>
-  </div>
-  <div class="timeline-item">
-    <h3>Ene 2022</h3>
-    <p>Programa de mentoría y seguimiento</p>
-  </div>
-  <div class="timeline-item">
-    <h3>Ene 2023</h3>
-    <p>Mentoría continua, programa de seguimiento, campañas escolares y talleres</p>
-  </div>
-  <div class="timeline-item">
-    <h3>2024</h3>
-    <p>Programas de regreso a la escuela, paquetes escolares, picnics y actividades recreativas</p>
-  </div>
-  <div class="timeline-item">
-    <h3>2025</h3>
-    <p>Expansión a nuevas comunidades para profundizar nuestro impacto</p>
-  </div>
-</div>
-</section>
-
-<!-- Gallery Section -->
-<section id="gallery" class="fade-in-on-scroll">
-<h2>Galería</h2>
-<div class="gallery-grid">
-<img src="assets/img/images/gallery2.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/gallery3.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/beneficiaries1.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/HildaBusiness1.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/HildaBusiness2.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/MarthaBusiness1.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/VirginieBusiness1.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/BeneficiariesGroupPicture1.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/Hilda.webp" class="gallery-img" alt="Gallery">
-</div>
-</section>
-
-<!-- Donate Section -->
-<section id="donate" class="donate-section fade-in-on-scroll">
-<h2>Apoya nuestra misión</h2>
-<div class="donate-grid">
-  <div class="donate-card">
-    <h3>Mobile Money</h3>
-    <a href="tel:+237676376238">+237 676 376 238</a>
-  </div>
-  <div class="donate-card">
-    <h3>Transferencia bancaria</h3>
-    <a href="#">Contáctanos para obtener los datos IBAN</a>
-  </div>
-  <div class="donate-card">
-    <h3>PayPal</h3>
-    <a href="https://www.paypal.me/thevisionblue" target="_blank">Donar vía PayPal</a>
-  </div>
-</div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact" class="fade-in-on-scroll">
-<h2>Contacto</h2>
-<div class="contact-grid">
-  <div class="contact-card">
-    <i class="fas fa-envelope contact-icon"></i>
-    <h3>Correo electrónico</h3>
-    <a href="mailto:thevisionblue18@gmail.com">thevisionblue18@gmail.com</a>
-  </div>
-  <div class="contact-card">
-    <i class="fas fa-phone contact-icon"></i>
-    <h3>Camerún</h3>
-    <a href="tel:+237676376238">+237 676 376 238</a>
-  </div>
-  <div class="contact-card">
-    <i class="fas fa-phone contact-icon"></i>
-    <h3>Alemania</h3>
-    <a href="tel:+4915561550887">+49 178 134-2019</a>
-  </div>
-  <div class="contact-card">
-    <i class="fas fa-phone contact-icon"></i>
-    <h3>Italia</h3>
-    <a href="tel:+393928456152">+39 392 845 6152</a>
-  </div>
-</div>
-</section>
-
-<!-- Footer -->
-<footer class="footer">
-<p>© <span id="year"></span>La ONG VisionBlue</p>
-</footer>
-
-<!-- SWEDISH -->
-
-<!-- Floating Donate Button -->
-<a href="#donate" class="floating-donate-btn">Donera</a>
-
-<!-- Top Bar -->
-<header class="top-bar">
-  <div class="brand-area">
-    <img src="assets/img/images/logo.webp" alt="VisionBlue Logotyp">
-    <span>The VisionBlue NGO</span>
-  </div>
-</header>
-  <!-- Google Translate auto-language selector -->
-  <div id="google_translate_selector" style="color:#000;"></div>
-</header>
-
-<!-- Hero Section -->
-<section class="hero-section">
-  <div class="hero-content">
-  <img src="assets/img/images/logo.webp" alt="VisionBlue Logotyp" class="hero-logo">
-  <h1 class="hero-title">Stärker samhällen, formar framtiden</h1>
-  <p class="hero-subtitle">Vi stödjer unga kvinnor och utsatta samhällen genom utbildning, yrkesutbildning och hållbar utveckling.</p>
-  <div class="hero-buttons">
-    <a href="#mission" class="hero-btn primary-btn">Vår mission</a>
-  </div>
-</div>
-</section>
-
-<!-- Mission Section -->
-<section id="mission" class="mission-section fade-in-on-scroll">
-  <div class="container">
-    <h2>Vår mission</h2>
-<p>
-  The VisionBlue NGO är engagerad i att förändra liv genom att ge unga kvinnor och utsatta samhällen de färdigheter, kunskaper och möjligheter som behövs för en hållbar framtid.
-  Vi tror att varje individ – oavsett bakgrund eller omständigheter – förtjänar chansen att växa, lära och utvecklas.
-  Genom utbildning, mentorskap och samhällsdrivna utvecklingsinitiativ bryter vi fattigdomscykler och skapar vägar till värdighet, motståndskraft och hopp.
-</p>
-  </div>
-</section>
-
-<!-- Projects Section -->
-<section id="projects" class="projects-section fade-in-on-scroll">
-  <div class="container">
-    <h2>Våra projekt</h2>
-<div class="projects-grid">
-  <div class="project-card">
-    <div class="project-icon"><i class="fas fa-store"></i></div>
-    <h3>Stöd för företagsstart</h3>
-    <p>Tillhandahållande av startkapital och coachning för kvinnliga entreprenörer för att bygga hållbara affärsmodeller.</p>
-  </div>
-  <div class="project-card">
-    <div class="project-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-    <h3>Mentorskap & vägledning</h3>
-    <p>Regelbundna mentorsessioner, uppföljningsstöd och skräddarsytt stöd för våra mottagare.</p>
-  </div>
-  <div class="project-card">
-    <div class="project-icon"><i class="fas fa-graduation-cap"></i></div>
-    <h3>Yrkesutbildning</h3>
-    <p>Utveckling av praktiska färdigheter för anställning och ekonomiskt oberoende.</p>
-  </div>
-  <div class="project-card">
-    <div class="project-icon"><i class="fas fa-users"></i></div>
-    <h3>Stärkande av samhällen</h3>
-    <p>Förstärkning av resilienta samhällen genom workshops, informationskampanjer och lokala partnerskap.</p>
-  </div>
-</div>
-  </div>
-</section>
-
-<!-- About Section -->
-<section id="about" class="about-wide-section fade-in-on-scroll">
-  <div class="container">
-    <h2>Om VisionBlue NGO</h2>
-<p class="about-intro">VisionBlue NGO stärker samhällen genom utbildning, yrkesutbildning och människocentrerat utvecklingsarbete.</p>
-<div class="about-wide-grid">
-  <div class="about-wide-card">
-    <div class="about-wide-icon"><i class="fas fa-seedling"></i></div>
-    <div class="about-wide-text">
-      <h3>Ursprung & Vision</h3>
-      <p>VisionBlue NGO grundades med ett tydligt uppdrag: att stödja unga kvinnor mellan 15 och 25 år samt samhällen som står inför sociala och ekonomiska utmaningar. Dess ursprung ligger i engagemanget att skapa praktiska och hållbara vägar till egenmakt—särskilt för unga kvinnor och utsatta grupper.</p>
-    </div>
-  </div>
-  <div class="about-wide-card">
-    <div class="about-wide-icon"><i class="fas fa-university"></i></div>
-    <div class="about-wide-text">
-      <h3>Akademisk & professionell grund</h3>
-      <p>VisionBlue NGOs arbete bygger på grundarens akademiska och professionella bakgrund, vars engagemang omfattar etik, samhällsutveckling och socialt ansvar. Denna grund formar vårt evidensbaserade, människocentrerade tillvägagångssätt.</p>
-    </div>
-  </div>
-  <div class="about-wide-card">
-    <div class="about-wide-icon"><i class="fas fa-hands-helping"></i></div>
-    <div class="about-wide-text">
-      <h3>Respons vid kriser</h3>
-      <p>VisionBlue NGO uppstod under en period av betydande sociala och ekonomiska påfrestningar i Kamerun. Vårt svar fokuserar på konstruktiva åtgärder—genom stöd, utbildning och möjligheter som främjar stabilitet, självbestämmande och långsiktig resiliens.</p>
-    </div>
-  </div>
-</div>
-  </div>
-</section>
-
-<section class="team-section fade-in-on-scroll">
-  <h2>Ledningsteam</h2>
-
-<div class="team-grid-new">
-
-  <div class="team-card-new">
-    <img src="assets/img/images/CEO.webp" alt="VD" loading="lazy" width="300" height="300">
-    <h3>Verkställande Direktör</h3>
-    <p>Grundare & Visionär Ledare</p>
-  </div>
-
-  <div class="team-card-new">
-    <img src="assets/img/images/VicePresident.webp" alt="Vice VD" loading="lazy" width="300" height="300">
-    <h3>Vice Verkställande Direktör</h3>
-    <p>Operationer & Strategi</p>
-  </div>
-
-  <div class="team-card-new">
-    <img src="assets/img/images/GeneralSecretary.webp" alt="Generalsekreterare" loading="lazy" width="300" height="300">
-    <h3>Generalsekreterare</h3>
-    <p>Administration & Koordination</p>
-  </div>
-
-  <div class="team-card-new">
-    <img src="assets/img/images/Treasurer.webp" alt="Kassör" loading="lazy" width="300" height="300">
-    <h3>Kassör</h3>
-    <p>Finansiell Översikt</p>
-  </div>
-
-  <div class="team-card-new">
-    <img src="assets/img/images/FinancialSecretary.webp" alt="Finanssekreterare" loading="lazy" width="300" height="300">
-    <h3>Finanssekreterare</h3>
-    <p>Bokföring & Rapportering</p>
-  </div>
-
-  <div class="team-card-new">
-    <img src="assets/img/images/PublicitySectary.webp" alt="Informationssekreterare" loading="lazy" width="300" height="300">
-    <h3>Informationssekreterare</h3>
-    <p>Kommunikation & Media</p>
-  </div>
-
-</div>
-
-  </div>
-</section>
-
-<!-- Timeline Section -->
-<section id="timeline" class="fade-in-on-scroll">
-<h2>Vår Resa</h2>
-<div class="timeline">
-  <div class="timeline-item"><h3>Feb 2019 – Nov 2021</h3><p>Analys och lansering av affärsstöd</p></div>
-  <div class="timeline-item"><h3>Jan 2022</h3><p>Mentorprogram och uppföljning</p></div>
-  <div class="timeline-item"><h3>Jan 2023</h3><p>Löpande coaching, uppföljningsprogram, skolkampanjer och workshops</p></div>
-  <div class="timeline-item"><h3>2024</h3><p>Program för skolstart, paket, picknickar och roliga sommarlovsaktiviteter</p></div>
-  <div class="timeline-item"><h3>2025</h3><p>Expansion till nya samhällen för att fördjupa påverkan</p></div>
-</div>
-</section>
-
-<!-- Gallery Section -->
-<section id="gallery" class="fade-in-on-scroll">
-<h2>Galleri</h2>
-<div class="gallery-grid">
-<img src="assets/img/images/gallery2.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/gallery3.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/beneficiaries1.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/HildaBusiness1.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/HildaBusiness2.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/MarthaBusiness1.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/VirginieBusiness1.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/BeneficiariesGroupPicture1.webp" class="gallery-img" alt="Gallery">
-<img src="assets/img/images/Hilda.webp" class="gallery-img" alt="Gallery">
-</div>
-</section>
-
-<!-- Donate Section -->
-<section id="donate" class="donate-section fade-in-on-scroll">
-<h2>Stöd Vårt Uppdrag</h2>
-<div class="donate-grid">
-  <div class="donate-card"><h3>Mobile Money</h3><a href="tel:+237676376238">+237 676 376 238</a></div>
-  <div class="donate-card"><h3>Banköverföring</h3><a href="#">Kontakta oss för IBAN-uppgifter</a></div>
-  <div class="donate-card"><h3>PayPal</h3><a href="https://www.paypal.me/thevisionblue" target="_blank">Donera via PayPal</a></div>
-</div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact" class="fade-in-on-scroll">
-<h2>Kontakt</h2>
-<div class="contact-grid">
-  <div class="contact-card"><i class="fas fa-envelope contact-icon"></i><h3>E-post</h3><a href="mailto:thevisionblue18@gmail.com">thevisionblue18@gmail.com</a></div>
-  <div class="contact-card"><i class="fas fa-phone contact-icon"></i><h3>Kamerun</h3><a href="tel:+237676376238">+237 676 376 238</a></div>
-  <div class="contact-card"><i class="fas fa-phone contact-icon"></i><h3>Tyskland</h3><a href="tel:+4915561550887">+49 178 134-2019</a></div>
-  <div class="contact-card"><i class="fas fa-phone contact-icon"></i><h3>Italien</h3><a href="tel:+393928456152">+39 392 845 6152</a></div>
-</div>
-</section>
-
-<!-- Footer -->
-<footer class="footer">
-<p>© <span id="year"></span> The VisionBlue NGO</p>
-</footer>
-
-<!-- FOOTER -->
 <footer class="footer">
 <p>© <span id="year"></span> The VisionBlue NGO</p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-// Current year
 document.getElementById("year").textContent = new Date().getFullYear();
 
 // Fade-in on scroll
 const faders = document.querySelectorAll('.fade-in-on-scroll');
-const observer = new IntersectionObserver(entries => { entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); } }); },{threshold:0.2});
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); } });
+},{threshold:0.2});
 faders.forEach(el => observer.observe(el));
-
-// === Language Switcher ===
-const switcher = document.querySelector(".lang-switcher");
-const button = document.querySelector(".lang-btn");
-const flag = document.getElementById("current-flag");
-const langItems = document.querySelectorAll(".lang-menu li");
-const langBlocks = document.querySelectorAll(".lang");
-
-button.addEventListener("click", (e) => { e.stopPropagation(); switcher.classList.toggle("open"); });
-
-langItems.forEach(item => {
-  item.addEventListener("click", () => {
-    const selectedLang = item.getAttribute("data-lang");
-    const newFlag = item.getAttribute("data-flag");
-    flag.src = `https://flagcdn.com/w40/${newFlag}.png`;
-
-    // Show selected language, hide others
-    langBlocks.forEach(block => {
-      block.classList.toggle("active", block.getAttribute("data-lang") === selectedLang);
-    });
-
-    switcher.classList.remove("open");
-  });
-});
-
-document.addEventListener("click", () => { switcher.classList.remove("open"); });
 </script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </body>
 </html>
