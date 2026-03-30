@@ -333,13 +333,20 @@ img,
 }
 </style>
 
-<div class="language-switcher">
-  <a href="index.html"><img src="flags/en.png" alt="English"></a>
-  <a href="it/index.html"><img src="flags/it.png" alt="Italiano"></a>
-  <a href="fr/index.html"><img src="flags/fr.png" alt="Français"></a>
-  <a href="de/index.html"><img src="flags/de.png" alt="Deutsch"></a>
-  <a href="es/index.html"><img src="flags/es.png" alt="Español"></a>
-  <a href="sv/index.html"><img src="flags/sv.png" alt="Svenska"></a>
+<div class="lang-switcher">
+  <button class="lang-btn">
+    <img id="current-flag" src="https://flagcdn.com/w40/gb.png">
+    <span>▼</span>
+  </button>
+
+  <ul class="lang-menu">
+    <li onclick="window.location.href='index-en.html'">English</li>
+<li onclick="window.location.href='index-fr.html'">Français</li>
+<li onclick="window.location.href='index-it.html'">Italiano</li>
+<li onclick="window.location.href='index-de.html'">Deutsch</li>
+<li onclick="window.location.href='index-es.html'">Español</li>
+<li onclick="window.location.href='index-se.html'">Svenska</li>
+  </ul>
 </div>
 
 <script>
@@ -639,14 +646,6 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
     window.location.href = lang + '.html';
   });
 });
-</script>
-<script>
-  const path = window.location.pathname.split("/").pop();
-  document.querySelectorAll('.language-switcher a').forEach(link => {
-    if(link.getAttribute('href') === path) {
-      link.classList.add("active-lang");
-    }
-  });
 </script>
 </body>
 </html>
