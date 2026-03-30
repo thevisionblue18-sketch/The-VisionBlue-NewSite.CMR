@@ -637,5 +637,17 @@ const observer = new IntersectionObserver(entries => {
 faders.forEach(el => observer.observe(el));
 </script>
 </script>
+<script>
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const lang = this.getAttribute('data-lang');
+
+    // Navigate to the corresponding HTML file
+    window.location.href = lang + '.html';
+  });
+});
+const menu = document.querySelector('.lang-menu');
+if (menu) menu.style.display = 'none';
+</script>
 </body>
 </html>
