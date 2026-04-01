@@ -234,6 +234,13 @@ body { top:0px !important; }
 .lang.active {
   display: block;
 }
+.lang-menu {
+  display: none;
+}
+
+.lang-switcher.open .lang-menu {
+  display: block;
+}
 /* ===== SAFE COLOR SKIN (NON-DESTRUCTIVE) ===== */
 
 /* Base */
@@ -331,79 +338,31 @@ img,
 .about-wide-section {
   color: #000;
 }
-<!-- LANGUAGE SWITCHER START -->
-<style>
-.lang-switcher {
-  position: relative;
-  display: inline-block;
-}
-
-.lang-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.lang-btn img {
-  width: 24px;
-  height: auto;
-}
-
-/* Hidden by default */
-.lang-menu {
-  display: none;
-  position: absolute;
-  right: 0;
-  top: 40px;
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  min-width: 160px;
-  z-index: 999;
-}
-
-/* Show dropdown */
-.lang-switcher.open .lang-menu {
-  display: block;
-}
-
-.lang-menu li {
-  padding: 10px;
-  cursor: pointer;
-}
-
-.lang-menu li:hover {
-  background: #f2f2f2;
-}
 </style>
 
 <div class="lang-switcher">
   <button class="lang-btn" id="langBtn">
     <img id="current-flag" src="https://flagcdn.com/w40/gb.png">
-    <span>▼</span>
+    ▼
   </button>
 
   <ul class="lang-menu">
-    <li data-flag="gb" data-link="index-en.html">🇬🇧 English</li>
-    <li data-flag="fr" data-link="index-fr.html">🇫🇷 Français</li>
-    <li data-flag="it" data-link="index-it.html">🇮🇹 Italiano</li>
-    <li data-flag="de" data-link="index-de.html">🇩🇪 Deutsch</li>
-    <li data-flag="es" data-link="index-es.html">🇪🇸 Español</li>
-    <li data-flag="se" data-link="index-se.html">🇸🇪 Svenska</li>
+    <li data-lang="en" data-flag="gb">🇬🇧 English</li>
+    <li data-lang="fr" data-flag="fr">🇫🇷 Français</li>
+    <li data-lang="it" data-flag="it">🇮🇹 Italiano</li>
+    <li data-lang="de" data-flag="de">🇩🇪 Deutsch</li>
+    <li data-lang="es" data-flag="es">🇪🇸 Español</li>
+    <li data-lang="sv" data-flag="se">🇸🇪 Svenska</li>
   </ul>
 </div>
 
 <script>
 const switcher = document.querySelector(".lang-switcher");
-const button = document.getElementById("langBtn");
+const button = document.querySelector(".lang-btn");
 const flag = document.getElementById("current-flag");
-const items = document.querySelectorAll(".lang-menu li");
+
+const langItems = document.querySelectorAll(".lang-menu li");
+const langBlocks = document.querySelectorAll(".lang");
 
 /* Toggle dropdown */
 button.addEventListener("click", (e) => {
@@ -411,21 +370,26 @@ button.addEventListener("click", (e) => {
   switcher.classList.toggle("open");
 });
 
-/* Handle language click */
-items.forEach(item => {
+/* Switch language */
+langItems.forEach(item => {
   item.addEventListener("click", () => {
-    const newFlag = item.getAttribute("data-flag");
-    const link = item.getAttribute("data-link");
 
-    // Change flag instantly
+    const selectedLang = item.getAttribute("data-lang");
+    const newFlag = item.getAttribute("data-flag");
+
+    // Change flag
     flag.src = `https://flagcdn.com/w40/${newFlag}.png`;
 
-    // Redirect (FIXED: no leading slash → works on GitHub Pages)
-    window.location.href = link;
+    // Show correct language
+    langBlocks.forEach(block => {
+      block.classList.toggle("active", block.getAttribute("data-lang") === selectedLang);
+    });
+
+    switcher.classList.remove("open");
   });
 });
 
-/* Close when clicking outside */
+/* Close dropdown */
 document.addEventListener("click", () => {
   switcher.classList.remove("open");
 });
@@ -688,6 +652,43 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
     // Navigate to the corresponding HTML file
     window.location.href = lang + '.html';
   });
+  const switcher = document.querySelector(".lang-switcher");
+const button = document.getElementById("langBtn");
+const flag = document.getElementById("current-flag");
+const items = document.querySelectorAll(".lang-menu li");
+const blocks = document.querySelectorAll(".lang");
+
+button.addEventListener("click", (e) => {
+  e.stopPropagation();
+  switcher.classList.toggle("open");
+});
+
+items.forEach(item => {
+  item.addEventListener("click", (e) => {
+    e.stopPropagation();
+
+    const lang = item.dataset.lang;
+    const newFlag = item.dataset.flag;
+
+    flag.src = `https://flagcdn.com/w40/${newFlag}.png`;
+
+    blocks.forEach(block => {
+      block.classList.toggle(
+        "active",
+        block.dataset.lang === lang
+      );
+    });
+
+    switcher.classList.remove("open");
+  });
+});
+
+/* FIXED close logic */
+document.addEventListener("click", (e) => {
+  if (!switcher.contains(e.target)) {
+    switcher.classList.remove("open");
+  }
+});
 });
 </script>
 </body>
