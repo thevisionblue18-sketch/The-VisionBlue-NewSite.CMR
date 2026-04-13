@@ -338,6 +338,8 @@ img,
 .about-wide-section {
   color: #000;
 }
+</style>
+
 <div class="lang-switcher">
   <button class="lang-btn" id="langBtn">
     <img id="current-flag" src="https://flagcdn.com/w40/gb.png">
@@ -355,73 +357,41 @@ img,
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+const switcher = document.querySelector(".lang-switcher");
+const button = document.querySelector(".lang-btn");
+const flag = document.getElementById("current-flag");
 
-  const switcher = document.querySelector(".lang-switcher");
-  const button = document.getElementById("langBtn");
-  const flag = document.getElementById("current-flag");
+const langItems = document.querySelectorAll(".lang-menu li");
+const langBlocks = document.querySelectorAll(".lang");
 
-  const items = document.querySelectorAll(".lang-menu li");
-  const blocks = document.querySelectorAll(".lang");
+/* Toggle dropdown */
+button.addEventListener("click", (e) => {
+  e.stopPropagation();
+  switcher.classList.toggle("open");
+});
 
-  /* Toggle dropdown */
-  button.addEventListener("click", (e) => {
-    e.stopPropagation();
-    switcher.classList.toggle("open");
-  });
+/* Switch language */
+langItems.forEach(item => {
+  item.addEventListener("click", () => {
 
-  /* Switch language */
-  items.forEach(item => {
-    item.addEventListener("click", (e) => {
-      e.stopPropagation();
+    const selectedLang = item.getAttribute("data-lang");
+    const newFlag = item.getAttribute("data-flag");
 
-      const lang = item.dataset.lang;
-      const newFlag = item.dataset.flag;
+    // Change flag
+    flag.src = `https://flagcdn.com/w40/${newFlag}.png`;
 
-      // Change flag
-      flag.src = `https://flagcdn.com/w40/${newFlag}.png`;
-
-      // Switch content
-      blocks.forEach(block => {
-        if (block.dataset.lang === lang) {
-          block.classList.add("active");
-        } else {
-          block.classList.remove("active");
-        }
-      });
-
-      // Save selection
-      localStorage.setItem("selectedLang", lang);
-
-      switcher.classList.remove("open");
-    });
-  });
-
-  /* Load saved language */
-  const savedLang = localStorage.getItem("selectedLang");
-
-  if (savedLang) {
-    blocks.forEach(block => {
-      if (block.dataset.lang === savedLang) {
-        block.classList.add("active");
-      } else {
-        block.classList.remove("active");
-      }
+    // Show correct language
+    langBlocks.forEach(block => {
+      block.classList.toggle("active", block.getAttribute("data-lang") === selectedLang);
     });
 
-    const savedItem = document.querySelector(`.lang-menu li[data-lang="${savedLang}"]`);
-    if (savedItem) {
-      flag.src = `https://flagcdn.com/w40/${savedItem.dataset.flag}.png`;
-    }
-  }
-
-  /* Close dropdown when clicking outside */
-  document.addEventListener("click", (e) => {
-    if (!switcher.contains(e.target)) {
-      switcher.classList.remove("open");
-    }
+    switcher.classList.remove("open");
   });
+});
 
+/* Close dropdown */
+document.addEventListener("click", () => {
+  switcher.classList.remove("open");
 });
 </script>
 <!-- LANGUAGE SWITCHER END -->
