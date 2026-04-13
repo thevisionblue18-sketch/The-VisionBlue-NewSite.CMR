@@ -236,42 +236,75 @@ body { top:0px !important; }
   </button>
 
   <ul class="lang-menu">
-    <li data-lang="index-en.html" data-flag="gb"><img src="https://flagcdn.com/w40/gb.png"> English</li>
-    <li data-lang="index-it.html" data-flag="it"><img src="https://flagcdn.com/w40/it.png"> Italiano</li>
-    <li data-lang="index-fr.html" data-flag="fr"><img src="https://flagcdn.com/w40/fr.png"> Français</li>
-    <li data-lang="index-de.html" data-flag="de"><img src="https://flagcdn.com/w40/de.png"> Deutsch</li>
-    <li data-lang="index-es.html" data-flag="es"><img src="https://flagcdn.com/w40/es.png"> Español</li>
-    <li data-lang="index-sv.html" data-flag="se"><img src="https://flagcdn.com/w40/se.png"> Svenska</li>
+    <li data-lang="en" data-flag="gb"><img src="https://flagcdn.com/w40/gb.png"> English</li>
+    <li data-lang="it" data-flag="it"><img src="https://flagcdn.com/w40/it.png"> Italiano</li>
+    <li data-lang="fr" data-flag="fr"><img src="https://flagcdn.com/w40/fr.png"> Français</li>
+    <li data-lang="de" data-flag="de"><img src="https://flagcdn.com/w40/de.png"> Deutsch</li>
+    <li data-lang="es" data-flag="es"><img src="https://flagcdn.com/w40/es.png"> Español</li>
+    <li data-lang="sv" data-flag="se"><img src="https://flagcdn.com/w40/se.png"> Svenska</li>
   </ul>
 </div>
 
 <script>
-const switcher = document.querySelector(".lang-switcher");
-const button = document.querySelector(".lang-btn");
-const flag = document.getElementById("current-flag");
+document.addEventListener("DOMContentLoaded", () => {
 
-/* Toggle dropdown */
-button.addEventListener("click", (e) => {
-  e.stopPropagation();
-  switcher.classList.toggle("open");
-});
+  const switcher = document.querySelector(".lang-switcher");
+  const button = document.getElementById("langBtn");
+  const flag = document.getElementById("current-flag");
 
-/* Select language */
-document.querySelectorAll(".lang-menu li").forEach(item => {
-  item.addEventListener("click", () => {
-    const newFlag = item.getAttribute("data-flag");
+  const items = document.querySelectorAll(".lang-menu li");
+  const blocks = document.querySelectorAll(".lang");
 
-    flag.src = `https://flagcdn.com/w40/${newFlag}.png`;
-
-    switcher.classList.remove("open");
-
-    console.log("Selected language:", item.dataset.lang);
+  // ✅ Toggle dropdown
+  button.addEventListener("click", (e) => {
+    e.stopPropagation();
+    switcher.classList.toggle("open");
   });
-});
 
-/* Close when clicking outside */
-document.addEventListener("click", () => {
-  switcher.classList.remove("open");
+  // ✅ Switch language
+  items.forEach(item => {
+    item.addEventListener("click", (e) => {
+      e.stopPropagation();
+
+      const lang = item.dataset.lang;
+      const newFlag = item.dataset.flag;
+
+      // Change flag
+      flag.src = `https://flagcdn.com/w40/${newFlag}.png`;
+
+      // Show selected language
+      blocks.forEach(block => {
+        block.classList.toggle("active", block.dataset.lang === lang);
+      });
+
+      // Save language
+      localStorage.setItem("selectedLang", lang);
+
+      // Close menu
+      switcher.classList.remove("open");
+    });
+  });
+
+  // ✅ Load saved language on refresh
+  const savedLang = localStorage.getItem("selectedLang");
+  if (savedLang) {
+    blocks.forEach(block => {
+      block.classList.toggle("active", block.dataset.lang === savedLang);
+    });
+
+    const activeItem = document.querySelector(`.lang-menu li[data-lang="${savedLang}"]`);
+    if (activeItem) {
+      flag.src = `https://flagcdn.com/w40/${activeItem.dataset.flag}.png`;
+    }
+  }
+
+  // ✅ Close dropdown when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!switcher.contains(e.target)) {
+      switcher.classList.remove("open");
+    }
+  });
+
 });
 </script>
 <!-- LANGUAGE SWITCHER END -->
