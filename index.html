@@ -162,181 +162,207 @@ body { top:0px !important; }
 </head>
 <body>
 
-  <!-- LANGUAGE SWITCHER START -->
-<style>
-.lang-switcher {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 99999;
-  font-family: Arial, sans-serif;
+  <style>
+/* ===== BASE ===== */
+html, body {
+  margin:0;
+  padding:0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  scroll-behavior:smooth;
+  background:#ffffff;
+  color:#333;
 }
 
-/* Button */
-.lang-btn {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 10px;
-  background: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.lang-btn img {
-  width: 26px;
-  height: 18px;
-}
-
-/* Dropdown */
-.lang-menu {
-  list-style: none;
-  margin: 0;
-  padding: 5px 0;
-  position: absolute;
-  top: 45px;
-  right: 0;
-  background: white;
-  border-radius: 8px;
-  display: none;
-  min-width: 170px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
-/* Show dropdown */
-.lang-switcher.open .lang-menu {
-  display: block;
-}
-
-/* Items */
-.lang-menu li {
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-}
-
-.lang-menu li:hover {
-  background: #f3f3f3;
-}
-
-.lang-menu img {
-  width: 22px;
-  height: 16px;
-}
-.lang {
-  display: none;
-}
-
-.lang.active {
-  display: block;
-}
-.lang-menu {
-  display: none;
-}
-
-.lang-switcher.open .lang-menu {
-  display: block;
-}
-/* ===== SAFE COLOR SKIN (NON-DESTRUCTIVE) ===== */
-
-/* Base */
-body {
-  background-color: #ffffff;
-  color: #333;
-}
-
-/* Headings */
 h1, h2, h3 {
-  color: #FFD700;
+  color:#FFD700;
 }
 
-/* Header */
+h2 {
+  text-align:center;
+  margin:2rem 0;
+}
+
+/* ===== HEADER ===== */
 .top-bar {
-  background-color: #87CEEB;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1rem 2rem;
+  background:#87CEEB;
+  color:#fff;
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
 
-/* Hero */
+.brand-area {
+  display:flex;
+  align-items:center;
+}
+
+.brand-area img {
+  height:50px;
+  margin-right:1rem;
+}
+
+/* ===== HERO ===== */
 .hero-section {
-  background: linear-gradient(135deg, #87CEEB, #FFB6C1);
+  min-height:75vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:linear-gradient(135deg, #87CEEB, #FFB6C1);
 }
 
-/* Buttons */
-.hero-btn.primary-btn,
-button,
-.btn-primary {
-  background-color: #FFD700;
-  color: #000;
+.hero-logo {
+  height:120px;
+  margin-bottom:1rem;
 }
 
-.hero-btn.primary-btn:hover,
-button:hover,
-.btn-primary:hover {
-  background-color: #FFC107;
+.hero-title {
+  font-size:2.8rem;
+  font-weight:bold;
+  margin-bottom:1rem;
 }
 
-.hero-btn.secondary-btn {
-  border-color: #FFD700;
+.hero-subtitle {
+  font-size:1.1rem;
+  margin-bottom:2rem;
 }
 
-/* Sections background */
+.hero-btn {
+  margin:0 0.5rem;
+  padding:0.6rem 1.2rem;
+  border-radius:50px;
+  font-weight:bold;
+  transition:0.3s;
+  text-decoration:none;
+}
+
+.hero-btn.primary-btn {
+  background:#FFD700;
+  color:#000;
+}
+
+.hero-btn.primary-btn:hover {
+  background:#FFC107;
+}
+
+/* ===== SECTIONS ===== */
 section:nth-child(even) {
-  background-color: #FFF0F5;
+  background:#FFF0F5;
 }
 
 section:nth-child(odd) {
-  background-color: #ffffff;
+  background:#ffffff;
 }
 
-/* Cards */
-.mission-card,
+/* ===== CARDS ===== */
 .project-card,
 .about-wide-card,
 .timeline-item,
 .contact-card {
-  background-color: #FFF0F5;
-  border-color: #FFD700;
+  background:#FFF0F5;
+  border:1px solid #FFD700;
 }
 
-/* Icons & accents */
-.project-icon,
-.about-wide-icon,
-.timeline-item h3 {
-  color: #FFD700;
+/* ===== LANGUAGE SWITCHER ===== */
+.lang-switcher {
+  position:fixed;
+  top:20px;
+  right:20px;
+  z-index:9999;
 }
 
-/* Links */
-a {
-  color: #FFD700;
+.lang-btn {
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 10px;
+  background:white;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  box-shadow:0 4px 12px rgba(0,0,0,0.15);
 }
 
-a:hover {
-  color: #FFC107;
+.lang-btn img {
+  width:26px;
+  height:18px;
 }
 
-/* Footer */
+.lang-menu {
+  list-style:none;
+  margin:0;
+  padding:5px 0;
+  position:absolute;
+  top:45px;
+  right:0;
+  background:white;
+  border-radius:8px;
+  display:none;
+  min-width:170px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.lang-switcher.open .lang-menu {
+  display:block;
+}
+
+.lang-menu li {
+  padding:10px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  cursor:pointer;
+}
+
+.lang-menu li:hover {
+  background:#f3f3f3;
+}
+
+/* ===== LANGUAGE CONTENT ===== */
+.lang {
+  display:none;
+}
+
+.lang.active {
+  display:block;
+}
+
+/* ===== FADE ANIMATION ===== */
+.fade-in-on-scroll {
+  opacity:0;
+  transform:translateY(15px);
+  transition:0.6s ease;
+}
+
+.fade-in-on-scroll.visible {
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ===== FOOTER ===== */
 .footer {
-  background-color: #87CEEB;
-  color: #FFD700;
+  background:#87CEEB;
+  color:#FFD700;
+  padding:2rem 0;
+  text-align:center;
 }
 
-/* Borders */
-img,
-.gallery-img {
-  border-color: #FFD700;
-}
-/* ===== ABOUT TEXT COLOR FIX ===== */
-
-.about-wide-section p,
-.about-wide-section li,
-.about-wide-section span {
-  color: #000;
-}
-.about-wide-section {
-  color: #000;
+/* ===== FLOATING BUTTON ===== */
+.floating-donate-btn {
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  background:#FFD700;
+  color:#000;
+  padding:0.75rem 1.5rem;
+  border-radius:50px;
+  font-weight:bold;
+  z-index:999;
+  text-decoration:none;
 }
 </style>
 
@@ -633,36 +659,39 @@ document.addEventListener("click", () => {
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>
+/* ===== YEAR ===== */
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// Fade-in on scroll
+/* ===== FADE IN ===== */
 const faders = document.querySelectorAll('.fade-in-on-scroll');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); } });
-},{threshold:0.2});
-faders.forEach(el => observer.observe(el));
-</script>
-</script>
-<script>
-document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', function() {
-    const lang = this.getAttribute('data-lang');
 
-    // Navigate to the corresponding HTML file
-    window.location.href = lang + '.html';
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
   });
-  const switcher = document.querySelector(".lang-switcher");
+}, { threshold: 0.2 });
+
+faders.forEach(el => observer.observe(el));
+
+/* ===== LANGUAGE SWITCHER ===== */
+const switcher = document.querySelector(".lang-switcher");
 const button = document.getElementById("langBtn");
 const flag = document.getElementById("current-flag");
+
 const items = document.querySelectorAll(".lang-menu li");
 const blocks = document.querySelectorAll(".lang");
 
+/* Toggle dropdown */
 button.addEventListener("click", (e) => {
   e.stopPropagation();
   switcher.classList.toggle("open");
 });
 
+/* Switch language */
 items.forEach(item => {
   item.addEventListener("click", (e) => {
     e.stopPropagation();
@@ -673,23 +702,33 @@ items.forEach(item => {
     flag.src = `https://flagcdn.com/w40/${newFlag}.png`;
 
     blocks.forEach(block => {
-      block.classList.toggle(
-        "active",
-        block.dataset.lang === lang
-      );
+      block.classList.toggle("active", block.dataset.lang === lang);
     });
+
+    localStorage.setItem("selectedLang", lang);
 
     switcher.classList.remove("open");
   });
 });
 
-/* FIXED close logic */
+/* Load saved language */
+const savedLang = localStorage.getItem("selectedLang");
+
+if (savedLang) {
+  blocks.forEach(block => {
+    block.classList.toggle("active", block.dataset.lang === savedLang);
+  });
+
+  const activeItem = document.querySelector(`.lang-menu li[data-lang="${savedLang}"]`);
+  if (activeItem) {
+    flag.src = `https://flagcdn.com/w40/${activeItem.dataset.flag}.png`;
+  }
+}
+
+/* Close dropdown */
 document.addEventListener("click", (e) => {
   if (!switcher.contains(e.target)) {
     switcher.classList.remove("open");
   }
 });
-});
 </script>
-</body>
-</html>
