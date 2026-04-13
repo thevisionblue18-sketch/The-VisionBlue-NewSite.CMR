@@ -227,132 +227,21 @@ body { top:0px !important; }
   width: 22px;
   height: 16px;
 }
-.lang {
-  display: none;
-}
-
-.lang.active {
-  display: block;
-}
-.lang-menu {
-  display: none;
-}
-
-.lang-switcher.open .lang-menu {
-  display: block;
-}
-/* ===== SAFE COLOR SKIN (NON-DESTRUCTIVE) ===== */
-
-/* Base */
-body {
-  background-color: #ffffff;
-  color: #333;
-}
-
-/* Headings */
-h1, h2, h3 {
-  color: #FFD700;
-}
-
-/* Header */
-.top-bar {
-  background-color: #87CEEB;
-}
-
-/* Hero */
-.hero-section {
-  background: linear-gradient(135deg, #87CEEB, #FFB6C1);
-}
-
-/* Buttons */
-.hero-btn.primary-btn,
-button,
-.btn-primary {
-  background-color: #FFD700;
-  color: #000;
-}
-
-.hero-btn.primary-btn:hover,
-button:hover,
-.btn-primary:hover {
-  background-color: #FFC107;
-}
-
-.hero-btn.secondary-btn {
-  border-color: #FFD700;
-}
-
-/* Sections background */
-section:nth-child(even) {
-  background-color: #FFF0F5;
-}
-
-section:nth-child(odd) {
-  background-color: #ffffff;
-}
-
-/* Cards */
-.mission-card,
-.project-card,
-.about-wide-card,
-.timeline-item,
-.contact-card {
-  background-color: #FFF0F5;
-  border-color: #FFD700;
-}
-
-/* Icons & accents */
-.project-icon,
-.about-wide-icon,
-.timeline-item h3 {
-  color: #FFD700;
-}
-
-/* Links */
-a {
-  color: #FFD700;
-}
-
-a:hover {
-  color: #FFC107;
-}
-
-/* Footer */
-.footer {
-  background-color: #87CEEB;
-  color: #FFD700;
-}
-
-/* Borders */
-img,
-.gallery-img {
-  border-color: #FFD700;
-}
-/* ===== ABOUT TEXT COLOR FIX ===== */
-
-.about-wide-section p,
-.about-wide-section li,
-.about-wide-section span {
-  color: #000;
-}
-.about-wide-section {
-  color: #000;
-}
 </style>
 
 <div class="lang-switcher">
-  <button class="lang-btn" id="langBtn">
+  <button class="lang-btn">
     <img id="current-flag" src="https://flagcdn.com/w40/gb.png">
-    ▼
+    <span>▼</span>
   </button>
 
   <ul class="lang-menu">
-    <li data-lang="en" data-flag="gb">🇬🇧 English</li>
-    <li data-lang="fr" data-flag="fr">🇫🇷 Français</li>
-    <li data-lang="it" data-flag="it">🇮🇹 Italiano</li>
-    <li data-lang="de" data-flag="de">🇩🇪 Deutsch</li>
-    <li data-lang="es" data-flag="es">🇪🇸 Español</li>
-    <li data-lang="sv" data-flag="se">🇸🇪 Svenska</li>
+    <li data-lang="en" data-flag="gb"><img src="https://flagcdn.com/w40/gb.png"> English</li>
+    <li data-lang="it" data-flag="it"><img src="https://flagcdn.com/w40/it.png"> Italiano</li>
+    <li data-lang="fr" data-flag="fr"><img src="https://flagcdn.com/w40/fr.png"> Français</li>
+    <li data-lang="de" data-flag="de"><img src="https://flagcdn.com/w40/de.png"> Deutsch</li>
+    <li data-lang="es" data-flag="es"><img src="https://flagcdn.com/w40/es.png"> Español</li>
+    <li data-lang="sv" data-flag="se"><img src="https://flagcdn.com/w40/se.png"> Svenska</li>
   </ul>
 </div>
 
@@ -361,35 +250,26 @@ const switcher = document.querySelector(".lang-switcher");
 const button = document.querySelector(".lang-btn");
 const flag = document.getElementById("current-flag");
 
-const langItems = document.querySelectorAll(".lang-menu li");
-const langBlocks = document.querySelectorAll(".lang");
-
 /* Toggle dropdown */
 button.addEventListener("click", (e) => {
   e.stopPropagation();
   switcher.classList.toggle("open");
 });
 
-/* Switch language */
-langItems.forEach(item => {
+/* Select language */
+document.querySelectorAll(".lang-menu li").forEach(item => {
   item.addEventListener("click", () => {
-
-    const selectedLang = item.getAttribute("data-lang");
     const newFlag = item.getAttribute("data-flag");
 
-    // Change flag
     flag.src = `https://flagcdn.com/w40/${newFlag}.png`;
 
-    // Show correct language
-    langBlocks.forEach(block => {
-      block.classList.toggle("active", block.getAttribute("data-lang") === selectedLang);
-    });
-
     switcher.classList.remove("open");
+
+    console.log("Selected language:", item.dataset.lang);
   });
 });
 
-/* Close dropdown */
+/* Close when clicking outside */
 document.addEventListener("click", () => {
   switcher.classList.remove("open");
 });
@@ -405,107 +285,32 @@ document.addEventListener("click", () => {
     <img src="assets/img/images/logo.webp" alt="VisionBlue Logo">
     <span>The VisionBlue NGO</span>
   </div>
+  <!-- Google Translate auto-language selector -->
+  <div id="google_translate_selector" style="color:#000;"></div>
 </header>
 
 <!-- Hero Section -->
-<!-- Hero Section -->
 <section class="hero-section">
   <div class="hero-content">
-    <img src="assets/img/images/logo.webp" class="hero-logo">
-
-    <!-- TITLE -->
-    <h1 class="hero-title lang active" data-lang="en">Empowering Communities, Shaping Futures</h1>
-    <h1 class="hero-title lang" data-lang="fr">Autonomiser les communautés, façonner l'avenir</h1>
-    <h1 class="hero-title lang" data-lang="it">Responsabilizzare le comunità, plasmare il futuro</h1>
-    <h1 class="hero-title lang" data-lang="de">Gemeinschaften stärken, Zukunft gestalten</h1>
-    <h1 class="hero-title lang" data-lang="es">Empoderando comunidades, creando futuros</h1>
-    <h1 class="hero-title lang" data-lang="sv">Stärka samhällen, forma framtiden</h1>
-
-    <!-- SUBTITLE -->
-    <p class="hero-subtitle lang active" data-lang="en">
-      Supporting young women and vulnerable communities through education, vocational training and sustainable development.
-    </p>
-
-    <p class="hero-subtitle lang" data-lang="fr">
-      Soutenir les jeunes femmes et les communautés vulnérables par l'éducation et la formation.
-    </p>
-
-    <p class="hero-subtitle lang" data-lang="it">
-      Sostenere giovani donne e comunità vulnerabili attraverso istruzione e formazione.
-    </p>
-
-    <p class="hero-subtitle lang" data-lang="de">
-      Unterstützung von Frauen und Gemeinschaften durch Bildung und Ausbildung.
-    </p>
-
-    <p class="hero-subtitle lang" data-lang="es">
-      Apoyando a mujeres jóvenes y comunidades vulnerables mediante educación.
-    </p>
-
-    <p class="hero-subtitle lang" data-lang="sv">
-      Stödjer unga kvinnor och utsatta samhällen genom utbildning.
-    </p>
-
-    <!-- BUTTON -->
-    <div class="hero-buttons">
-      <a href="#mission" class="hero-btn primary-btn lang active" data-lang="en">Our Mission</a>
-      <a href="#mission" class="hero-btn primary-btn lang" data-lang="fr">Notre mission</a>
-      <a href="#mission" class="hero-btn primary-btn lang" data-lang="it">La nostra missione</a>
-      <a href="#mission" class="hero-btn primary-btn lang" data-lang="de">Unsere Mission</a>
-      <a href="#mission" class="hero-btn primary-btn lang" data-lang="es">Nuestra misión</a>
-      <a href="#mission" class="hero-btn primary-btn lang" data-lang="sv">Vårt uppdrag</a>
-    </div>
+    <img src="assets/img/images/logo.webp" alt="VisionBlue Logo" class="hero-logo">
+    <h1 class="hero-title">Empowering Communities, Shaping Futures</h1>
+    <p class="hero-subtitle">Supporting young women and vulnerable communities through education, vocational training and sustainable development.</p>
+    <div class="hero-buttons"><a href="#mission" class="hero-btn primary-btn">Our Mission</a></div>
   </div>
 </section>
 
 <!-- Mission Section -->
-<section id="mission" class="mission-section">
-
-  <h2 class="lang active" data-lang="en">Our Mission</h2>
-  <h2 class="lang" data-lang="fr">Notre mission</h2>
-  <h2 class="lang" data-lang="it">La nostra missione</h2>
-  <h2 class="lang" data-lang="de">Unsere Mission</h2>
-  <h2 class="lang" data-lang="es">Nuestra misión</h2>
-  <h2 class="lang" data-lang="sv">Vårt uppdrag</h2>
-
-  <p class="lang active" data-lang="en">
-  The VisionBlue NGO is committed to transforming lives by equipping young women, and vulnerable communities
-  with the skills, knowledge, and opportunities they need for a sustainable future.
-  We believe that every person—regardless of background or circumstance—deserves the chance to rise, learn, and grow.
-  Through education, mentoring, and community-driven development initiatives, we break cycles of poverty and create
-  pathways to dignity, resilience, and hope.
-  </p>
-
-  <p class="lang" data-lang="fr">
-  L'ONG VisionBlue s'engage à transformer des vies en dotant les jeunes femmes et les communautés vulnérables des compétences, connaissances et opportunités nécessaires pour un avenir durable.  
-  Nous croyons que chaque personne – indépendamment de son origine ou de sa situation – mérite la chance de s'élever, d'apprendre et de se développer.  
-  Grâce à l'éducation, au mentorat et aux initiatives de développement communautaire, nous brisons les cycles de pauvreté et créons des chemins vers la dignité, la résilience et l'espoir.
-  </p>
-
-  <p class="lang" data-lang="it">
-  L'ONG VisionBlue si impegna a trasformare vite fornendo alle giovani donne e alle comunità vulnerabili le competenze, le conoscenze e le opportunità necessarie per un futuro sostenibile.  
-  Crediamo che ogni persona – indipendentemente dal contesto o dalla situazione – meriti la possibilità di crescere, imparare e svilupparsi.  
-  Attraverso l'istruzione, il mentoring e iniziative di sviluppo comunitario, rompiamo i cicli di povertà e creiamo percorsi verso dignità, resilienza e speranza.
-  </p>
-
-  <p class="lang" data-lang="de">
-  Die VisionBlue NGO setzt sich dafür ein, Leben nachhaltig zu verändern, indem sie junge Frauen und benachteiligte Gemeinschaften mit den Fähigkeiten, Kenntnissen und Chancen ausstattet, die sie für eine nachhaltige Zukunft benötigen.
-  Wir sind überzeugt, dass jeder Mensch – unabhängig von Herkunft oder Lebensumständen – die Möglichkeit verdient, sich zu entfalten, zu lernen und zu wachsen.
-  Durch Bildung, Mentoring und gemeinschaftsorientierte Entwicklungsinitiativen durchbrechen wir Armutskreisläufe und schaffen Wege zu Würde, Resilienz und Hoffnung.
-  </p>
-
-  <p class="lang" data-lang="es">
-  La ONG VisionBlue se compromete a transformar vidas proporcionando a mujeres jóvenes y comunidades vulnerables las habilidades, conocimientos y oportunidades que necesitan para un futuro sostenible.  
-  Creemos que toda persona, independientemente de su origen o circunstancia, merece la oportunidad de crecer, aprender y desarrollarse.  
-  A través de la educación, el mentorazgo y las iniciativas de desarrollo comunitario, rompemos los ciclos de pobreza y creamos caminos hacia la dignidad, la resiliencia y la esperanza.
-</p>
-
-  <p class="lang" data-lang="sv">
-  The VisionBlue NGO är engagerad i att förändra liv genom att ge unga kvinnor och utsatta samhällen de färdigheter, kunskaper och möjligheter som behövs för en hållbar framtid.
-  Vi tror att varje individ – oavsett bakgrund eller omständigheter – förtjänar chansen att växa, lära och utvecklas.
-  Genom utbildning, mentorskap och samhällsdrivna utvecklingsinitiativ bryter vi fattigdomscykler och skapar vägar till värdighet, motståndskraft och hopp.
-</p>
-
+<section id="mission" class="mission-section fade-in-on-scroll">
+  <div class="container">
+    <h2>Our Mission</h2>
+    <p>
+      The VisionBlue NGO is committed to transforming lives by equipping young women, and vulnerable communities
+      with the skills, knowledge, and opportunities they need for a sustainable future.
+      We believe that every person—regardless of background or circumstance—deserves the chance to rise, learn, and grow.
+      Through education, mentoring, and community-driven development initiatives, we break cycles of poverty and create
+      pathways to dignity, resilience, and hope.
+    </p>
+  </div>
 </section>
 
 <!-- Projects Section -->
@@ -643,53 +448,7 @@ const observer = new IntersectionObserver(entries => {
 },{threshold:0.2});
 faders.forEach(el => observer.observe(el));
 </script>
-</script>
-<script>
-document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', function() {
-    const lang = this.getAttribute('data-lang');
-    
-    // Navigate to the corresponding HTML file
-    window.location.href = lang + '.html';
-  });
-  const switcher = document.querySelector(".lang-switcher");
-const button = document.getElementById("langBtn");
-const flag = document.getElementById("current-flag");
-const items = document.querySelectorAll(".lang-menu li");
-const blocks = document.querySelectorAll(".lang");
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-button.addEventListener("click", (e) => {
-  e.stopPropagation();
-  switcher.classList.toggle("open");
-});
-
-items.forEach(item => {
-  item.addEventListener("click", (e) => {
-    e.stopPropagation();
-
-    const lang = item.dataset.lang;
-    const newFlag = item.dataset.flag;
-
-    flag.src = `https://flagcdn.com/w40/${newFlag}.png`;
-
-    blocks.forEach(block => {
-      block.classList.toggle(
-        "active",
-        block.dataset.lang === lang
-      );
-    });
-
-    switcher.classList.remove("open");
-  });
-});
-
-/* FIXED close logic */
-document.addEventListener("click", (e) => {
-  if (!switcher.contains(e.target)) {
-    switcher.classList.remove("open");
-  }
-});
-});
-</script>
 </body>
 </html>
