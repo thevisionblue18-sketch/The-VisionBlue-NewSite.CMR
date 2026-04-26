@@ -244,23 +244,35 @@ body { top:0px !important; }
     <li data-lang="sv" data-flag="se">🇸🇪 Svenska</li>
   </ul>
 </div>
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
   const switcher = document.querySelector(".lang-switcher");
   const button = document.getElementById("langBtn");
   const flag = document.getElementById("current-flag");
-
   const items = document.querySelectorAll(".lang-menu li");
-  const blocks = document.querySelectorAll(".lang");
 
-  // ✅ Toggle dropdown
+  // Correct GitHub Pages base path
+  const basePath = "/The-VisionBlue-NewSite.CMR/";
+
+  // Language page URLs
+  const urls = {
+    en: basePath + "index.html",
+    fr: basePath + "fr/index.html",
+    it: basePath + "it/index.html",
+    de: basePath + "de/index.html",
+    es: basePath + "es/index.html",
+    sv: basePath + "sv/index.html"
+  };
+
+  // Toggle dropdown
   button.addEventListener("click", (e) => {
     e.stopPropagation();
     switcher.classList.toggle("open");
   });
 
-  // ✅ Switch language
+  // Language switch
   items.forEach(item => {
     item.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -268,36 +280,36 @@ document.addEventListener("DOMContentLoaded", () => {
       const lang = item.dataset.lang;
       const newFlag = item.dataset.flag;
 
-      // Change flag
-      flag.src = `https://flagcdn.com/w40/${newFlag}.png`;
-
-      // Show selected language
-      blocks.forEach(block => {
-        block.classList.toggle("active", block.dataset.lang === lang);
-      });
-
-      // Save language
+      // Save selected language
       localStorage.setItem("selectedLang", lang);
 
-      // Close menu
+      // Update flag immediately
+      flag.src = `https://flagcdn.com/w40/${newFlag}.png`;
+
+      // Redirect to correct page
+      if (urls[lang]) {
+        window.location.href = urls[lang];
+      }
+
+      // Close dropdown
       switcher.classList.remove("open");
     });
   });
 
-  // ✅ Load saved language on refresh
+  // Load saved language on page refresh
   const savedLang = localStorage.getItem("selectedLang");
-  if (savedLang) {
-    blocks.forEach(block => {
-      block.classList.toggle("active", block.dataset.lang === savedLang);
-    });
 
-    const activeItem = document.querySelector(`.lang-menu li[data-lang="${savedLang}"]`);
+  if (savedLang) {
+    const activeItem = document.querySelector(
+      `.lang-menu li[data-lang="${savedLang}"]`
+    );
+
     if (activeItem) {
       flag.src = `https://flagcdn.com/w40/${activeItem.dataset.flag}.png`;
     }
   }
 
-  // ✅ Close dropdown when clicking outside
+  // Close dropdown when clicking outside
   document.addEventListener("click", (e) => {
     if (!switcher.contains(e.target)) {
       switcher.classList.remove("open");
