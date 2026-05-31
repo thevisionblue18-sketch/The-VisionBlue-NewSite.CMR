@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The VisionBlue NGO</title>
-<meta name="description" content="The VisionBlue NGO stärker unga kvinnor och utsatta samhällen genom utbildning, yrkesutbildning och program för hållbar utveckling.">
+<meta name="description" content="The VisionBlue NGO empowers young women and vulnerable communities through education, vocational training and sustainable development programs.">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -229,62 +230,105 @@ body { top:0px !important; }
 </style>
 
 <div class="lang-switcher">
-  <button class="lang-btn">
+  <button class="lang-btn" id="langBtn">
     <img id="current-flag" src="https://flagcdn.com/w40/gb.png">
-    <span>▼</span>
+    ▼
   </button>
 
   <ul class="lang-menu">
-    <li data-lang="en" data-flag="gb"><img src="https://flagcdn.com/w40/gb.png"> English</li>
-    <li data-lang="it" data-flag="it"><img src="https://flagcdn.com/w40/it.png"> Italiano</li>
-    <li data-lang="fr" data-flag="fr"><img src="https://flagcdn.com/w40/fr.png"> Français</li>
-    <li data-lang="de" data-flag="de"><img src="https://flagcdn.com/w40/de.png"> Deutsch</li>
-    <li data-lang="es" data-flag="es"><img src="https://flagcdn.com/w40/es.png"> Español</li>
-    <li data-lang="sv" data-flag="se"><img src="https://flagcdn.com/w40/se.png"> Svenska</li>
+    <li data-lang="en" data-flag="gb">🇬🇧 English</li>
+    <li data-lang="fr" data-flag="fr">🇫🇷 Français</li>
+    <li data-lang="it" data-flag="it">🇮🇹 Italiano</li>
+    <li data-lang="de" data-flag="de">🇩🇪 Deutsch</li>
+    <li data-lang="es" data-flag="es">🇪🇸 Español</li>
+    <li data-lang="sv" data-flag="se">🇸🇪 Svenska</li>
   </ul>
 </div>
 
 <script>
-const switcher = document.querySelector(".lang-switcher");
-const button = document.querySelector(".lang-btn");
-const flag = document.getElementById("current-flag");
+document.addEventListener("DOMContentLoaded", () => {
 
-/* Toggle dropdown */
-button.addEventListener("click", (e) => {
-  e.stopPropagation();
-  switcher.classList.toggle("open");
-});
+  const switcher = document.querySelector(".lang-switcher");
+  const button = document.getElementById("langBtn");
+  const flag = document.getElementById("current-flag");
+  const items = document.querySelectorAll(".lang-menu li");
 
-/* Select language */
-document.querySelectorAll(".lang-menu li").forEach(item => {
-  item.addEventListener("click", () => {
-    const newFlag = item.getAttribute("data-flag");
+  // Correct GitHub Pages base path
+  const basePath = "/The-VisionBlue-NewSite.CMR/";
 
-    flag.src = `https://flagcdn.com/w40/${newFlag}.png`;
+  // Language page URLs
+  const urls = {
+    en: basePath + "index.html",
+    fr: basePath + "fr/index.html",
+    it: basePath + "it/index.html",
+    de: basePath + "de/index.html",
+    es: basePath + "es/index.html",
+    sv: basePath + "sv/index.html"
+  };
 
-    switcher.classList.remove("open");
-
-    console.log("Selected language:", item.dataset.lang);
+  // Toggle dropdown
+  button.addEventListener("click", (e) => {
+    e.stopPropagation();
+    switcher.classList.toggle("open");
   });
-});
 
-/* Close when clicking outside */
-document.addEventListener("click", () => {
-  switcher.classList.remove("open");
+  // Language switch
+  items.forEach(item => {
+    item.addEventListener("click", (e) => {
+      e.stopPropagation();
+
+      const lang = item.dataset.lang;
+      const newFlag = item.dataset.flag;
+
+      // Save selected language
+      localStorage.setItem("selectedLang", lang);
+
+      // Update flag immediately
+      flag.src = `https://flagcdn.com/w40/${newFlag}.png`;
+
+      // Redirect to correct page
+      if (urls[lang]) {
+        window.location.href = urls[lang];
+      }
+
+      // Close dropdown
+      switcher.classList.remove("open");
+    });
+  });
+
+  // Load saved language on page refresh
+  const savedLang = localStorage.getItem("selectedLang");
+
+  if (savedLang) {
+    const activeItem = document.querySelector(
+      `.lang-menu li[data-lang="${savedLang}"]`
+    );
+
+    if (activeItem) {
+      flag.src = `https://flagcdn.com/w40/${activeItem.dataset.flag}.png`;
+    }
+  }
+
+  // Close dropdown when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!switcher.contains(e.target)) {
+      switcher.classList.remove("open");
+    }
+  });
+
 });
 </script>
 <!-- LANGUAGE SWITCHER END -->
 
 <!-- Floating Donate Button -->
-<a href="#donate" class="floating-donate-btn">Donera</a>
+<a href="#donate" class="floating-donate-btn">Donate</a>
 
 <!-- Top Bar -->
 <header class="top-bar">
   <div class="brand-area">
-    <img src="assets/img/images/logo.webp" alt="VisionBlue Logotyp">
+    <img src="assets/img/images/logo.webp" alt="VisionBlue Logo">
     <span>The VisionBlue NGO</span>
   </div>
-</header>
   <!-- Google Translate auto-language selector -->
   <div id="google_translate_selector" style="color:#000;"></div>
 </header>
@@ -292,148 +336,112 @@ document.addEventListener("click", () => {
 <!-- Hero Section -->
 <section class="hero-section">
   <div class="hero-content">
-  <img src="assets/img/images/logo.webp" alt="VisionBlue Logotyp" class="hero-logo">
-  <h1 class="hero-title">Stärker samhällen, formar framtiden</h1>
-  <p class="hero-subtitle">Vi stödjer unga kvinnor och utsatta samhällen genom utbildning, yrkesutbildning och hållbar utveckling.</p>
-  <div class="hero-buttons">
-    <a href="#mission" class="hero-btn primary-btn">Vår mission</a>
+    <img src="assets/img/images/logo.webp" alt="VisionBlue Logo" class="hero-logo">
+    <h1 class="hero-title">Empowering Communities, Shaping Futures</h1>
+    <p class="hero-subtitle">Supporting young women and vulnerable communities through education, vocational training and sustainable development.</p>
+    <div class="hero-buttons"><a href="#mission" class="hero-btn primary-btn">Our Mission</a></div>
   </div>
-</div>
 </section>
 
 <!-- Mission Section -->
 <section id="mission" class="mission-section fade-in-on-scroll">
   <div class="container">
-    <h2>Vår mission</h2>
-<p>
-  The VisionBlue NGO är engagerad i att förändra liv genom att ge unga kvinnor och utsatta samhällen de färdigheter, kunskaper och möjligheter som behövs för en hållbar framtid.
-  Vi tror att varje individ – oavsett bakgrund eller omständigheter – förtjänar chansen att växa, lära och utvecklas.
-  Genom utbildning, mentorskap och samhällsdrivna utvecklingsinitiativ bryter vi fattigdomscykler och skapar vägar till värdighet, motståndskraft och hopp.
-</p>
+    <h2>Our Mission</h2>
+    <p>
+      The VisionBlue NGO is committed to transforming lives by equipping young women, and vulnerable communities
+      with the skills, knowledge, and opportunities they need for a sustainable future.
+      We believe that every person—regardless of background or circumstance—deserves the chance to rise, learn, and grow.
+      Through education, mentoring, and community-driven development initiatives, we break cycles of poverty and create
+      pathways to dignity, resilience, and hope.
+    </p>
   </div>
 </section>
 
 <!-- Projects Section -->
 <section id="projects" class="projects-section fade-in-on-scroll">
   <div class="container">
-    <h2>Våra projekt</h2>
-<div class="projects-grid">
-  <div class="project-card">
-    <div class="project-icon"><i class="fas fa-store"></i></div>
-    <h3>Stöd för företagsstart</h3>
-    <p>Tillhandahållande av startkapital och coachning för kvinnliga entreprenörer för att bygga hållbara affärsmodeller.</p>
-  </div>
-  <div class="project-card">
-    <div class="project-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-    <h3>Mentorskap & vägledning</h3>
-    <p>Regelbundna mentorsessioner, uppföljningsstöd och skräddarsytt stöd för våra mottagare.</p>
-  </div>
-  <div class="project-card">
-    <div class="project-icon"><i class="fas fa-graduation-cap"></i></div>
-    <h3>Yrkesutbildning</h3>
-    <p>Utveckling av praktiska färdigheter för anställning och ekonomiskt oberoende.</p>
-  </div>
-  <div class="project-card">
-    <div class="project-icon"><i class="fas fa-users"></i></div>
-    <h3>Stärkande av samhällen</h3>
-    <p>Förstärkning av resilienta samhällen genom workshops, informationskampanjer och lokala partnerskap.</p>
-  </div>
-</div>
+    <h2>Our Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card"><div class="project-icon"><i class="fas fa-store"></i></div><h3>Business Start-Up Support</h3><p>Provision of seed funding and coaching for women entrepreneurs to build sustainable business models.</p></div>
+      <div class="project-card"><div class="project-icon"><i class="fas fa-chalkboard-teacher"></i></div><h3>Mentoring & Guidance</h3><p>Regular mentoring sessions, follow-up support, and tailored assistance for our beneficiaries.</p></div>
+      <div class="project-card"><div class="project-icon"><i class="fas fa-graduation-cap"></i></div><h3>Vocational Training</h3><p>Development of practical skills for employment and economic self‑reliance.</p></div>
+      <div class="project-card"><div class="project-icon"><i class="fas fa-users"></i></div><h3>Community Empowerment</h3><p>Strengthening resilient communities through workshops, awareness campaigns, and local partnerships.</p></div>
+    </div>
   </div>
 </section>
 
 <!-- About Section -->
 <section id="about" class="about-wide-section fade-in-on-scroll">
   <div class="container">
-    <h2>Om VisionBlue NGO</h2>
-<p class="about-intro">VisionBlue NGO stärker samhällen genom utbildning, yrkesutbildning och människocentrerat utvecklingsarbete.</p>
-<div class="about-wide-grid">
-  <div class="about-wide-card">
-    <div class="about-wide-icon"><i class="fas fa-seedling"></i></div>
-    <div class="about-wide-text">
-      <h3>Ursprung & Vision</h3>
-      <p>VisionBlue NGO grundades med ett tydligt uppdrag: att stödja unga kvinnor mellan 15 och 25 år samt samhällen som står inför sociala och ekonomiska utmaningar. Dess ursprung ligger i engagemanget att skapa praktiska och hållbara vägar till egenmakt—särskilt för unga kvinnor och utsatta grupper.</p>
+    <h2>About The VisionBlue NGO</h2>
+    <p class="about-intro">The VisionBlue NGO strengthens communities through education, vocational training, and human‑centered development work.</p>
+    <div class="about-wide-grid">
+      <div class="about-wide-card"><div class="about-wide-icon"><i class="fas fa-seedling"></i></div><div class="about-wide-text"><h3>Origins & Vision</h3><p>The VisionBlue NGO was founded with a clear mission: to support young women between the ages of 15 and 25 and communities facing social and economic challenges. Its origins lie in the commitment to create practical and sustainable pathways to empowerment—particularly for young women, and vulnerable groups.</p></div></div>
+      <div class="about-wide-card"><div class="about-wide-icon"><i class="fas fa-university"></i></div><div class="about-wide-text"><h3>Academic & Professional Foundations</h3><p>The work of The VisionBlue NGO is grounded in the academic and professional background of its founder, whose commitment spans ethics, community development, and social responsibility. This foundation shapes our evidence‑based, human‑centered approach.</p></div></div>
+      <div class="about-wide-card"><div class="about-wide-icon"><i class="fas fa-hands-helping"></i></div><div class="about-wide-text"><h3>Response to Crises</h3><p>The VisionBlue NGO emerged during a period of significant social and economic strain in Cameroon. Our response focuses on constructive action—through support, training, and opportunities that foster stability, self‑determination, and long‑term resilience.</p></div></div>
     </div>
-  </div>
-  <div class="about-wide-card">
-    <div class="about-wide-icon"><i class="fas fa-university"></i></div>
-    <div class="about-wide-text">
-      <h3>Akademisk & professionell grund</h3>
-      <p>VisionBlue NGOs arbete bygger på grundarens akademiska och professionella bakgrund, vars engagemang omfattar etik, samhällsutveckling och socialt ansvar. Denna grund formar vårt evidensbaserade, människocentrerade tillvägagångssätt.</p>
-    </div>
-  </div>
-  <div class="about-wide-card">
-    <div class="about-wide-icon"><i class="fas fa-hands-helping"></i></div>
-    <div class="about-wide-text">
-      <h3>Respons vid kriser</h3>
-      <p>VisionBlue NGO uppstod under en period av betydande sociala och ekonomiska påfrestningar i Kamerun. Vårt svar fokuserar på konstruktiva åtgärder—genom stöd, utbildning och möjligheter som främjar stabilitet, självbestämmande och långsiktig resiliens.</p>
-    </div>
-  </div>
-</div>
   </div>
 </section>
 
 <section class="team-section fade-in-on-scroll">
-  <h2>Ledningsteam</h2>
+  <h2>Leadership Team</h2>
 
-<div class="team-grid-new">
+  <div class="team-grid-new">
 
-  <div class="team-card-new">
-    <img src="assets/img/images/CEO.webp" alt="VD" loading="lazy" width="300" height="300">
-    <h3>Verkställande Direktör</h3>
-    <p>Grundare & Visionär Ledare</p>
-  </div>
+    <div class="team-card-new">
+      <img src="assets/img/images/CEO.webp" alt="CEO" loading="lazy" width="300" height="300">
+      <h3>Chief Executive Officer</h3>
+      <p>Founder & Vision Lead</p>
+    </div>
 
-  <div class="team-card-new">
-    <img src="assets/img/images/VicePresident.webp" alt="Vice VD" loading="lazy" width="300" height="300">
-    <h3>Vice Verkställande Direktör</h3>
-    <p>Operationer & Strategi</p>
-  </div>
+    <div class="team-card-new">
+      <img src="assets/img/images/VicePresident.webp" alt="Vice President" loading="lazy" width="300" height="300">
+      <h3>Vice President</h3>
+      <p>Operations & Strategy</p>
+    </div>
 
-  <div class="team-card-new">
-    <img src="assets/img/images/GeneralSecretary.webp" alt="Generalsekreterare" loading="lazy" width="300" height="300">
-    <h3>Generalsekreterare</h3>
-    <p>Administration & Koordination</p>
-  </div>
+    <div class="team-card-new">
+      <img src="assets/img/images/GeneralSecretary.webp" alt="General Secretary" loading="lazy" width="300" height="300">
+      <h3>General Secretary</h3>
+      <p>Administration & Coordination</p>
+    </div>
 
-  <div class="team-card-new">
-    <img src="assets/img/images/Treasurer.webp" alt="Kassör" loading="lazy" width="300" height="300">
-    <h3>Kassör</h3>
-    <p>Finansiell Översikt</p>
-  </div>
+    <div class="team-card-new">
+      <img src="assets/img/images/Treasurer.webp" alt="Treasurer" loading="lazy" width="300" height="300">
+      <h3>Treasurer</h3>
+      <p>Financial Oversight</p>
+    </div>
 
-  <div class="team-card-new">
-    <img src="assets/img/images/FinancialSecretary.webp" alt="Finanssekreterare" loading="lazy" width="300" height="300">
-    <h3>Finanssekreterare</h3>
-    <p>Bokföring & Rapportering</p>
-  </div>
+    <div class="team-card-new">
+      <img src="assets/img/images/FinancialSecretary.webp" alt="Financial Secretary" loading="lazy" width="300" height="300">
+      <h3>Financial Secretary</h3>
+      <p>Accounts & Reporting</p>
+    </div>
 
-  <div class="team-card-new">
-    <img src="assets/img/images/PublicitySectary.webp" alt="Informationssekreterare" loading="lazy" width="300" height="300">
-    <h3>Informationssekreterare</h3>
-    <p>Kommunikation & Media</p>
-  </div>
-
-</div>
+    <div class="team-card-new">
+      <img src="assets/img/images/PublicitySectary.webp" alt="Publicity Secretary" loading="lazy" width="300" height="300">
+      <h3>Publicity Secretary</h3>
+      <p>Communications & Media</p>
+    </div>
 
   </div>
 </section>
 
 <!-- Timeline Section -->
 <section id="timeline" class="fade-in-on-scroll">
-<h2>Vår Resa</h2>
+<h2>Our Journey</h2>
 <div class="timeline">
-  <div class="timeline-item"><h3>Feb 2019 – Nov 2021</h3><p>Analys och lansering av affärsstöd</p></div>
-  <div class="timeline-item"><h3>Jan 2022</h3><p>Mentorprogram och uppföljning</p></div>
-  <div class="timeline-item"><h3>Jan 2023</h3><p>Löpande coaching, uppföljningsprogram, skolkampanjer och workshops</p></div>
-  <div class="timeline-item"><h3>2024</h3><p>Program för skolstart, paket, picknickar och roliga sommarlovsaktiviteter</p></div>
-  <div class="timeline-item"><h3>2025</h3><p>Expansion till nya samhällen för att fördjupa påverkan</p></div>
+<div class="timeline-item"><h3>Feb 2019 – Nov 2021</h3><p>Analysis and Launch of Business Support</p></div>
+<div class="timeline-item"><h3>Jan 2022</h3><p>Mentoring & Follow-Up Program</p></div>
+<div class="timeline-item"><h3>Jan 2023</h3><p>Continuous coaching, Follow-Up Program, School campaigns & workshops.</p></div>
+<div class="timeline-item"><h3>2024</h3><p>Back to school programs, packages, picnics, and fun holiday programs.</p></div>
+<div class="timeline-item"><h3>2025</h3><p>Expansion to New Communities to deepen impact.</p></div>
 </div>
 </section>
 
 <!-- Gallery Section -->
 <section id="gallery" class="fade-in-on-scroll">
-<h2>Galleri</h2>
+<h2>Gallery</h2>
 <div class="gallery-grid">
 <img src="assets/img/images/gallery2.webp" class="gallery-img" alt="Gallery">
 <img src="assets/img/images/gallery3.webp" class="gallery-img" alt="Gallery">
@@ -449,22 +457,22 @@ document.addEventListener("click", () => {
 
 <!-- Donate Section -->
 <section id="donate" class="donate-section fade-in-on-scroll">
-<h2>Stöd Vårt Uppdrag</h2>
+<h2>Support Our Mission</h2>
 <div class="donate-grid">
-  <div class="donate-card"><h3>Mobile Money</h3><a href="tel:+237676376238">+237 676 376 238</a></div>
-  <div class="donate-card"><h3>Banköverföring</h3><a href="#">Kontakta oss för IBAN-uppgifter</a></div>
-  <div class="donate-card"><h3>PayPal</h3><a href="https://www.paypal.me/thevisionblue" target="_blank">Donera via PayPal</a></div>
+<div class="donate-card"><h3>Mobile Money</h3><a href="tel:+237676376238">+237 676 376 238</a></div>
+<div class="donate-card"><h3>Bank Transfer</h3><a href="#">Contact us for IBAN details</a></div>
+<div class="donate-card"><h3>PayPal</h3><a href="https://www.paypal.me/thevisionblue" target="_blank">Donate via PayPal</a></div>
 </div>
 </section>
 
 <!-- Contact Section -->
 <section id="contact" class="fade-in-on-scroll">
-<h2>Kontakt</h2>
+<h2>Contact</h2>
 <div class="contact-grid">
-  <div class="contact-card"><i class="fas fa-envelope contact-icon"></i><h3>E-post</h3><a href="mailto:thevisionblue18@gmail.com">thevisionblue18@gmail.com</a></div>
-  <div class="contact-card"><i class="fas fa-phone contact-icon"></i><h3>Kamerun</h3><a href="tel:+237676376238">+237 676 376 238</a></div>
-  <div class="contact-card"><i class="fas fa-phone contact-icon"></i><h3>Tyskland</h3><a href="tel:+4915561550887">+49 178 134-2019</a></div>
-  <div class="contact-card"><i class="fas fa-phone contact-icon"></i><h3>Italien</h3><a href="tel:+393928456152">+39 392 845 6152</a></div>
+<div class="contact-card"><i class="fas fa-envelope contact-icon"></i><h3>Email</h3><a href="mailto:thevisionblue18@gmail.com">thevisionblue18@gmail.com</a></div>
+<div class="contact-card"><i class="fas fa-phone contact-icon"></i><h3>Cameroon</h3><a href="tel:+237676376238">+237 676 376 238</a></div>
+<div class="contact-card"><i class="fas fa-phone contact-icon"></i><h3>Germany</h3><a href="tel:+4915561550887">+49 178 134-2019</a></div>
+<div class="contact-card"><i class="fas fa-phone contact-icon"></i><h3>Italy</h3><a href="tel:+393928456152">+39 392 845 6152</a></div>
 </div>
 </section>
 
